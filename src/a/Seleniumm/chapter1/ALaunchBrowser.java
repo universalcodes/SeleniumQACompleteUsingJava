@@ -10,8 +10,6 @@ import org.openqa.selenium.safari.SafariDriver;
 public class ALaunchBrowser {
 
     public static void main(String[] args) {
-
-
       /*
       Points to Remember
       1. Selenium can automate only web Applications
@@ -20,6 +18,10 @@ public class ALaunchBrowser {
       //C:\Users\\test\.cache\selenium\chromedriver\win64\141.0.7390.122\chromedriver.exe
       3. In Selenium - we can use different virtual browsers such as Google Chrome, firefox & edge to automate web scripts
       Always ensure that to work with Selenium virtual web browser actual browser must be installed.
+      for example,  Safari is part of iOS then it is not Opened
+        WebDriver openSafariBrowser = new SafariDriver();
+        openSafariBrowser.get("https://www.google.com/");
+       openSafariBrowser.quit();
        */
 
         WebDriver openGoogleBrowser = new ChromeDriver();
@@ -36,42 +38,17 @@ public class ALaunchBrowser {
          */
 
 
-        // Open Private Browser
-        ChromeOptions openPrivateBrowser = new ChromeOptions();
-        openPrivateBrowser.addArguments("Incognito");  // Pass the Private Browser Name.
-        WebDriver openGoogleBrowserPrivate = new ChromeDriver(openPrivateBrowser);
-        openGoogleBrowserPrivate.get("https://www.google.com/");
-        String browserName =  openPrivateBrowser.getBrowserVersion();
-        System.out.println(browserName);
-
-        /*
-        ----------- Summary ----------------------
-        We need to use ChromeOptions class
-        Create the object the ChromeOptions Class
-        use Inbuilt Method ChromeOptions class .addArguments
-        .addArgument method pass the private browser in the String
-       for Google Chrome we use Incognito
-       Finally use the Simple code & pass the object of ChromeOptions created as openPrivateBrowser
-       WebDriver openPrivateBrowser = new ChromeDriver (openPrivateBrowser)
-
-         */
 
 
-// Open Firefox Browser
-
-
-        WebDriver openFirefoxBrowser = new FirefoxDriver();
+        // Open Firefox Browser
+        WebDriver openFirefoxBrowser = new FirefoxDriver();  // FirefoxDriver is Class
         openFirefoxBrowser.get("https://www.google.com/");
         openFirefoxBrowser.quit();
 
-
-
-//        WebDriver openSafariBrowser = new SafariDriver();
-//        openSafariBrowser.get("https://www.google.com/");
-//        openSafariBrowser.quit();
-
-
-
+        // Safari Browser
+        WebDriver openSafariBrowser = new SafariDriver();
+        openSafariBrowser.get("https://www.google.com/");
+        openSafariBrowser.quit();
 
 
     }
