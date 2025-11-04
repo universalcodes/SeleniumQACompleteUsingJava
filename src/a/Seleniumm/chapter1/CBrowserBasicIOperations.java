@@ -40,6 +40,6 @@ public class CBrowserBasicIOperations {
         System.out.println(getCurrentURL); // get the current URL of the Webpage.
         String getStringWindow= openGoogleChrome.getWindowHandle();
         System.out.println(getStringWindow); // get the String Window of the Webpage.
-        openGoogleChrome.quit();
+        openGoogleChrome.quit();  // close the Browser
     }
 }
