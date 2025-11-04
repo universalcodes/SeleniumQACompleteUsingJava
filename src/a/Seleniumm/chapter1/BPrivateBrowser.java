@@ -26,7 +26,7 @@ public class BPrivateBrowser {
        In  .addArgument method pass the private browser in the String
        for Google Chrome we use Incognito
             Always Remember  if we pass any Random String or Invalid Browser Name for Example  As there is no browser named as Test so only simple Browser has Opened
-            if wwe userpassing Google Chrome then 2 Instances of Google Chrome is Opened in the same window where first tab is blank
+            if wwe user passing Google Chrome then 2 Instances of Google Chrome is Opened in the same window where first tab is blank
        Finally use the Simple code & pass the object of ChromeOptions created as openPrivateBrowser
        WebDriver openPrivateBrowser = new ChromeDriver (openPrivateBrowser)
 
