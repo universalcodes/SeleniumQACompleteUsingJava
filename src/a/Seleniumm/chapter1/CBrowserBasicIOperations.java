@@ -28,12 +28,13 @@ public class CBrowserBasicIOperations {
 
         WebDriver openGoogleChrome = new ChromeDriver();
         openGoogleChrome.manage().deleteAllCookies();
-        // The Following line 27 help us to delete all cookies the Browser.
+        // The Following line 30 help us to delete all cookies the Browser.
         openGoogleChrome.manage().window().minimize();
-        // The Following line 29 help us to minimize the Browser.
+        // The Following line 32 help us to minimize the Browser.
         openGoogleChrome.manage().window().maximize();
-        // The Following line 30  help us to maximize the Browser.
+        // The Following line 34  help us to maximize the Browser.
         openGoogleChrome.get("https://www.google.com/");
+        // The Following line 36  help us to launch the URL Address
         String getURLAddressTitle = openGoogleChrome.getTitle();
         System.out.println(getURLAddressTitle); // get the title of the Webpage.
         String getCurrentURL = openGoogleChrome.getCurrentUrl();
