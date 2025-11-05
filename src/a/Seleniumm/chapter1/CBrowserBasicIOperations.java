@@ -23,6 +23,8 @@ public class CBrowserBasicIOperations {
         getWindowHandle() is the inbuilt method which to get the String of Active Browser
        7. Close the Browser
        quit() is the inbuilt Method which helps to close the browser.
+
+       If we are not passing the URL in the Selenium Virtual Driver then the default value is data
        */
 
         WebDriver openGoogleChrome = new ChromeDriver();
@@ -32,7 +34,7 @@ public class CBrowserBasicIOperations {
         // The Following line 32 help us to minimize the Browser.
         openGoogleChrome.manage().window().maximize();
         // The Following line 34  help us to maximize the Browser.
-        openGoogleChrome.get("https://www.google.com/");
+       openGoogleChrome.get("https://www.google.com/");
         // The Following line 36  help us to launch the URL Address
         String getURLAddressTitle = openGoogleChrome.getTitle();
         System.out.println(getURLAddressTitle); // get the title of the Webpage.
@@ -40,6 +42,8 @@ public class CBrowserBasicIOperations {
         System.out.println(getCurrentURL); // get the current URL of the Webpage.
         String getStringWindow= openGoogleChrome.getWindowHandle();
         System.out.println(getStringWindow); // get the String Window of the Webpage.
-        openGoogleChrome.quit();  // close the Browser
+       String getWebPageSource =  openGoogleChrome.getPageSource();
+        System.out.println(getWebPageSource); // Get the html code of the opened url
+        //openGoogleChrome.quit();  // close the Browser
     }
 }

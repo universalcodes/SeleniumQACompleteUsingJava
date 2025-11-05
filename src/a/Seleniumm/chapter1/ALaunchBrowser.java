@@ -4,12 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class ALaunchBrowser {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
       /*
       Points to Remember
       1. Selenium can automate only web Applications
@@ -23,7 +24,7 @@ public class ALaunchBrowser {
         openSafariBrowser.get("https://www.google.com/");
        openSafariBrowser.quit();
        */
-
+//
         WebDriver openGoogleBrowser = new ChromeDriver();
         openGoogleBrowser.get("https://www.google.com/");
         openGoogleBrowser.quit();
@@ -32,23 +33,34 @@ public class ALaunchBrowser {
            In above line Webdriver is interface which only initiate or invoke only classes
         openGoogleBrowser is the reference variable of WebDriver
          new is the keyword
-          In the following line 20 - Chrome Browser is launched
+         ChromeDriver() is used to initiate Chrome Virtual Browser
+         Firefox() is used to initiate Firefox Mozilla Virtual Browser
+         EdgeDriver() is used to initiate Edge Virtual Browser
+
         .get is the inbuilt library method which helps to navigate to any website in our code we have used https://www.google.com/"
         .quit is the inbuilt library method which helps to close active virtual web browser.
+
          */
 
 
 
-
-        // Open Firefox Browser
+//
+//        // Open Firefox Browser
         WebDriver openFirefoxBrowser = new FirefoxDriver();  // FirefoxDriver is Class
         openFirefoxBrowser.get("https://www.google.com/");
         openFirefoxBrowser.quit();
 
+
+        // Open Firefox Browser
+        WebDriver openEdgeBrowser = new EdgeDriver();  // EdgefoxDriver is Class
+        openEdgeBrowser.get("https://www.google.com/");
+        openEdgeBrowser.quit();
+
+
         // Safari Browser
-        WebDriver openSafariBrowser = new SafariDriver();
-        openSafariBrowser.get("https://www.google.com/");
-        openSafariBrowser.quit();
+//        WebDriver openSafariBrowser = new SafariDriver();
+//        openSafariBrowser.get("https://www.google.com/");
+//        openSafariBrowser.quit();
 
 
     }
