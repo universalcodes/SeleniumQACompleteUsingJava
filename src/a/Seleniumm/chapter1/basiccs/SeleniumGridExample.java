@@ -1,4 +1,4 @@
-package a.Seleniumm.chapter1;
+package a.Seleniumm.chapter1.basiccs;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
