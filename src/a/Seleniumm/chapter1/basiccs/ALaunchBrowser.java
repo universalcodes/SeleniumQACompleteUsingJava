@@ -23,10 +23,13 @@ public class ALaunchBrowser {
         WebDriver openSafariBrowser = new SafariDriver();
         openSafariBrowser.get("https://www.google.com/");
        openSafariBrowser.quit();
+       4. If User didnt provide any web URL then default address bar is data
        */
 //
         WebDriver openGoogleBrowser = new ChromeDriver();
         openGoogleBrowser.get("https://www.google.com/");
+        openGoogleBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
+
         openGoogleBrowser.quit();
 
   /* ----------------------------- Summary ---------------
@@ -48,6 +51,8 @@ public class ALaunchBrowser {
 //        // Open Firefox Browser
         WebDriver openFirefoxBrowser = new FirefoxDriver();  // FirefoxDriver is Class
         openFirefoxBrowser.get("https://www.google.com/");
+        openFirefoxBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
+
         openFirefoxBrowser.quit();
 
 

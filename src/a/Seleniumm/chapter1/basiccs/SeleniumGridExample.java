@@ -11,7 +11,7 @@ import java.net.URL;
 public class SeleniumGridExample {
     public static void main(String[] args) throws Exception {
         // ✅ Recommended way to create URL in Java 21+
-        URL gridUrl = URI.create("http://localhost:4444/wd/hub").toURL();
+        URL gridUrl = URI.create("http://192.168.31.108:4444/").toURL();
 
         // Chrome setup
         ChromeOptions chromeOptions = new ChromeOptions();
