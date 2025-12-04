@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Demo HTML page covering most important tags in a single file">
+    <title>HTML All-in-One Demo</title>
+    <base href="https://example.com/">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root { --accent: #2563eb; --bg: #f8fafc; }
+        body { font-family: system-ui, sans-serif; margin: 0; background: var(--bg); color: #111; }
+        header, nav, footer { background: #fff; border-bottom: 1px solid #e5e7eb; }
+        header { padding: 1rem; }
+        nav ul { display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+        main { max-width: 1000px; margin: auto; padding: 1rem; }
+        section { background: #fff; padding: 1rem; margin: 1rem 0; border: 1px solid #e5e7eb; border-radius: 8px; }
+        code, pre { background: #0f172a; color: #e2e8f0; border-radius: 6px; }
+        pre { padding: .75rem; overflow: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #e5e7eb; padding: .5rem; text-align: left; }
+        caption { font-weight: bold; margin-bottom: .5rem; }
+        figure { margin: 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        aside { background: #f1f5f9; padding: .75rem; border-radius: 6px; }
+        .btn { background: var(--accent); color: #fff; border: none; padding: .5rem .75rem; border-radius: 6px; cursor: pointer; }
+        .badge { background: #eef2ff; color: #3730a3; padding: .15rem .4rem; border-radius: 4px; font-size: .85rem; }
+        .sr-only { position: absolute; left: -9999px; }
+    </style>
+    <noscript>
+        <style> .requires-js { display: none; } </style>
+    </noscript>
+</head>
+
+<body>
+<header>
+    <h1>HTML All-in-One Demo <span class="badge">v1.0</span></h1>
+    <p><small>Is page mein common & important HTML tags dikhaye gaye hain.</small></p>
+    <address>
+        Created by <a href="mailto:demo@example.com">Demo Author</a> •
+        <time datetime="2025-12-03">3 Dec 2025</time>
+    </address>
+</header>
+
+<nav aria-label="Primary">
+    <ul>
+        <li><a href="#text">Text & formatting</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#semantics">Semantics</a></li>
+        <li><a href="#interactive">Interactive</a></li>
+        <li><a href="#embed">Embeds</a></li>
+    </ul>
+</nav>
+
+<main>
+    <article>
+        <header>
+            <h2 id="text">Text & formatting tags</h2>
+        </header>
+
+        <section>
+            <h3>Headings</h3>
+            <h1>H1 heading</h1>
+            <h2>H2 heading</h2>
+            <h3>H3 heading</h3>
+            <h4>H4 heading</h4>
+            <h5>H5 heading</h5>
+            <h6>H6 heading</h6>
+        </section>
+
+        <section>
+            <h3>Paragraphs and inline</h3>
+            <p>Ye ek <strong>bold</strong>, <em>italic</em>, <mark>highlighted</mark> paragraph hai with
+                <small>small text</small>, <del>deleted</del> and <ins>inserted</ins> text, H<sub>2</sub>O, x<sup>2</sup>.
+                Quote: <q cite="https://example.com/quotes">Simplicity is powerful.</q> Aur cite: <cite>Clean Code</cite>.
+                <abbr title="HyperText Markup Language">HTML</abbr> basics yaha dikh rahe hain.</p>
+            <p>Line break example<br>Next line after br. Horizontal rule below:</p>
+            <hr>
+            <blockquote cite="https://example.com/article">
+                “Blockquote long quote yaha show hota hai.”
+            </blockquote>
+            <p>Inline code: <code>const x = 42;</code> and a <a href="/docs">relative link</a>.</p>
+            <pre><code>// Preformatted block:
+function greet(name) {
+  console.log(`Hello, ${name}`);
+}
+</code></pre>
+        </section>
+
+        <section id="lists">
+            <h3>Lists</h3>
+            <div class="grid">
+                <div>
+                    <h4>Unordered list (ul)</h4>
+                    <ul>
+                        <li>Item A</li>
+                        <li>Item B</li>
+                        <li>Item C</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ordered list (ol)</h4>
+                    <ol>
+                        <li>Step 1</li>
+                        <li>Step 2</li>
+                        <li>Step 3</li>
+                    </ol>
+                </div>
+            </div>
+            <h4>Description list (dl)</h4>
+            <dl>
+                <dt>HTML</dt><dd>Markup language for web pages.</dd>
+                <dt>CSS</dt><dd>Styles the HTML.</dd>
+                <dt>JS</dt><dd>Interactivity on the page.</dd>
+            </dl>
+        </section>
+    </article>
+
+    <section id="media">
+        <h2>Media tags</h2>
+        <figure>
+            <picture>
+                <source srcset="https://picsum.photos/seed/html/600/300" media="(max-width: 600px)">
+                <img src="https://picsum.photos/seed/html/800/400" alt="Random demo image" width="800" height="400" loading="lazy">
+            </picture>
+            <figcaption>Picture + img with figcaption</figcaption>
+        </figure>
+
+        <h3>Audio</h3>
+        <audio controls>
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h3>Video</h3>
+        <video controls width="480">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <h3>Canvas</h3>
+        <canvas id="demoCanvas" width="300" height="120" style="border:1px solid #e5e7eb;"></canvas>
+
+        <h3>Inline SVG</h3>
+        <svg width="120" height="120" viewBox="0 0 120 120" aria-label="Circle">
+            <circle cx="60" cy="60" r="50" fill="#93c5fd" stroke="#2563eb" stroke-width="4"></circle>
+            <text x="60" y="65" text-anchor="middle" font-size="14" fill="#111">SVG</text>
+        </svg>
+    </section>
+
+    <section id="tables">
+        <h2>Tables</h2>
+        <table>
+            <caption>Sample table</caption>
+            <thead>
+            <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Pen</td><td>2</td><td>10</td></tr>
+            <tr><td>Notebook</td><td>1</td><td>50</td></tr>
+            </tbody>
+            <tfoot>
+            <tr><td colspan="2">Total</td><td>70</td></tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <section id="forms">
+        <h2>Forms</h2>
+        <form action="/submit" method="post" novalidate>
+            <fieldset>
+                <legend>Basic inputs</legend>
+
+                <p>
+                    <label for="name">Name:</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required>
+                </p>
+
+                <p>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+                </p>
+
+                <p>
+                    <label for="pwd">Password:</label>
+                    <input id="pwd" name="pwd" type="password" minlength="6">
+                </p>
+
+                <p>
+                    <label for="age">Age:</label>
+                    <input id="age" name="age" type="number" min="1" max="120" step="1">
+                </p>
+
+                <p>
+                    <label for="range">Range:</label>
+                    <input id="range" name="range" type="range" min="0" max="100" value="50">
+                </p>
+
+                <p>
+                    <label for="color">Favorite color:</label>
+                    <input id="color" name="color" type="color" value="#2563eb">
+                </p>
+
+                <p>
+                    <label for="date">Date:</label>
+                    <input id="date" name="date" type="date">
+                </p>
+
+                <p>
+                    <label for="file">Upload file:</label>
+                    <input id="file" name="file" type="file" accept=".png,.jpg,.pdf">
+                </p>
+
+                <p>
+                    <label for="tel">Phone:</label>
+                    <input id="tel" name="tel" type="tel" pattern="[0-9]{10}" placeholder="9876543210">
+                </p>
+
+                <p>
+                    <label for="url">Website:</label>
+                    <input id="url" name="url" type="url" placeholder="https://example.com">
+                </p>
+
+                <p>
+                    <label for="search">Search:</label>
+                    <input id="search" name="search" type="search">
+                </p>
+
+                <p>
+                    <label><input type="checkbox" name="agree"> I agree</label>
+                    <label><input type="radio" name="gender" value="m"> Male</label>
+                    <label><input type="radio" name="gender" value="f"> Female</label>
+                </p>
+
+                <p>
+                    <label for="city">City:</label>
+                    <select id="city" name="city">
+                        <option value="">Choose...</option>
+                        <optgroup label="UP">
+                            <option>Ghaziabad</option>
+                            <option>Noida</option>
+                        </optgroup>
+                        <optgroup label="Delhi NCR">
+                            <option>Delhi</option>
+                            <option>Gurgaon</option>
+                        </optgroup>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio" rows="3" cols="30" placeholder="Short bio..."></textarea>
+                </p>
+
+                <p>
+                    <label for="lang">Language:</label>
+                    <input list="languages" id="lang" name="lang" placeholder="Type to search...">
+                    <datalist id="languages">
+                        <option value="Hindi"></option>
+                        <option value="English"></option>
+                        <option value="Marathi"></option>
+                    </datalist>
+                </p>
+
+                <p>
+                    <output for="range" id="rangeVal">50</output>
+                </p>
+
+                <p>
+                    <progress value="60" max="100"></progress>
+                    <meter min="0" max="100" low="30" high="70" optimum="50" value="65"></meter>
+                </p>
+
+                <p>
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="reset">Reset</button>
+                </p>
+            </fieldset>
+        </form>
+    </section>
+
+    <section id="semantics">
+        <h2>Semantic structure</h2>
+        <div class="grid">
+            <article>
+                <h3>Article</h3>
+                <p>Self-contained content unit.</p>
+            </article>
+            <aside>
+                <h3>Aside</h3>
+                <p>Related info or sidebar content.</p>
+            </aside>
+        </div>
+        <section>
+            <h3>Details / summary</h3>
+            <details>
+                <summary>Click to expand more info</summary>
+                <p>Hidden content inside details tag.</p>
+            </details>
+        </section>
+    </section>
+
+    <section id="interactive">
+        <h2>Interactive elements</h2>
+        <dialog id="myDialog">
+            <p>This is a dialog modal.</p>
+            <form method="dialog">
+                <button>Close</button>
+            </form>
+        </dialog>
+        <button class="btn" id="openDialog">Open dialog</button>
+        <p class="requires-js">
+            <span class="sr-only">Status:</span>
+            <span id="statusText">JavaScript-enabled interactivity demo below.</span>
+        </p>
+    </section>
+
+    <section id="embed">
+        <h2>Embeds</h2>
+        <iframe title="Example iframe" src="https://example.com" width="100%" height="200"></iframe>
+        <template id="cardTemplate">
+            <div class="card"><strong>Template:</strong> This content can be cloned via JS.</div>
+        </template>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; <time datetime="2025">2025</time> Demo Site • <a href="#top">Back to top</a></p>
+</footer>
+
+<script>
+    // Canvas demo
+    const c = document.getElementById('demoCanvas');
+    if (c) {
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#2563eb';
+      ctx.fillRect(10, 10, 100, 50);
+      ctx.strokeStyle = '#1e293b';
+      ctx.strokeRect(10, 10, 100, 50);
+      ctx.fillStyle = '#fff';
+      ctx.font = '14px system-ui';
+      ctx.fillText('Canvas', 25, 40);
+    }
+
+    // Range -> output binding
+    const range = document.getElementById('range');
+    const rangeVal = document.getElementById('rangeVal');
+    if (range && rangeVal) {
+      const update = () => rangeVal.value = range.value;
+      range.addEventListener('input', update);
+      update();
+    }
+
+    // Dialog open
+    const open = document.getElementById('openDialog');
+    const dlg = document.getElementById('myDialog');
+    if (open && dlg && typeof dlg.showModal === 'function') {
+      open.addEventListener('click', () => dlg.showModal());
+    }
+
+    // Template clone example
+    const tpl = document.getElementById('cardTemplate');
+    if (tpl && 'content' in tpl) {
+      const clone = tpl.content.cloneNode(true);
+      document.querySelector('#embed').appendChild(clone);
+    }
+</script>
+</body>
+</html>

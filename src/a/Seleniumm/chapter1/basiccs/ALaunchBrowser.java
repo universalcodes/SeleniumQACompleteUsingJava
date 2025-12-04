@@ -1,5 +1,8 @@
 package a.Seleniumm.chapter1.basiccs;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -26,9 +29,16 @@ public class ALaunchBrowser {
        4. If User didnt provide any web URL then default address bar is data
        */
 //
+        String reportPath = "F:\\Full Selenium Java Journey\\CompleteQASelenium\\TestReports\\Report.html";
+
+
+
+
+
+
         WebDriver openGoogleBrowser = new ChromeDriver();
         openGoogleBrowser.get("https://www.google.com/");
-        openGoogleBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
+     //   openGoogleBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
 
         openGoogleBrowser.quit();
 
@@ -49,23 +59,32 @@ public class ALaunchBrowser {
 
 //
 //        // Open Firefox Browser
-        WebDriver openFirefoxBrowser = new FirefoxDriver();  // FirefoxDriver is Class
-        openFirefoxBrowser.get("https://www.google.com/");
-        openFirefoxBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
+//        WebDriver openFirefoxBrowser = new FirefoxDriver();  // FirefoxDriver is Class
+//        openFirefoxBrowser.get("https://www.google.com/");
+//        openFirefoxBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
+//
+//        openFirefoxBrowser.quit();
+//
+//
+//        // Open Firefox Browser
+//        WebDriver openEdgeBrowser = new EdgeDriver();  // EdgefoxDriver is Class
+//        openEdgeBrowser.get("https://www.google.com/");
+//        openEdgeBrowser.quit();
 
-        openFirefoxBrowser.quit();
+        ExtentSparkReporter addReport = new ExtentSparkReporter(reportPath);
+        ExtentReports createReport = new ExtentReports();
+        createReport.attachReporter(addReport);
+        ExtentTest testresult = createReport.createTest("Launch Browser");
 
-
-        // Open Firefox Browser
-        WebDriver openEdgeBrowser = new EdgeDriver();  // EdgefoxDriver is Class
-        openEdgeBrowser.get("https://www.google.com/");
-        openEdgeBrowser.quit();
+        testresult.info("Browser closed & Test Case is Completed");
+      createReport.flush();
 
 
         // Safari Browser
 //        WebDriver openSafariBrowser = new SafariDriver();
 //        openSafariBrowser.get("https://www.google.com/");
 //        openSafariBrowser.quit();
+
 
 
     }
