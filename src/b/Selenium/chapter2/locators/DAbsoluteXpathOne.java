@@ -17,11 +17,13 @@ public class DAbsoluteXpathOne {
     / (Single Slash). In Absolute xpath we need to traverse the element from root if any
     Element got missed then that web Element is not visible
     It always works in Sequence order
+    for Example  - /html/body/p --- In the following example, WebElement starts from html then body finally P tag
 
-    for Example  - /html/body/p --- In the following example, Weblement starts from html then body finally P tag
+    2.There are multiple ways of Define Relative Xpath using And OR Keyword
+        In the Case of AND ensure that all Attributes must be visible
+        In the Case of OR ensure that At Least Attribute must be defined
 
-
-
+    3. If we passed Invalid Elements, it throws Runtime Error &  Exception occurred as  NoSuchElementFound
      */
 
     public static void main(String[] args) {
@@ -37,7 +39,7 @@ public class DAbsoluteXpathOne {
 //
 //            In this we are finding Absolute Xpath
 //
-        //WebElement validAbsoluteCXpath = openBrowser.findElement(By.xapth(/html/body/main/section[1]/h2)); // Compile Time Error name locator is not given in String
+        //WebElement validAbsoluteCXpath = openBrowser.findElement(By.path(/html/body/main/section[1]/h2)); // Compile Time Error name locator is not given in String
         WebElement validAbsoluteXpath = openBrowser.findElement(By.xpath("/html/body/main/section[1]/h2"));
         System.out.println("1. Valid Absolute Xpath is Found");
         

@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import java.net.URI;
 import java.net.URL;
 
-public class SeleniumGridExample {
+public class HSeleniumGridExample {
     public static void main(String[] args) throws Exception {
         // ✅ Recommended way to create URL in Java 21+
         URL gridUrl = URI.create("http://192.168.31.108:4444/").toURL();
