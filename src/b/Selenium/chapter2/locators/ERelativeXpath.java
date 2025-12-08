@@ -1,0 +1,153 @@
+package b.Selenium.chapter2.locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ERelativeXpath {
+
+    /*
+    Points to Remember
+    1. Xpath stands for Xml Path it is similar to xml file where we have to traverse the html element
+        There are two types of xpath
+            Relative Xpath
+            Relative Xpath -
+            Relative - It is type of xpath where it can starts from direct Element and donated by
+    // (Single Slash). In Relative xpath we need to traverse the element from root if any
+    we can direct use of Elements, Its not necessary that we have to use sequential order we can use directly
+    It always works in Sequence order
+    for Example  - //html//body//p --- In the following example, WebElement starts from html then body finally P tag
+
+    2.There are multiple ways of Define Relative Xpath using And OR Keyword
+        In the Case of AND ensure that all Attributes must be visible
+        In the Case of OR ensure that At Least Attribute must be defined
+
+    3. If we passed Invalid Elements, it throws Runtime Error &  Exception occurred as  NoSuchElementFound
+
+    4. we can * symbol which helps when we are not sure about starting html tag then it will traverse from the entire html page
+    for example
+            "//form[@action='/submit'][@method='post'];  // In the following Code we are defining the 2 Attributes where it starts from form tag which means its And Condition without using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+            "//*[@action='/submit'][@method='post'];  // In the following Code we are defining the 2 Attributes but we are not sure from which tag it begins -- Relative Xpath
+        Similar
+                    "//*[@*='/submit'][@*='post'];  // In the following Code we are defining the 2 Attributes but we are not sure from which tag it begins & also we are sure about attribute name so have used * symbol-- Relative Xpath
+
+     */
+
+    public static void main(String[] args) {
+
+
+        WebDriver openBrowser = new ChromeDriver();
+        openBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/seleniumpage.html");
+
+        // the following line won't work as we didn't have http protocol & it considered as InvalidArgumentException
+        // openBrowser.get(file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/seleniumpage.html);
+
+//        /----------------------- Test Case 1 Positive -----
+//
+//            In this we are finding Relative Xpath
+//
+        //WebElement validRelativeCXpath = openBrowser.findElement(By.path(/html/body/main/section[1]/h2)); // Compile Time Error name locator is not given in String
+        WebElement validRelativeXpath = openBrowser.findElement(By.xpath("//html//body//main//section[1]//h2"));   // Defining Relative Xpath with complete root
+        System.out.println("1. Valid Relative Xpath is Found");
+        WebElement validRelativeXpathExample2 = openBrowser.findElement(By.xpath("//section[1]"));// Search Only Section -- Relative Xpath
+        System.out.println("1. Valid Relative Xpath Example2 is Found");
+        WebElement validRelativeXpathExample3 = openBrowser.findElement(By.xpath("//h2[1]"));  // Search only Heading -- Relative Xpath
+        System.out.println("1. Valid Relative Xpath Example3 is Found");
+
+
+        //----------------------- Test Case 2 Positive -----
+//
+//            In this we are finding Relative Xpath with Attribute Technique 1
+     //   WebElement validRelativeXpathWithAttribute = openBrowser.findElement(By.xpath("/html/body/main/section[1]/video/source[@src="/https://www.w3schools.com/html/mov_bbb.mp4/"]"));  // Compile Time Error As String Indentation is Incorrect
+        WebElement validRelativeXpathWithAttribute = openBrowser.findElement(By.xpath("//html//body//main//section[1]//video//source[@src=\"https://www.w3schools.com/html/mov_bbb.mp4\"]"));  // Defining Relative Xpath with Complete Root Technique 1 where we have \"\" to Enter the String
+        System.out.println("2. Valid Relative Xpath with Attribute is Found");
+        WebElement validRelativeXpathWithAttribute2 = openBrowser.findElement(By.xpath("//video"));  // Search Only Video Element -- Relative Xpath
+        System.out.println("2. Valid Relative New Xpath Example 2 with Attribute is Found");
+        WebElement validRelativeXpathWithAttribute3= openBrowser.findElement(By.xpath("//source[@src=\"https://www.w3schools.com/html/mov_bbb.mp4\"]"));  // Search Only Source Element with String Indentation  -- Relative Xpath
+        System.out.println("2. Valid Relative New Xpath Example 3 with Attribute is Found");
+        WebElement validRelativeXpathWithAttribute4= openBrowser.findElement(By.xpath("//*[@src=\"https://www.w3schools.com/html/mov_bbb.mp4\"]"));  // Search Only @src Attribute but not sure starting tag so we have used *  -- Relative Xpath
+        System.out.println("2. Valid Relative New Xpath Example 4 with Attribute is Found");
+
+
+        //----------------------- Test Case 3 Positive -----
+       // In this we are finding Relative Xpath with Attribute Technique 2
+
+        WebElement validRelativeXpathWithAttribute5= openBrowser.findElement(By.xpath("//source[@src='https://www.w3schools.com/html/mov_bbb.mp4']"));  // Search Only Video Source Element where substring define as char -- Relative Xpath
+        System.out.println("3. Valid Relative New Xpath Example 5 with Attribute is Found");
+
+        //----------------------- Test Case 4 Positive -----
+        // In this we are finding Relative Xpath with Multiple Attributes without using And keyword
+       // WebElement validRelativeXpathWithMultipleAttribute = openBrowser.findElement(By.xpath("/html/body/main/section[3]/form[@action='/submitt'][@method='postt']"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements
+        WebElement validRelativeXpathWithMultipleAttribute = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes with complete root which means its And Condition without using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        System.out.println("4. Valid Relative Xpath with Multiple Attributes");
+        WebElement validRelativeXpathWithMultipleAttribute2 = openBrowser.findElement(By.xpath("//form[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes which means its And Condition without using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        System.out.println("4. Valid Relative Xpath Example 2 with Multiple Attributes");
+        WebElement validRelativeXpathWithMultipleAttribute3 = openBrowser.findElement(By.xpath("//*[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes  but not sure starting tag so we have used *  -- Relative Xpath -- Relative Xpath
+        System.out.println("4. Valid Relative Xpath Example 3 with Multiple Attributes");
+
+
+        //----------------------- Test Case 5 Positive -----
+        // In this we are finding Relative Xpath with Multiple Attributes using And Keyword
+      //  WebElement validRelativeXpathWithMultipleAttributes = openBrowser.findElement(By.xpath("/html/body/main/section[3]/form[@action='/submitt'and @method='poost']"));  //  Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements
+        WebElement validRelativeXpathWithMultipleAttributes = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submit'and @method='post']"));  // In the following Code we are defining the 2 Attributes with Complete root which means its And Condition with using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        System.out.println("5. Valid Relative Xpath with Multiple Attributes using and keyword");
+        WebElement validRelativeXpathWithMultipleAttributes2 = openBrowser.findElement(By.xpath("//form[@action='/submit'and @method='post']"));  // In the following Code we are defining the 2 Attributes which means its And Condition with using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        System.out.println("5. Valid Relative Xpath Example 2 with Multiple Attributes using and keyword");
+        WebElement validRelativeXpathWithMultipleAttributes3 = openBrowser.findElement(By.xpath("//*[@action='/submit'and @method='post']"));  //  In the following Code we are defining the 2 Attributes using and keyword but not sure starting tag so we have used *  -- Relative Xpath
+        System.out.println("5. Valid Relative Xpath Example 3 with Multiple Attributes using and keyword");
+
+
+        //----------------------- Test Case 6 Positive -----
+        // In this we are finding Relative Xpath with Multiple Attributes using OR Keyword
+        //WebElement validRelativeXpathWithMultipleAttributess = openBrowser.findElement(By.xpath("/html/body/main/section[3]/form[@action='/submitt'or @method='post']"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements
+        WebElement validRelativeXpathWithMultipleAttributess = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submitt'or @method='post']"));  // In the following Code we are defining the 2 Attributes with Complete Root where 1 attributes must be visible as if we used or keyword
+        System.out.println("6. Valid Relative Xpath with Multiple Attributes using  OR keyword");
+        WebElement validRelativeXpathWithMultipleAttributess2 = openBrowser.findElement(By.xpath("//form[@action='/submitt'or @method='post']"));  // In the following Code we are defining the 2 Attributes with  where 1 attributes must be visible as if we used or keyword
+        System.out.println("6. Valid Relative Xpath Example 2 with Multiple Attributes using  OR keyword");
+        WebElement validRelativeXpathWithMultipleAttributess3 = openBrowser.findElement(By.xpath("//*[@action='/submitt'or @method='post']"));  // In the following Code we are defining the 2 Attributes using OR keyword but not sure starting tag so we have used *  -- Relative Xpath
+        System.out.println("6. Valid Relative Xpath Example 3 with Multiple Attributes using  OR keyword");
+
+
+
+        //----------------------- Test Case 7 Positive -----
+        // In this we are finding Relative Xpath with Multiple Attributes using Multiple OR keyword
+        //WebElement validRelativeXpathWithMultipleAttributess = openBrowser.findElement(By.xpath("/html/body/main/section[3]/form[@action='/submitt'or @method='yogesh' or @method='postt' ]"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements
+        WebElement validRelativeXpathWithMultipleAttributesss = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submitt'or @method='post' or  @method='postt']"));  // In the following Code we are defining the 2 Attributes with complete root where 1 attributes must be visible as if we used or keyword -- Relative Xpath
+        System.out.println("7. Valid Relative Xpath with Multiple Attributes using Multiple OR keyword");
+        WebElement validRelativeXpathWithMultipleAttributesss2 = openBrowser.findElement(By.xpath("//form[@action='/submitt'or @method='post' or  @method='postt']"));  // In the following Code we are defining the 3 Attributes where 1 attributes must be visible as if we used or keyword -- Relative Xpath
+        System.out.println("7. Valid Relative Xpath with Multiple Attributes using Multiple OR keyword Example 2");
+        WebElement validRelativeXpathWithMultipleAttributesss3 = openBrowser.findElement(By.xpath("//*[@action='/submitt'or @method='post' or  @method='postt']"));  //  // In the following Code we are defining the 3 Attributes using OR keyword but not sure starting tag so we have used *  -- Relative Xpath
+        System.out.println("7. Valid Relative Xpath with Multiple Attributes using Multiple OR keyword Example 3");
+
+
+
+        //----------------------- Test Case 8 Positive -----
+        // In this we are finding Relative Xpath with Multiple Attributes without using AND Keyword
+        // WebElement validRelativeXpathWithMultipleAttributessss = openBrowser.findElement(By.xpath("/html/body/main/section[6]/iframe[@title='Example ifrrame'][@src='https://exxample.com'][@height='q200']"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements, All 3 Attributes are Invalid
+        WebElement validRelativeXpathWithMultipleAttributessss = openBrowser.findElement(By.xpath("//html//body//main//section[6]//iframe[@title='Example iframe'][@src='https://example.com'][@height='200']"));  // In the following Code we are defining the 3 Attributes with Complete root which means its And Condition without using and keyword where 3 of the Attributes must be visible -- Relative Xpath
+        System.out.println("8. Valid Relative Xpath with Multiple Attributes More than 2");
+        WebElement validRelativeXpathWithMultipleAttributessss2 = openBrowser.findElement(By.xpath("//iframe[@title='Example iframe'][@src='https://example.com'][@height='200']"));  // In the following Code we are defining the 3 Attributes which means its And Condition without using and keyword where 3 of the Attributes must be visible -- Relative Xpath
+        System.out.println("8. Valid Relative Xpath with Multiple Attributes More than 2 Example 2");
+        WebElement validRelativeXpathWithMultipleAttributessss3 = openBrowser.findElement(By.xpath("//*[@title='Example iframe'][@src='https://example.com'][@height='200']"));  // In the following Code we are defining the 3 Attributes but not sure starting tag so we have used *  -- Relative Xpath
+        System.out.println("8. Valid Relative Xpath with Multiple Attributes More than 2 Example 3");
+
+
+        //----------------------- Test Case 9 Positive -----
+        // In this we are finding Relative Xpath with Multiple Attributes using Multiple AND keyword
+        //WebElement validRelativeXpathWithMultipleAttributess = openBrowser.findElement(By.xpath("/html/body/main/section[6]/iframe[@title='Example iframee'and @src='https://exxample.com' and @height='2200']"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements, In the Following code we passed Invalid Elements, All 3 Attributes are Invalid using And keyword
+        WebElement validRelativeXpathWithMultipleAndAttributesss = openBrowser.findElement(By.xpath("//html//body//main//section[6]//iframe[@title='Example iframe'and @src='https://example.com' and @height='200']"));  // In the following Code we are defining the 3 Attributes with Complete root where all 3  attributes must be visible as if we used AND keyword -- Relative Xpath
+        System.out.println("9. Valid Relative Xpath with Multiple Attributes using Multiple AND keyword");
+        WebElement validRelativeXpathWithMultipleAndAttributesssss2 = openBrowser.findElement(By.xpath("//iframe[@title='Example iframe'and @src='https://example.com' and @height='200']"));  // In the following Code we are defining the 3 Attributes where all 3  attributes must be visible as if we used AND keyword -- Relative Xpath
+        System.out.println("9. Valid Relative Xpath with Multiple Attributes using Multiple AND keyword Example 2");
+        WebElement validRelativeXpathWithMultipleAndAttributesssss3 = openBrowser.findElement(By.xpath("//*[@title='Example iframe'and @src='https://example.com' and @height='200']"));  // // In the following Code we are defining the 3 Attributes using and keyword but not sure starting tag so we have used *  -- Relative Xpath
+        System.out.println("9. Valid Relative Xpath with Multiple Attributes using Multiple AND keyword Example 3");
+
+//        //----------------------- Test Case 10 Positive -----
+        WebElement validRelativeXpathWithMultipleAndAttributees1 = openBrowser.findElement(By.xpath("//*[@*='Example iframe'and @*='https://example.com' and @*='200']"));  // // In the following Code we are defining the 3 Attributes using and keyword but not sure starting tag so we have used *  Also we are not sure about attribute name only Value is defined we have also used * for attributes  -- Relative Xpath
+        System.out.println("10. Valid Relative Xpath Attribute as Defined as * ");
+
+    }
+
+
+}
