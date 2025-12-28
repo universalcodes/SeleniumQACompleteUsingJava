@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ERelativeXpath {
+public class FRelativeXpathSetTwo {
 
     /*
     Points to Remember
@@ -80,7 +80,7 @@ public class ERelativeXpath {
        // WebElement validRelativeXpathWithMultipleAttribute = openBrowser.findElement(By.xpath("/html/body/main/section[3]/form[@action='/submitt'][@method='postt']"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements
         WebElement validRelativeXpathWithMultipleAttribute = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes with complete root which means its And Condition without using and keyword where 2 of the Attributes must be visible -- Relative Xpath
         System.out.println("4. Valid Relative Xpath with Multiple Attributes");
-        WebElement validRelativeXpathWithMultipleAttribute2 = openBrowser.findElement(By.xpath("//form[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes within the same node tag form  which means its And Condition without using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        WebElement validRelativeXpathWithMultipleAttribute2 = openBrowser.findElement(By.xpath("//form[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes which means its And Condition without using and keyword where 2 of the Attributes must be visible -- Relative Xpath
         System.out.println("4. Valid Relative Xpath Example 2 with Multiple Attributes");
         WebElement validRelativeXpathWithMultipleAttribute3 = openBrowser.findElement(By.xpath("//*[@action='/submit'][@method='post']"));  // In the following Code we are defining the 2 Attributes  but not sure starting tag so we have used * it is also known as tag wildcard   -- Relative Xpath -- Relative Xpath
         System.out.println("4. Valid Relative Xpath Example 3 with Multiple Attributes");
@@ -89,9 +89,9 @@ public class ERelativeXpath {
         //----------------------- Test Case 5 Positive -----
         // In this we are finding Relative Xpath with Multiple Attributes using And Keyword
       //  WebElement validRelativeXpathWithMultipleAttributes = openBrowser.findElement(By.xpath("/html/body/main/section[3]/form[@action='/submitt'and @method='poost']"));  //  Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements
-        WebElement validRelativeXpathWithMultipleAttributes = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submit'and @method='post']"));  // In the following Code we are defining the 2 Attributes within the same node with Complete root which means its And Condition with using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        WebElement validRelativeXpathWithMultipleAttributes = openBrowser.findElement(By.xpath("//html//body//main//section[3]//form[@action='/submit'and @method='post']"));  // In the following Code we are defining the 2 Attributes with Complete root which means its And Condition with using and keyword where 2 of the Attributes must be visible -- Relative Xpath
         System.out.println("5. Valid Relative Xpath with Multiple Attributes using and keyword");
-        WebElement validRelativeXpathWithMultipleAttributes2 = openBrowser.findElement(By.xpath("//form[@action='/submit'and @method='post']"));  // In the following Code we are defining the 2 Attributes within the same node which means its And Condition with using and keyword where 2 of the Attributes must be visible -- Relative Xpath
+        WebElement validRelativeXpathWithMultipleAttributes2 = openBrowser.findElement(By.xpath("//form[@action='/submit'and @method='post']"));  // In the following Code we are defining the 2 Attributes which means its And Condition with using and keyword where 2 of the Attributes must be visible -- Relative Xpath
         System.out.println("5. Valid Relative Xpath Example 2 with Multiple Attributes using and keyword");
         WebElement validRelativeXpathWithMultipleAttributes3 = openBrowser.findElement(By.xpath("//*[@action='/submit'and @method='post']"));  //  In the following Code we are defining the 2 Attributes using and keyword but not sure starting tag so we have used *  it is also known as tag wildcard  -- Relative Xpath
         System.out.println("5. Valid Relative Xpath Example 3 with Multiple Attributes using and keyword");
@@ -164,31 +164,8 @@ public class ERelativeXpath {
         //----------------------- Test Case 13 Positive -----
 
         System.out.println("Search Same Element within Parent");
-        WebElement sameElementMultipleTimes2 = openBrowser.findElement(By.xpath("//input[1]"));  // In the following code 5 Element of Input is Searched within Every Parent Tag
-        System.out.println("13. In This we are Searching Same Element which defined multiple times, Search 1 Element within every Parent Tag  ");
-
-
-        //----------------------- Test Case 14 Positive -----
-
-        System.out.println("Search Same Element within Entire DOM");
-        WebElement sameElementMultipleTimesWithinDOM = openBrowser.findElement(By.xpath("(//input)[5]"));  // In the following code we
-                System.out.println("14. In This We have Searched 5th Input Tag within the entire DOM  ");
-
-
-        //----------------------- Test Case 15 Positive -----
-
-        System.out.println("Search Different Element within the Entire DOM using | Expression");
-        WebElement findDifferentElementsAttr = openBrowser.findElement(By.xpath("//*[@title='Example iframee'] | //source[@src='https://www.w3schools.com/html/mov_bbb.mp4']"));  // In the following code we have searched 2 Elements | expression helps to understand atleast one element within the entire DOM
-        System.out.println("15. We have searched at least one Element within Entire DOM using | Expression  ");
-
-        //----------------------- Test Case 16 Positive -----
-
-        System.out.println("Search Different Element within the Entire DOM using | Expression");
-        WebElement findDifferentMultipleElements = openBrowser.findElement(By.xpath("//*[@title='Example iframee'] | //source[@src='https://www.w3schools.com/html/moov_bbb.mp4'] | //source[@src='https://www.w3schools.com/html/mov_bbb.mp4'] | //*[@id='Yogesh']"));  // In the following code we have searched 2 Elements | expression helps to understand atleast one element within the entire DOM
-        System.out.println("16. We have searched at least one Element within Entire DOM using | Expression  ");
-
-
-
+        WebElement sameElementMultipleTimes2 = openBrowser.findElement(By.xpath("//input[5]"));  // In the following code 5 Element of Input is Searched within Every Parent Tag
+        System.out.println("11. In This we are Searching Same Element which defined multiple times, Search 5 Element within every Parent Tag  ");
 
     }
 
