@@ -197,8 +197,15 @@ public class ERelativeXpath {
         //----------------------- Test Case 18 Positive -----
 
         System.out.println("Find Particular Child of Particular HTML Tag");
-        WebElement findParticularChildOfParticularTag = openBrowser.findElement(By.xpath("//body/*[1]"));  // In the following code Body is the main tag we have searched all childs of body tag. As we are not sure about child tags, so we gave *. * Denotes it can be any child.
+        WebElement findParticularChildOfParticularTag = openBrowser.findElement(By.xpath("//body/*[1]"));  // In the following code Body is the main tag we have searched all childs of body tag. As we are not sure about child tags, we have used index value
         System.out.println("18. In Following Example we have Searched Particular Child of Body Tag Using index Value ");
+        System.out.println(findParticularChildOfParticularTag.getTagName());
+
+        //----------------------- Test Case 19 Positive -----
+
+        System.out.println("Find All Ddescendant Childs of Particular HTML Tag");
+        WebElement findAllDescendantsChildOfParticularTag = openBrowser.findElement(By.xpath("//body//*[1]"));  // In the following code Body is the main tag we have searched all childs of body tag. As we are not sure about child tags, so we gave *. * Denotes it can be any child.
+        System.out.println("19. In Following Example we have Searched Particular Child of Body Tag Using index Value ");
         System.out.println(findParticularChildOfParticularTag.getTagName());
 
 
