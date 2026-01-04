@@ -184,10 +184,22 @@ public class ERelativeXpath {
         //----------------------- Test Case 16 Positive -----
 
         System.out.println("Search Different Element within the Entire DOM using | Expression");
-        WebElement findDifferentMultipleElements = openBrowser.findElement(By.xpath("//*[@title='Example iframee'] | //source[@src='https://www.w3schools.com/html/moov_bbb.mp4'] | //source[@src='https://www.w3schools.com/html/mov_bbb.mp4'] | //*[@id='Yogesh']"));  // In the following code we have searched 2 Elements | expression helps to understand atleast one element within the entire DOM
+        WebElement findDifferentMultipleElements = openBrowser.findElement(By.xpath("//*[@title='Example iframee'] | //source[@src='https://www.w3schools.com/html/moov_bbb.mp4'] | //source[@src='https://www.w3schools.com/html/mov_bbb.mp4'] | //*[@id='Yogesh']"));  // In the following code, we have searched 2 Elements | expression helps to understand atleast one element within the entire DOM
         System.out.println("16. We have searched at least one Element within Entire DOM using | Expression  ");
 
 
+        //----------------------- Test Case 17 Positive -----
+
+        System.out.println("Find Any Child of Particular HTML Tag");
+        WebElement findAnyChildOfParticularTag = openBrowser.findElement(By.xpath("//body/*"));  // In the following code Body is the main tag we have searched all childs of body tag. As we are not sure about child tags, so we gave *. * Denotes it can be any child.
+        System.out.println("17. In Following Example we have Searched All Childs of Body Tag Using *  ");
+
+        //----------------------- Test Case 18 Positive -----
+
+        System.out.println("Find Particular Child of Particular HTML Tag");
+        WebElement findParticularChildOfParticularTag = openBrowser.findElement(By.xpath("//body/*[1]"));  // In the following code Body is the main tag we have searched all childs of body tag. As we are not sure about child tags, so we gave *. * Denotes it can be any child.
+        System.out.println("18. In Following Example we have Searched Particular Child of Body Tag Using index Value ");
+        System.out.println(findParticularChildOfParticularTag.getTagName());
 
 
     }
