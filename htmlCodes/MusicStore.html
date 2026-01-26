@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yogesh's Music Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 0;
+        }
+        header {
+          background-color: #222;
+          color: white;
+          padding: 20px;
+          text-align: center;
+        }
+        .search-bar {
+          margin: 20px auto;
+          text-align: center;
+        }
+        input[type="text"] {
+          padding: 10px;
+          width: 60%;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+        }
+        .cd-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          padding: 20px;
+        }
+        .cd-card {
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          padding: 15px;
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+        .cd-card:hover {
+          transform: scale(1.05);
+        }
+        .cd-title {
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+        .cd-label {
+          color: #555;
+          font-size: 14px;
+        }
+        footer {
+          text-align: center;
+          padding: 20px;
+          font-size: 14px;
+          color: #777;
+        }
+        /* Modal Styles */
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0,0,0,0.6);
+        }
+        .modal-content {
+          background-color: #fff;
+          margin: 10% auto;
+          padding: 20px;
+          border-radius: 8px;
+          width: 60%;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .close:hover {
+          color: black;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎵 Yogesh's CD Collection</h1>
+    <p>Explore rare film & non-film albums (2026 Edition)</p>
+</header>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search by title, label, or year...">
+</div>
+
+<div class="cd-grid">
+    <div class="cd-card" onclick="showDetails('1920')">
+        <div class="cd-title">1920 Evil Returns</div>
+        <div class="cd-label">T-Series</div>
+    </div>
+    <div class="cd-card" onclick="showDetails('3')">
+        <div class="cd-title">3 The Movie</div>
+        <div class="cd-label">Saregama</div>
+    </div>
+    <div class="cd-card" onclick="showDetails('Aag')">
+        <div class="cd-title">Aag Ka Dariya</div>
+        <div class="cd-label">Melody / Venus</div>
+    </div>
+    <div class="cd-card" onclick="showDetails('Legends')">
+        <div class="cd-title">2 Legends: Lata & Asha</div>
+        <div class="cd-label">BMG Crescendo</div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="cdModal" class="modal">
+    <div class="modal-content">
+        <span onclick="closeModal()" class="close">&times;</span>
+        <h2 id="cdTitle"></h2>
+        <p><strong>Label:</strong> <span id="cdLabel"></span></p>
+        <p><strong>Year:</strong> <span id="cdYear"></span></p>
+        <p><strong>Composer:</strong> <span id="cdComposer"></span></p>
+        <p><strong>Genre:</strong> <span id="cdGenre"></span></p>
+        <p><strong>Tracks:</strong></p>
+        <ul id="cdTracks"></ul>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Yogesh's Archive | Powered by Music & Memory
+</footer>
+
+<script>
+    // Sample CD Data
+    const cdData = {
+      "1920": {
+        title: "1920 Evil Returns",
+        label: "T-Series",
+        year: "2012",
+        composer: "Chirantan Bhatt",
+        genre: "Horror / Soundtrack",
+        tracks: ["Apnaa Mujhe Tu Lagaa", "Uska Hi Bana", "Majboor Tu Bhi Kahin"]
+      },
+      "3": {
+        title: "3 The Movie",
+        label: "Saregama",
+        year: "2012",
+        composer: "Anirudh Ravichander",
+        genre: "Romantic / Drama",
+        tracks: ["Why This Kolaveri Di", "Kannazhaga", "Po Nee Po"]
+      },
+      "Aag": {
+        title: "Aag Ka Dariya",
+        label: "Melody / Venus",
+        year: "1990",
+        composer: "Various",
+        genre: "Drama / Soundtrack",
+        tracks: ["Title Track", "Romantic Song"]
+      },
+      "Legends": {
+        title: "2 Legends: Lata & Asha",
+        label: "BMG Crescendo",
+        year: "2000",
+        composer: "Compilation",
+        genre: "Classical / Bollywood",
+        tracks: ["Lag Ja Gale", "Chura Liya Hai Tumne", "Do Lafzon Ki Hai"]
+      }
+    };
+
+    function showDetails(key) {
+      const cd = cdData[key];
+      document.getElementById("cdTitle").innerText = cd.title;
+      document.getElementById("cdLabel").innerText = cd.label;
+      document.getElementById("cdYear").innerText = cd.year;
+      document.getElementById("cdComposer").innerText = cd.composer;
+      document.getElementById("cdGenre").innerText = cd.genre;
+
+      const trackList = document.getElementById("cdTracks");
+      trackList.innerHTML = "";
+      cd.tracks.forEach(track => {
+        const li = document.createElement("li");
+        li.innerText = track;
+        trackList.appendChild(li);
+      });
+
+      document.getElementById("cdModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("cdModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

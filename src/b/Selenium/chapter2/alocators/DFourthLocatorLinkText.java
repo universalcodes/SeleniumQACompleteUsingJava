@@ -1,11 +1,11 @@
-package b.Selenium.chapter2.locators;
+package b.Selenium.chapter2.alocators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class GFourthLocatorLinkText {
+public class DFourthLocatorLinkText {
 
     public static void main(String[] args) {
 

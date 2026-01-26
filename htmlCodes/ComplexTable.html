@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complex Table Example</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Employee Project Allocation</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th rowspan="2">Employee ID</th>
+        <th rowspan="2">Name</th>
+        <th colspan="2">Project Details</th>
+        <th rowspan="2">Department</th>
+    </tr>
+    <tr>
+        <th>Project Name</th>
+        <th>Hours Allocated</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>E101</td>
+        <td>Rahul Sharma</td>
+        <td>Automation Framework</td>
+        <td>120</td>
+        <td>QA</td>
+    </tr>
+    <tr>
+        <td>E102</td>
+        <td>Anita Verma</td>
+        <td>Web Portal</td>
+        <td>200</td>
+        <td>Development</td>
+    </tr>
+    <tr>
+        <td rowspan="2">E103</td>
+        <td rowspan="2">Suresh Kumar</td>
+        <td>Mobile App</td>
+        <td>150</td>
+        <td rowspan="2">UI/UX</td>
+    </tr>
+    <tr>
+        <td>Dashboard Design</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>E104</td>
+        <td>Priya Singh</td>
+        <td colspan="2">Support Role (Shared across projects)</td>
+        <td>Operations</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

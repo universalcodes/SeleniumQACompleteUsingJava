@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Complex Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Company Resource Allocation</h2>
+
+<table>
+<caption>Student Information</caption>
+    <thead>
+    <tr>
+        <th rowspan="2">Emp ID</th>
+        <th rowspan="2">Name</th>
+        <th colspan="3">Projects</th>
+        <th rowspan="2">Department</th>
+        <th rowspan="2">Actions</th>
+    </tr>
+    <tr>
+        <th>Project Name</th>
+        <th>Hours</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>E201</td>
+        <td>Ravi Kumar</td>
+        <td>AI Platform</td>
+        <td>180</td>
+        <td>Ongoing</td>
+        <td>Development</td>
+        <td><input type="checkbox" checked> Active</td>
+    </tr>
+    <tr>
+        <td rowspan="2">E202</td>
+        <td rowspan="2">Meena Sharma</td>
+        <td>Data Warehouse</td>
+        <td>120</td>
+        <td>Completed</td>
+        <td rowspan="2">Analytics</td>
+        <td rowspan="2">
+            <a href="profile.html">View Profile</a>
+        </td>
+    </tr>
+    <tr>
+        <td>ETL Pipeline</td>
+        <td>90</td>
+        <td>Ongoing</td>
+    </tr>
+    <tr>
+        <td>E203</td>
+        <td>Arjun Singh</td>
+        <td colspan="3">
+            <table>
+                <tr>
+                    <td>Mobile App</td>
+                    <td>200</td>
+                    <td>Ongoing</td>
+                </tr>
+                <tr>
+                    <td>Web Dashboard</td>
+                    <td>150</td>
+                    <td>Pending</td>
+                </tr>
+            </table>
+        </td>
+        <td>UI/UX</td>
+        <td><button>Assign Task</button></td>
+    </tr>
+    <tr>
+        <td>E204</td>
+        <td>Yogesh Verma</td>
+        <td colspan="2">Shared Support</td>
+        <td>On Hold</td>
+        <td>Operations</td>
+        <td><input type="text" placeholder="Remarks"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

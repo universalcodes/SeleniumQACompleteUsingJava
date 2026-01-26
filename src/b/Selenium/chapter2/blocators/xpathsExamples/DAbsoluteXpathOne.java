@@ -1,4 +1,4 @@
-package b.Selenium.chapter2.locators;
+package b.Selenium.chapter2.blocators.xpathsExamples;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
