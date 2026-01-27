@@ -63,8 +63,23 @@ public class AHtmlTable {
         WebDriver openBrowser = new ChromeDriver();
         openBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/HTMLCodes/ComplexTableTwo.html");
 
-        System.out.println("Find the Table in HTML Code");
+        System.out.println("Find the Table Tag in HTML Code");
         WebElement findTableUsingTableTag = openBrowser.findElement(By.xpath("//table")); // In the following code, we are trying to find table in the html code
         System.out.println("Tables are found in HTML Web Page");
+
+        System.out.println("Find the Particular Data Table in HTML");
+        WebElement findDataTable = openBrowser.findElement(By.xpath("//tbody//tr//td[2][text()='Ravi Kumar']")); // In the following code, we are trying to find particular datatable from particular row
+        System.out.println("Particular Data are found in HTML Web Page");
+
+        System.out.println("Find the Particular Data Table from Nested Table in HTML");
+        WebElement findDataFromNestedTable = openBrowser.findElement(By.xpath("//tbody//tr[4]//td[3]//table//tr[1]//td[1][text()='Mobile App']")); // In the following code, we are trying to find particular datatable from particular row within nested table
+        System.out.println("Particular Data are found from Nested table in HTML Web Page");
+
+
+
+
+
+
+
     }
 }
