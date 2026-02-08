@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class FWildCardXpath {
+public class CWildCardXpath {
     public static void main(String[] args) {
             /*
             Wildcards - Whenever a user is trying to  find any web Element & user not sure about which tag has to be used.
