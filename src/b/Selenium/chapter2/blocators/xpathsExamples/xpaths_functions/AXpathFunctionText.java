@@ -38,7 +38,7 @@ public class AXpathFunctionText {
             System.out.println(findElementByTextFunctionUsingAstrick.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
             System.out.println("Find the Particular HTML Text using text() Function using Particular HTML Tag");
-            WebElement findElementByTextFunctionUsingHTMLTag = openBrowser.findElement(By.xpath("//*[text()='Notebook']")); // In the Following Code we are tried to find html text using text() function using Particular Tag
+            WebElement findElementByTextFunctionUsingHTMLTag = openBrowser.findElement(By.xpath("//td[text()='Notebook']")); // In the Following Code we are tried to find html text using text() function using Particular Tag
             System.out.println(findElementByTextFunctionUsingHTMLTag.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
             System.out.println("Find the Particular HTML Text with Uppercase using text() Function * means Any Tag");
@@ -54,7 +54,7 @@ public class AXpathFunctionText {
             System.out.println(findSameElementLowercaseByTextFunctionUsingAstrick.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
 
-            System.out.println("Find the Particular HTML Text with lowercase using text() Function * means Any Tag");
+            System.out.println("Find the Particular HTML Text with togglecase using text() Function * means Any Tag");
             WebElement findSameElementToggleByTextFunctionUsingAstrick = openBrowser.findElement(By.xpath("//*[text()='NotebOoK']")); // In the Following Code we are tried to find same html text given in togglecase using text() function using  * means Any T
             System.out.println(findSameElementToggleByTextFunctionUsingAstrick.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
