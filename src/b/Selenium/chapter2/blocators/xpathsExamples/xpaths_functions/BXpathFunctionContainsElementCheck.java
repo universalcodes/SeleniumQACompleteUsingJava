@@ -67,8 +67,8 @@ public class BXpathFunctionContainsElementCheck {
             System.out.println(findSameElementLowerCaseByTextFunctionUsingHTMLTag.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
             System.out.println("Find the Particular HTML Text with toggle contains with using text() Function using Particular HTML Tag");
-            WebElement findSameElementToggleByTextFunctionUsingAsterisk = openBrowser.findElement(By.xpath("//td[contains(text(), 'NoTe')]")); // In the Following Code we are tried to find same html text given in togglecase using text() function using  * means Any T
-            System.out.println(findSameElementToggleByTextFunctionUsingAsterisk.isDisplayed());   // Return true if Element is found in the webpage otherwise false
+            WebElement findSameElementToggleByTextFunctionFunctionUsingHTMLTag = openBrowser.findElement(By.xpath("//td[contains(text(), 'NoTe')]")); // In the Following Code we are tried to find same html text given in togglecase using text() function using  * means Any T
+            System.out.println(findSameElementToggleByTextFunctionFunctionUsingHTMLTag.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
             System.out.println("Find the Particular HTML Text Element with Extra Space using contains with text() Function using Particular HTML Tag");
             WebElement findElementWithExtraSpaceByContainsWithTextFunctionUsingHTMLTag = openBrowser.findElement(By.xpath("//td[text()='Note ']")); // In the Following Code we are tried to find html element using contains with text(), we have provided partial text instead of complete text we have provided partial text. * means Any Tag
