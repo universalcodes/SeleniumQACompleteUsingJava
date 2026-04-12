@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Demo HTML page covering most important tags in a single file">
-    <title>HTML All-in-One Demo</title>
+    <meta name="description" content="Comprehensive showcase of essential HTML elements and best practices">
+    <title>HTML Elements Showcase</title>
     <base href="https://example.com/">
     <link rel="stylesheet" href="styles.css">
     <style>
-        :root { --accent: #2563eb; --bg: #f8fafc; }
-        body { font-family: system-ui, sans-serif; margin: 0; background: var(--bg); color: #111; }
-        header, nav, footer { background: #fff; border-bottom: 1px solid #e5e7eb; }
-        header { padding: 1rem; }
-        nav ul { display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; }
-        main { max-width: 1000px; margin: auto; padding: 1rem; }
-        section { background: #fff; padding: 1rem; margin: 1rem 0; border: 1px solid #e5e7eb; border-radius: 8px; }
-        code, pre { background: #0f172a; color: #e2e8f0; border-radius: 6px; }
-        pre { padding: .75rem; overflow: auto; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #e5e7eb; padding: .5rem; text-align: left; }
-        caption { font-weight: bold; margin-bottom: .5rem; }
-        figure { margin: 0; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        aside { background: #f1f5f9; padding: .75rem; border-radius: 6px; }
-        .btn { background: var(--accent); color: #fff; border: none; padding: .5rem .75rem; border-radius: 6px; cursor: pointer; }
-        .badge { background: #eef2ff; color: #3730a3; padding: .15rem .4rem; border-radius: 4px; font-size: .85rem; }
+        :root { --accent: #2d3748; --bg: #f7fafc; --text: #1a202c; --light-bg: #edf2f7; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        header, nav, footer { background: #fff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        header { padding: 2rem 1rem; text-align: center; }
+        nav ul { display: flex; gap: 2rem; list-style: none; padding: 1rem; margin: 0; justify-content: center; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+        main { max-width: 1200px; margin: auto; padding: 2rem 1rem; }
+        section { background: #fff; padding: 2rem; margin: 2rem 0; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        code, pre { background: #2d3748; color: #e2e8f0; border-radius: 6px; }
+        pre { padding: 1rem; overflow: auto; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 0.75rem; text-align: left; }
+        th { background: var(--light-bg); font-weight: 600; }
+        caption { font-weight: bold; margin-bottom: 0.5rem; color: var(--accent); }
+        figure { margin: 1rem 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        aside { background: var(--light-bg); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent); }
+        .btn { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background 0.3s; }
+        .btn:hover { background: #1a202c; }
+        .badge { background: #bee3f8; color: #2a69ac; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem; font-weight: 500; }
         .sr-only { position: absolute; left: -9999px; }
+        h1, h2, h3, h4, h5, h6 { color: var(--accent); margin-top: 0; }
+        p { margin: 1rem 0; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            nav ul { gap: 1rem; }
+            section { padding: 1rem; }
+            main { padding: 1rem; }
+        }
     </style>
     <noscript>
         <style> .requires-js { display: none; } </style>
@@ -34,8 +47,8 @@
 
 <body>
 <header>
-    <h1>HTML All-in-One Demo <span class="badge">v1.0</span></h1>
-    <p><small>Is page mein common & important HTML tags dikhaye gaye hain.</small></p>
+    <h1>HTML Elements Showcase <span class="badge">v1.0</span></h1>
+    <p><small>This page demonstrates essential HTML tags and elements.</small></p>
     <address>
         Created by <a href="mailto:demo@example.com">Demo Author</a> •
         <time datetime="2025-12-03">3 Dec 2025</time>
@@ -73,14 +86,14 @@
 
         <section>
             <h3>Paragraphs and inline</h3>
-            <p>Ye ek <strong>bold</strong>, <em>italic</em>, <mark>highlighted</mark> paragraph hai with
+            <p>This is a <strong>bold</strong>, <em>italic</em>, <mark>highlighted</mark> paragraph with
                 <small>small text</small>, <del>deleted</del> and <ins>inserted</ins> text, H<sub>2</sub>O, x<sup>2</sup>.
-                Quote: <q cite="https://example.com/quotes">Simplicity is powerful.</q> Aur cite: <cite>Clean Code</cite>.
-                <abbr title="HyperText Markup Language">HTML</abbr> basics yaha dikh rahe hain.</p>
+                Quote: <q cite="https://example.com/quotes">Simplicity is powerful.</q> Citation: <cite>Clean Code</cite>.
+                <abbr title="HyperText Markup Language">HTML</abbr> basics are shown here.</p>
             <p>Line break example<br>Next line after br. Horizontal rule below:</p>
             <hr>
             <blockquote cite="https://example.com/article">
-                “Blockquote long quote yaha show hota hai.”
+                “Blockquote displays long quotes here.”
             </blockquote>
             <p>Inline code: <code>const x = 42;</code> and a <a href="/docs">relative link</a>.</p>
             <pre><code>// Preformatted block:
@@ -325,6 +338,38 @@ function greet(name) {
             <div class="card"><strong>Template:</strong> This content can be cloned via JS.</div>
         </template>
     </section>
+
+
+    <input id=" normalize-id " name=" normalize-name" type="text" placeholder="Your name" required>
+    <p>
+        <label for="lang">Language:</label>
+        <input list="languages" id=" lang " name="lang" placeholder="Type to search...">
+        <datalist id="languages-normal">
+            <option value=" Hindi "></option>
+            <option value="English"></option>
+            <option value=" Marathi "></option>
+        </datalist>
+    </p>
+
+    <h1>Normalize-Space Attribute Examples</h1>
+
+    <!-- Example with extra spaces in id -->
+    <input id="   lang2   " type="text" placeholder="Enter language">
+
+    <!-- Example with extra spaces in name -->
+    <input name="   myName   " type="text" placeholder="Enter name">
+
+    <!-- Example with extra spaces in class -->
+    <input class="   myClass   " type="text" placeholder="Enter class">
+
+    <!-- Example with text having extra spaces -->
+    <p>   This    is     Normalize    Text   </p>
+
+    <!-- Example with header + text inside p -->
+    <p>
+    <h2>   Welcome   Header   </h2>
+    This    is    Normalize    Text
+
 </main>
 
 <footer>
