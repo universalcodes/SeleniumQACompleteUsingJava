@@ -1,4 +1,4 @@
-package b.Selenium.chapter2.blocators.xpathsExamples.xpaths_functions;
+package b.Selenium.locator.chapter2.b.advancedlocator.xpath.c.xpath.validations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -23,10 +23,9 @@ public class BXpathFunctionContainsElementCheck {
             //*[contains(text(), 'value')]  -- we have used contains where we have defined partial text using contains  with text() * symbol which means any tag
 
           3. starts-with()
-          4. ends-with()
-          5. position()
-          6. last()
-          7. normalize-space
+          4. position()
+          5. last()
+          6. normalize-space
      */
 
     public static void main(String[] args) {

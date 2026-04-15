@@ -1,4 +1,4 @@
-package b.Selenium.chapter2.alocators;
+package b.Selenium.locator.chapter2.a.basiclocators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

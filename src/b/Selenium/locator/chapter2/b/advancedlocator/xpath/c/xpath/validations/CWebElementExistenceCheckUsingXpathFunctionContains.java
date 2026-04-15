@@ -1,9 +1,8 @@
-package b.Selenium.chapter2.blocators.xpathsExamples.xpaths_functions;
+package b.Selenium.locator.chapter2.b.advancedlocator.xpath.c.xpath.validations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CWebElementExistenceCheckUsingXpathFunctionContains {

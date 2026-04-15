@@ -1,4 +1,4 @@
-package b.Selenium.chapter2.ClocatorsIncludesHtmlTable;
+package b.Selenium.locator.chapter2.ClocatorsIncludesHtmlTable;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

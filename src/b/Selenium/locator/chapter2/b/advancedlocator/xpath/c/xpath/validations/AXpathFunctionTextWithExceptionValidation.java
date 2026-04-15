@@ -1,4 +1,4 @@
-package b.Selenium.chapter2.blocators.xpathsExamples.xpaths_functions;
+package b.Selenium.locator.chapter2.b.advancedlocator.xpath.c.xpath.validations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,10 +22,9 @@ public class AXpathFunctionTextWithExceptionValidation {
 
           2. contains()
           3. starts-with()
-          4. ends-with()
-          5. position()
-          6. last()
-          7. normalize-space
+          4. position()
+          5. last()
+          6. normalize-space
      */
 
     public static void main(String[] args) {
