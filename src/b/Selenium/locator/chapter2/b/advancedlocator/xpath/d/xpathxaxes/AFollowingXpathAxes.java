@@ -56,15 +56,15 @@ In the above code user is trying to find the all elements of p tag after id= acc
 
 //        System.out.println("5.Use the following Xpath Axes with Invalid text()   ");
 //        // In the following code, we are trying to find descendant which means finding all child and grand child and so on
-//        // we have used contains invalid text() as strducture, with the help of structure we are trying to find the another text Aside
-//        // as strducture is not available in webpage it  throws an runTime Exception as NoSuchElementException
+//        // we have used contains invalid text() as structure, with the help of structure we are trying to find the another text Aside
+//        // as structure is not available in webpage it  throws an runTime Exception as NoSuchElementException
 //        WebElement findElementThroughFollowingXpathAxes5 = openBrowser.findElement(By.xpath("//*[contains(text(), 'strducture')]/following::*[text()='Aside']"));
 //        System.out.println(findElementThroughFollowingXpathAxes5.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
 
 //        System.out.println("6.Use the following Xpath Axes incorrect way  ");
 //        // In the following code, we are trying to find a descendant which means finding all child and grand child and so on
-//        // we have used incorrect word folloowing then it throws as runtime exception as InvalidSelectorException
+//        // we have used incorrect word following then it throws as runtime exception as InvalidSelectorException
 //        WebElement findElementThroughFollowingXpathAxes6 = openBrowser.findElement(By.xpath("//*[contains(text(), 'structure')]/folloowing::*[text()='Aside']"));
 //        System.out.println(findElementThroughFollowingXpathAxe6.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 //

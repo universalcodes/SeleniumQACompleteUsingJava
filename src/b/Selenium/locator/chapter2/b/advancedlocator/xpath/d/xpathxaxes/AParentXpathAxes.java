@@ -29,7 +29,6 @@ public class AParentXpathAxes {
         WebElement findElementThroughParentXpathAxes2 = openBrowser.findElement(By.xpath("//h1/parent::header"));
         System.out.println(findElementThroughParentXpathAxes2.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
-
         System.out.println("3.Use the Parent Xpath Axes with Normalize Text & Find the Parent Element of the Webpage ");
         // In the following code, we are trying to find parent tag based on the child element which is present in the webpage, and we have used child tag
         // as h1 to find the child element & then we are trying to find the parent element of that child element
