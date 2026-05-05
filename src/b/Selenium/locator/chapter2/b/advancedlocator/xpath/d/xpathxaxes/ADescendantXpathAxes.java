@@ -52,35 +52,37 @@ public class ADescendantXpathAxes {
     </div>
 </section>
 
-        <section id="bank-section">   → Dada / Ancestor
+Tree Based Hierarchy of the Webpage
 │
-├── <h2>Bank Services</h2>    → Child of section
-│
-├── <div id="account-options"> → Child of section
+├── <section id="bank-section"> → Root element (top ancestor)
 │   │
-│   ├── <p class="account-row"> → Child of account-options, Grandchild of section
-│   │   ├── <span> → Child of p, Grandchild of div, Great-grandchild of section
-│   │   ├── <strong> → Same level as span
-│   │   ├── <em> → Same level as span
-│   │   └── <a> → Same level as span
+│   ├── <h2>Bank Services</h2> → Child of section
 │   │
-│   ├── <p class="account-row1"> → Another child of account-options, Grandchild of section
-│   │   ├── <span> → Child of p, Grandchild of div, Great-grandchild of section
-│   │   └── <input> → Same level as span
+│   ├── <div id="account-options"> → Child of section
+│   │   │
+│   │   ├── <p class="account-row"> → Child of account-options, Grandchild of section
+│   │   │   ├── <span> → Child of p, Ancestors: <p>, <div>, <section>
+│   │   │   ├── <strong> → Same level as span, Ancestors: <p>, <div>, <section>
+│   │   │   ├── <em> → Same level as span, Ancestors: <p>, <div>, <section>
+│   │   │   └── <a> → Same level as span, Ancestors: <p>, <div>, <section>
+│   │   │
+│   │   ├── <p class="account-row1"> → Another child of account-options, Grandchild of section
+│   │   │   ├── <span> → Child of p, Ancestors: <p>, <div>, <section>
+│   │   │   └── <input> → Same level as span, Ancestors: <p>, <div>, <section>
+│   │   │
+│   │   └── <p class="account-row"> → Third child of account-options, Grandchild of section
+│   │       ├── <span> → Child of p, Ancestors: <p>, <div>, <section>
+│   │       └── <input> → Child of p, Ancestors: <p>, <div>, <section>
 │   │
-│   └── <p class="account-row"> → Third child of account-options, Grandchild of section
-│       ├── <span> → Child of p
-│       └── <input> → Child of p
-│
-└── <div id="loan-options"> → Another child of section
-    │
-    ├── <p class="loan-row"> → Child of loan-options, Grandchild of section
-    │   ├── <span> → Child of p, Great-grandchild of section
-    │   └── <button> → Child of p, Great-grandchild of section
-    │
-    └── <p class="loan-row"> → Another child of loan-options
-        ├── <span> → Child of p
-        └── <button> → Child of p
+│   └── <div id="loan-options"> → Another child of section
+│       │
+│       ├── <p class="loan-row"> → Child of loan-options, Grandchild of section
+│       │   ├── <span> → Child of p, Ancestors: <p>, <div>, <section>
+│       │   └── <button> → Child of p, Ancestors: <p>, <div>, <section>
+│       │
+│       └── <p class="loan-row"> → Another child of loan-options
+│           ├── <span> → Child of p, Ancestors: <p>, <div>, <section>
+│           └── <button> → Child of p, Ancestors: <p>, <div>, <section>
 
 
       */
@@ -126,6 +128,13 @@ public class ADescendantXpathAxes {
         WebElement findElementThroughDescendantXpathAxes9 = openBrowser.findElement(By.xpath(" //*[@id='bank-section']//*[@id='loan-options']"));
         System.out.println(findElementThroughDescendantXpathAxes9.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
+        System.out.println("10.Use the Descendant with Self Xpath Axes and Find the All Descendant Element Including Current Node of the Webpage ");
+        WebElement findElementThroughDescendantXpathAxes10 = openBrowser.findElement(By.xpath("//*[@id='bank-section']/descendant-or-self::*"));
+        System.out.println(findElementThroughDescendantXpathAxes10.isDisplayed());
+
+        System.out.println("11.Use the Descendant Axes and Find the All Descendant Element Not Including Current Node of the Webpage ");
+        WebElement findElementThroughDescendantXpathAxes11 = openBrowser.findElement(By.xpath("//*[@id='bank-section']/descendant::*"));
+        System.out.println(findElementThroughDescendantXpathAxes11.isDisplayed());
 
 
 
