@@ -387,15 +387,8 @@ function greet(name) {
 
     <input name="myyNameisUniqueAndTested" type="text" placeholder="EnteredNameisUniqueAlways">
 
-    <h1>Note</h1>
-
-
-
 </main>
 
-<footer>
-    <p>&copy; <time datetime="2025">2025</time> Demo Site • <a href="#top">Back to top</a></p>
-</footer>
 
 <script>
     // Canvas demo
@@ -434,5 +427,108 @@ function greet(name) {
       document.querySelector('#embed').appendChild(clone);
     }
 </script>
+
+
+<main>
+    <section id="accounts">
+        <h2>Customer Accounts</h2>
+        <article class="savings">
+            <h3>Paragraphs and inline</h3>
+            <p>Savings account details go here.</p>
+            <span>Interest rate info</span>
+        </article>
+        <article class="checking">
+            <h3>Checking Account</h3>
+            <p>Checking account details go here.</p>
+        </article>
+    </section>
+
+    <section id="loans">
+        <h2>Loan Services</h2>
+        <div class="personal-loan">
+            <h3>Personal Loan</h3>
+            <p>Loan details and eligibility.</p>
+        </div>
+        <div class="home-loan">
+            <h3>Home Loan</h3>
+            <p>Home loan details and eligibility.</p>
+        </div>
+    </section>
+</main>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XPath Parent Axis Complex Demo</title>
+</head>
+<body>
+<section id="bank-section">
+    <h2>Bank Services</h2>
+
+    <!-- Parent DIV with multiple nested children -->
+    <div id="account-options">
+        <p class="account-row">
+            <span class="label">This is Normalize Text</span>
+            <strong>Extra Bold Child</strong>
+            <em>Italic Child</em>
+            <a href="#">Click Here</a>
+        </p>
+
+        <p class="account-row1">
+            <span class="label">Savings Account</span>
+            <input type="radio" name="accountType" value="savings">
+        </p>
+
+        <p class="account-row">
+            <span class="label">Current Account</span>
+            <input type="radio" name="accountType" value="current">
+        </p>
+    </div>
+
+    <!-- Another parent with nested structure -->
+    <div id="loan-options">
+        <p class="loan-row">
+            <span class="label">Home Loan</span>
+            <button>Apply</button>
+        </p>
+        <p class="loan-row">
+            <span class="label">Car Loan</span>
+            <button>Apply</button>
+        </p>
+    </div>
+    <div>
+        <h1>Preceding Xpath Axes</h1>
+
+        <h2>Bank Services</h2>
+
+        <div class="account">
+            <label for="acc1">Savings Account</label>
+            <input type="text" id="acc1" name="savings" placeholder="Enter Savings Account No">
+        </div>
+
+        <div class="account">
+            <label for="acc2">Current Account</label>
+            <input type="text" id="acc2" name="current" placeholder="Enter Current Account No">
+        </div>
+
+        <div class="loan">
+            <label for="loan1">Home Loan</label>
+            <input type="text" id="loan1" name="homeloan" placeholder="Enter Loan ID">
+        </div>
+
+        <div class="loan">
+            <label for="loan2">Car Loan</label>
+            <input type="text" id="loan2" name="carloan" placeholder="Enter Loan ID">
+        </div>
+    </div>
+
+</section>
+
+
+<footer>
+    <p> ©   2026  ChaseBank   Demo</p>
+</footer>
+
+
 </body>
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chase Bank Demo Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
+        h2 { color: darkblue; }
+        .account, .loan, .transaction { margin: 10px 0; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input { padding: 5px; width: 250px; }
+    </style>
+</head>
+<body>
+<h1>Bank Portal</h1>
+
+<!-- Accounts Section -->
+<section id="accounts">
+    <h2>Accounts</h2>
+    <div class="account">
+        <label for="acc1">Savings Account</label>
+        <input type="text" id="acc1" placeholder="Enter Savings Account No">
+    </div>
+    <div class="account">
+        <label for="acc2">Current Account</label>
+        <input type="text" id="acc2" placeholder="Enter Current Account No">
+    </div>
+    <div class="account">
+        <label for="acc3">Fixed Deposit</label>
+        <input type="text" id="acc3" placeholder="Enter FD Account No">
+    </div>
+</section>
+
+<!-- Loans Section -->
+<section id="loans">
+    <h2>Loans</h2>
+    <div class="loan">
+        <label for="loan1">Home Loan</label>
+        <input type="text" id="loan1" placeholder="Enter Home Loan ID">
+    </div>
+    <div class="loan">
+        <label for="loan2">Car Loan</label>
+        <input type="text" id="loan2" placeholder="Enter Car Loan ID">
+    </div>
+</section>
+
+<!-- Transactions Section -->
+<section id="transactions">
+    <h2>Transactions</h2>
+    <div class="txn">
+        <label for="txn1">Deposit</label>
+        <input type="text" id="txn1" placeholder="Enter Deposit Amount">
+    </div>
+    <div class="txn">
+        <label for="txn2">Withdrawal</label>
+        <input type="text" id="txn2" placeholder="Enter Withdrawal Amount">
+    </div>
+    <div class="txn">
+        <label for="txn3">Transfer</label>
+        <input type="text" id="txn3" placeholder="Enter Transfer Details">
+    </div>
+</section>
+
+<!-- Customer Services Section (5 siblings for following-sibling demo) -->
+<section id="services">
+    <h2>Customer Services</h2>
+    <div class="service">
+        <label for="srv1">Locker Service</label>
+        <input type="text" id="srv1" placeholder="Enter Locker ID"><br>
+
+        <label for="srv2">Cheque Book</label>
+        <input type="text" id="srv2" placeholder="Enter Cheque Request"><br>
+
+        <label for="srv3">ATM Card</label>
+        <input type="text" id="srv3" placeholder="Enter ATM Card Request"><br>
+
+        <label for="srv4">Net Banking</label>
+        <input type="text" id="srv4" placeholder="Enter Net Banking ID"><br>
+
+        <label for="srv5">Mobile Banking</label>
+        <input type="text" id="srv5" placeholder="Enter Mobile Banking ID">
+    </div>
+</section>
+</body>
+</html>
+
+
+

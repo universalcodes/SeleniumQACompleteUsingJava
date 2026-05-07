@@ -32,7 +32,7 @@ In the above code user is trying to find the all elements of p tag after id= acc
         System.out.println("1.Use the following Xpath Axes with text() & Find the Next Element of the Webpage ");
         // In the following code, we are trying to find descendant which means finding all child and grand child and so on
         //we have used text() as Step 1 & we are trying the next element which comes after that element
-        WebElement findElementThroughFollowingXpathAxes = openBrowser.findElement(By.xpath("//*[text()='Step 1']/following::li[1]"));
+            WebElement findElementThroughFollowingXpathAxes = openBrowser.findElement(By.xpath("//*[text()='Step 1']/following::li[1]"));
         System.out.println(findElementThroughFollowingXpathAxes.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
         System.out.println("2.Use the following Xpath Axes with text() & Find the Next Element of the Webpage, we have Extra // ");
