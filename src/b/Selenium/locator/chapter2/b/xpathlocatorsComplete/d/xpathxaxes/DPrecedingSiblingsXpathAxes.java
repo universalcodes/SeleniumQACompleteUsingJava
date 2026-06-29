@@ -1,4 +1,4 @@
-package b.Selenium.locator.chapter2.b.advancedlocator.xpath.d.xpathxaxes;
+package b.Selenium.locator.chapter2.b.xpathlocatorsComplete.d.xpathxaxes;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

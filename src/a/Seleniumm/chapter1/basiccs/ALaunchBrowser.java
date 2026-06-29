@@ -26,16 +26,10 @@ public class ALaunchBrowser {
         WebDriver openSafariBrowser = new SafariDriver();
         openSafariBrowser.get("https://www.google.com/");
        openSafariBrowser.quit();
-       4. If User didnt provide any web URL then default address bar is data
+       4. If User didn't provide any web URL, then the default address bar is data
        */
 //
         String reportPath = "F:\\Full Selenium Java Journey\\CompleteQASelenium\\TestReports\\Report.html";
-
-
-
-
-
-
         WebDriver openGoogleBrowser = new ChromeDriver();
         openGoogleBrowser.get("https://www.google.com/");
      //   openGoogleBrowser.get("www.google.com");  // following line wont work as we didn't gave http protocol & it considered as InvalidArgumentException & Selenium Virtual Browser displays as data as Address Bar,
@@ -71,13 +65,13 @@ public class ALaunchBrowser {
 //        openEdgeBrowser.get("https://www.google.com/");
 //        openEdgeBrowser.quit();
 
-        ExtentSparkReporter addReport = new ExtentSparkReporter(reportPath);
-        ExtentReports createReport = new ExtentReports();
-        createReport.attachReporter(addReport);
-        ExtentTest testresult = createReport.createTest("Launch Browser");
-
-        testresult.info("Browser closed & Test Case is Completed");
-      createReport.flush();
+//        ExtentSparkReporter addReport = new ExtentSparkReporter(reportPath);
+//        ExtentReports createReport = new ExtentReports();
+//        createReport.attachReporter(addReport);
+//        ExtentTest testresult = createReport.createTest("Launch Browser");
+//
+//        testresult.info("Browser closed & Test Case is Completed");
+//      createReport.flush();
 
 
         // Safari Browser
@@ -86,6 +80,13 @@ public class ALaunchBrowser {
 //        openSafariBrowser.quit();
 
 
+        System.out.println("No WebDriver Interface is Used");
+        ChromeDriver launchChrome = new ChromeDriver();
+        launchChrome.get("https://www.google.com/");
+        launchChrome.close();
+
+
+        WebDriver webDriverTest = new WebDriver(); // Compile Time Error 'WebDriver' is abstract; cannot be instantiated
 
     }
 

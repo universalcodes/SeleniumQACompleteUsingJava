@@ -1,4 +1,4 @@
-package b.Selenium.locator.chapter2.b.advancedlocator.xpath.b.xpath.functions;
+package b.Selenium.locator.chapter2.b.xpathlocatorsComplete.b.xpath.functions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

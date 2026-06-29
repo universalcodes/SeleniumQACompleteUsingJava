@@ -1,4 +1,4 @@
-package b.Selenium.locator.chapter2.b.advancedlocator.xpath.c.xpath.validations;
+package b.Selenium.locator.chapter2.b.xpathlocatorsComplete.c.xpath.validations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
