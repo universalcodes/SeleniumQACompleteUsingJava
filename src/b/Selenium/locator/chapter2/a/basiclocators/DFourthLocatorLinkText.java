@@ -27,62 +27,76 @@ public class DFourthLocatorLinkText {
         5.   ensure that locator value must be string return type
             example By.id("yogesh"));  // Yogesh is given in the String
 
+        6. LinkText is used to locate the Element which has Anchor Tag, we need to pass actual Link Text
+
          */
 
         /*
           //----------------- Positive Case 1 --------------------------
-            In the following code, we are going to work with Name Locator of given webpage
+            In the following code, we are going to work with LinkText Locator of given webpage
         In the following code we need to ensure that element is the present in the webpage,
         but It's not visible then isDisplayed() Method returns false
 
+
          */
 
-        WebDriver openBrowser = new ChromeDriver();
-        openBrowser.get("https://the-internet.herokuapp.com/");
+        WebDriver openGoogleBrowser = new ChromeDriver();
+        openGoogleBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/HTMLCodes/seleniumpage.HTML");
 
-        // following line won't work as we didn't have http protocol & it considered as InvalidArgumentException
-        // openBrowser.get("the-internet.herokuapp.com/");
+        // In the following line won't work as we didn't have http protocol & it considered as InvalidArgumentException
+       // openGoogleBrowser.get("file:/ull%20Selenium%20Java%20Journey/CompleteQASelenium/HTMLCodes/seleniumpage.HTML");
 
-  //WebElement validLocatorCheckName = openBrowser.findElement(By.name(viewport)); // Compile Time Error name locator is not given in String
-        WebElement validLocatorCheckName = openBrowser.findElement(By.name("viewport"));
-
+  //WebElement validLocatorLinkText = openGoogleBrowser.findElement(By.linkText(Text & formatting)); // Compile Time Error name locator is not given in String
+        WebElement validLocatorLinkText = openGoogleBrowser.findElement(By.linkText("Text & formatting"));
 
         //    isDisplayed() is the inbuilt method with return type boolean comes under WebElement Interface
        //  where we can validate weather given Locator is present or not in the webpage
-         boolean checkLocatorNameValid =validLocatorCheckName.isDisplayed();
-         System.out.println("Element is Present but Not Visible\t"+checkLocatorNameValid);  // The Result is false as given Locator is Present in the webpage but not visible didnt throws the NoSuchElementException as well
-
+         boolean checkLocatorNameValid =validLocatorLinkText.isDisplayed();
+         System.out.println("Element is Present &  Visible Too\t"+checkLocatorNameValid);  // The Result is false as given Locator is Present in the webpage but not visible didnt throws the NoSuchElementException as well
+        //getAttribute() is the inbuilt method which helps to retrieve the String value based on Passed Attribute
+        String getLinkValue = validLocatorLinkText.getAttribute("href");
+        System.out.println(getLinkValue);
         System.out.println("One Test Case is Passed");
 
 
-        //----------------- Positive Case 2 --------------------------
-
-       /* In the following code, we are going to work with Name Locator of given webpage
-        In the following code we need to ensure that element is the present in the webpage,
-        & should be visible then isDisplayed() Method returns true */
 
 
-        openBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/nameExample.html");
-        //WebElement validLocatorCheckName = openBrowser.findElement(By.name(fname)); // Compile Time Error name locator is not given in String
-        WebElement validLocatorCheckName2 = openBrowser.findElement(By.name("fname"));
+/*
+//        //----------------- Positive Case 2 --------------------------
+//
+//       /* In the following code, we are going to work with Name Locator of given webpage
+//        In the following code we need to ensure that element is the present in the webpage,
+//        & should be visible then isDisplayed() Method returns true */
+//
+//
+//        openGoogleBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/nameExample.html");
+//        //WebElement validLocatorCheckName = openGoogleBrowser.findElement(By.linkText(Text & formatting)); // Compile Time Error name locator is not given in String
+        WebElement validLocatorCheckLinkText2 = openGoogleBrowser.findElement(By.linkText("Forms"));
+//
+//        //    isDisplayed() is the inbuilt method with return type boolean comes under WebElement Interface
+//        //  where we can validate weather given Locator is present or not in the webpage
 
-        //    isDisplayed() is the inbuilt method with return type boolean comes under WebElement Interface
-        //  where we can validate weather given Locator is present or not in the webpage
-        boolean checkLocatorNameValid2 =validLocatorCheckName2.isDisplayed();
-        System.out.println("Element is Present & Visible as well \t"+checkLocatorNameValid2);  // The Results returns true as Element is Present & Visible too
+        String getLinkValue2 = validLocatorLinkText.getAttribute("href");
+        System.out.println(getLinkValue2);
+
+        boolean validLocatorCheckLinkTextStatus =validLocatorCheckLinkText2.isDisplayed();
+        System.out.println("Element is Present & Visible as well \t"+validLocatorCheckLinkTextStatus);  // The Results returns true as Element is Present & Visible too
         System.out.println("Second Test Case is Passed");
-
-
-        //----------------- Negative Case --------------------------
-
-
-        // In the following line, we're looking for given name Yogesh if given name  locator value is not found in the webpage then
-        //NoSuchElementException Exception is displayed in the Console & Code is not reached to next line of Code as Java runs line by line
-        WebElement invalidLocatorCheckName = openBrowser.findElement(By.name("yogesh"));
-        // isDisplayed() is the inbuilt method with return type boolean comes under WebElement Interface
-        // where we can validate weather given Locator is present or
-        //displayed in the webpage
-       // boolean checkLocatorName =invalidLocatorCheckName.isDisplayed();
-       // System.out.println(checkLocatorName);
+//
+//
+//        //----------------- Negative Case --------------------------
+//
+//
+//        // In the following line, we're looking for given name java if given name  locator value is not found in the webpage then
+//        //NoSuchElementException Exception is displayed in the Console & Code is not reached to next line of Code as Java runs line by line
+        WebElement invalidLocatorLinkText = openGoogleBrowser.findElement(By.linkText("java"));
+        boolean invalidLinkTextStatus = invalidLocatorLinkText.isDisplayed();
+        System.out.println(invalidLinkTextStatus);
+//        // isDisplayed() is the inbuilt method with return type boolean comes under WebElement Interface
+//        // where we can validate weather given Locator is present or
+//        //displayed in the webpage
+//       // boolean checkLocatorName =invalidLocatorCheckName.isDisplayed();
+//       // System.out.println(checkLocatorName);
+//  */
     }
 }

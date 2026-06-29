@@ -86,7 +86,7 @@ public class ALaunchBrowser {
         launchChrome.close();
 
 
-        WebDriver webDriverTest = new WebDriver(); // Compile Time Error 'WebDriver' is abstract; cannot be instantiated
+        //WebDriver webDriverTest = new WebDriver(); // Compile Time Error 'WebDriver' is abstract; cannot be instantiated
 
     }
 
