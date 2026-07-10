@@ -92,5 +92,10 @@ public class AAbsoluteXpathOne {
         //WebElement validAbsoluteXpathWithMultipleAttributess = openBrowser.findElement(By.xpath("/html/body/main/section[6]/iframe[@title='Example iframee'and @src='https://exxample.com' and @height='2200']"));  // Runtime Error &  Exception occurred as  NoSuchElementFound, In the Following code we passed Invalid Elements, In the Following code we passed Invalid Elements, All 3 Attributes are Invalid using And keyword
         WebElement validAbsoluteXpathWithMultipleAndAttributesss = openBrowser.findElement(By.xpath("/html/body/main/section[6]/iframe[@title='Example iframe'and @src='https://example.com' and @height='200']"));  // In the following Code we are defining the 3 Attributes where all 3  attributes must be visible as if we used AND keyword
         System.out.println("9. Valid Absolute Xpath with Multiple Attributes using Multiple AND keyword");
+
+        System.out.println("10.Find the Element using the Invalid Xpath Syntax");
+        WebElement findElementInvalidXpathSyntax = openBrowser.findElement(By.xpath("input[name=normalize-name")); // In the following code we are tried to find the html element using invalid xpath syntax, it will throw an exception as InvalidSelectorException,
+        System.out.println(findElementInvalidXpathSyntax.isDisplayed());  // It Throws An Exception as :InvalidSelectorException as Xpath Syntax is Invalid, as we have not provided the closing bracket in the xpath expression
+
     }
 }
