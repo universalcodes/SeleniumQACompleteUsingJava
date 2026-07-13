@@ -29,17 +29,17 @@ In the above code user is trying to find the all elements of p tag after id= acc
         System.out.println("Launch Browser");
         WebDriver openBrowser = new ChromeDriver();
         openBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/HTMLCodes/seleniumpage.HTML");
-        System.out.println("1.Use the following Xpath Axes with text() & Find the Next Element of the Webpage ");
+        System.out.println("1.Use the following Xpath Axes with text() & Find the All the Next Element of the Webpage ");
         // In the following code, we are trying to find descendant which means finding all child and grand child and so on
         //we have used text() as Step 1 & we are trying the next element which comes after that element
-            WebElement findElementThroughFollowingXpathAxes = openBrowser.findElement(By.xpath("//*[text()='Step 1']/following::li[1]"));
+         WebElement findElementThroughFollowingXpathAxes = openBrowser.findElement(By.xpath("//*[text()='Step 1']/following::li[1]"));
         System.out.println(findElementThroughFollowingXpathAxes.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
         System.out.println("2.Use the following Xpath Axes with text() & Find the Next Element of the Webpage, we have Extra // ");
         // In the following code, we are trying to find descendant which means finding all child and grand child and so on
         //we have used text() as Step 1 & we are trying to find the next element which comes after that element
         // Use of // is quite unnecessary, as it provides the same result, // helps to traverse everywhere within in the webpage
-        WebElement findElementThroughFollowingXpathAxes2 = openBrowser.findElement(By.xpath("//*[text()='Step 1']/following::li[1]"));
+        WebElement findElementThroughFollowingXpathAxes2 = openBrowser.findElement(By.xpath("//*[text()='Step 1']//following::li[1]"));
         System.out.println(findElementThroughFollowingXpathAxes2.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
         System.out.println("3.Use the following Xpath Axes with text() & Find the Next Table Element of the Webpage  ");
@@ -54,6 +54,7 @@ In the above code user is trying to find the all elements of p tag after id= acc
         WebElement findElementThroughFollowingXpathAxes4 = openBrowser.findElement(By.xpath("//*[contains(text(), 'structure')]/following::*[text()='Aside']"));
         System.out.println(findElementThroughFollowingXpathAxes4.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
+//        Uncomment To Test
 //        System.out.println("5.Use the following Xpath Axes with Invalid text()   ");
 //        // In the following code, we are trying to find descendant which means finding all child and grand child and so on
 //        // we have used contains invalid text() as structure, with the help of structure we are trying to find the another text Aside
@@ -62,6 +63,7 @@ In the above code user is trying to find the all elements of p tag after id= acc
 //        System.out.println(findElementThroughFollowingXpathAxes5.isDisplayed());   // Return true if Element is found in the webpage otherwise false
 
 
+//        Uncomment To Test
 //        System.out.println("6.Use the following Xpath Axes incorrect way  ");
 //        // In the following code, we are trying to find a descendant which means finding all child and grand child and so on
 //        // we have used incorrect word following then it throws as runtime exception as InvalidSelectorException

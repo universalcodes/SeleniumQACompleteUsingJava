@@ -55,7 +55,6 @@ public class ACSSSelectorIntro {
 /*
       //-------------------------------------------------------------------------- Invalid Use Cases of CSS Selector --------------------------------------------------------------------------
 
-
       //Uncomment the below code to see the exception as NoSuchElementException, as the HTML Element is Invalid, It Throws An Exception as :NoSuchElementException
       System.out.println("1.Find the Invalid Element using the CSS Selector as ID using # symbol");
       WebElement findInvalidElementCSSSelectorID = openGoogleBrowser.findElement(By.cssSelector("#lists11")); // In the following Code we are tried to find the invalid html element using CSS Selector as ID using # symbol
