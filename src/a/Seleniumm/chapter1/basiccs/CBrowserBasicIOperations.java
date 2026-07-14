@@ -21,6 +21,7 @@ public class CBrowserBasicIOperations {
          openGoogleChrome.manage().deleteAllCookies();
         6. Window Handles.
         getWindowHandle() is the inbuilt method which to get the String of Active Browser
+        Note : Every time Whenever a new Browser is Launched, Every Time Window ID is Different
        7. Close the Browser
        quit() is the inbuilt Method which helps to close the browser.
 
@@ -34,16 +35,19 @@ public class CBrowserBasicIOperations {
         // The Following line 32 help us to minimize the Browser.
         openGoogleChrome.manage().window().maximize();
         // The Following line 34  help us to maximize the Browser.
-       openGoogleChrome.get("https://www.google.com/");
+       openGoogleChrome.get("https://www.google.com/"); // Return type is void
         // The Following line 36  help us to launch the URL Address
         String getURLAddressTitle = openGoogleChrome.getTitle();
-        System.out.println(getURLAddressTitle); // get the title of the Webpage.
+        System.out.println("Title of Webpage as follows\t"+getURLAddressTitle); // get the title of the Webpage, Return type is String.
         String getCurrentURL = openGoogleChrome.getCurrentUrl();
-        System.out.println(getCurrentURL); // get the current URL of the Webpage.
+        System.out.println("URL of Opened Webpage as follows\t"+getCurrentURL); // get the current URL of the Webpage, Return type is String
         String getStringWindow= openGoogleChrome.getWindowHandle();
-        System.out.println(getStringWindow); // get the String Window of the Webpage.
-       String getWebPageSource =  openGoogleChrome.getPageSource();
-        System.out.println(getWebPageSource); // Get the html code of the opened url
+        System.out.println("Webpage Window Handle ID as follows\t"+getStringWindow); // get the String Window of the Webpage, Return type is String
+
+
+
+        //String getWebPageSource =  openGoogleChrome.getPageSource();
+       // System.out.println(getWebPageSource); // Get the html code of the opened url
         //openGoogleChrome.quit();  // close the Browser
     }
 }
