@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><title>Main Page</title></head>
+<head>
+    <title>Main Page of Window Handles</title>
+    <script type="text/javascript">
+        function openNewWindow(url) {
+            window.open(
+                url,
+                "_blank",
+                "width=600,height=400,scrollbars=yes,resizable=yes"
+            );
+        }
+    </script>
+
+</head>
 <body>
-<h2>Main Window</h2>
-<a href='SecondWindow.html' target='_blank'>Open Child Window</a><br>
-<a href="ThirdWindow.html" target="_blank">Open Page 2</a><br>
-<a href="FourthWindow.html" target="_blank">Open Page 3</a><br>
-<a href="FifthWindow.html" target="_blank">Open Page 4</a>
+<h2>Main Parent Window</h2>
+<a href='SecondWindow.html' target='_blank'>Open Child Tab</a><br>
+<a href="ThirdWindow.html" target="_blank">Open Child Tab 2</a><br>
+<a href="FourthWindow.html" target="_blank">Open Child Tab 3</a><br>
+<a href="FifthWindow.html" target="_blank">Open Child Tab 4</a><br>
+<a href="javascript:openNewWindow('NewWindow.html')">Open New Window</a><br>
+<a href="javascript:openNewWindow('NewWindowTwo.html')">Another Window</a>
+
 </body>
 </html>
