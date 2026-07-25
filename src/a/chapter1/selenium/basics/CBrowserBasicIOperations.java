@@ -1,0 +1,53 @@
+package a.chapter1.selenium.basics;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CBrowserBasicIOperations {
+
+    public static void main(String[] args) {
+
+        /*
+        Points to Remember
+        Browser has the following Basics Operations with the respective URL.
+        1. Get the Title the of Launched webpage.
+        getTitle() is the in-built method where we get the title of the Webpage.
+        2. Get the Current URL of the webpage.
+         getCurrentUrl() is the in-built method where we get the current URL of the Webpage.
+        3. Maximize the Browser
+        openGoogleChrome.manage().window().maximize();
+        4. Minimize the Browser
+        openGoogleChrome.manage().window().minimize();
+        5. Delete All Cookies.
+         openGoogleChrome.manage().deleteAllCookies();
+        6. Window Handles.
+        getWindowHandle() is the inbuilt method which to get the String of Active Browser
+        Note : Every time Whenever a new Browser is Launched, Every Time Window ID is Different
+       7. Close the Browser
+       quit() is the inbuilt Method which helps to close the browser.
+
+       If we are not passing the URL in the Selenium Virtual Driver then the default value is data
+       */
+
+        WebDriver openGoogleChrome = new ChromeDriver();
+        openGoogleChrome.manage().deleteAllCookies();
+        // The Following line 30 help us to delete all cookies the Browser.
+        openGoogleChrome.manage().window().minimize();
+        // The Following line 32 help us to minimize the Browser.
+        openGoogleChrome.manage().window().maximize();
+        // The Following line 34  help us to maximize the Browser.
+       openGoogleChrome.get("https://www.google.com/"); // Return type is void
+        // The Following line 36  help us to launch the URL Address
+        String getURLAddressTitle = openGoogleChrome.getTitle();
+        System.out.println("Title of Webpage as follows\t"+getURLAddressTitle); // get the title of the Webpage, Return type is String.
+        String getCurrentURL = openGoogleChrome.getCurrentUrl();
+        System.out.println("URL of Opened Webpage as follows\t"+getCurrentURL); // get the current URL of the Webpage, Return type is String
+        String getStringWindow= openGoogleChrome.getWindowHandle();
+        System.out.println("Webpage Window Handle ID as follows\t"+getStringWindow); // get the String Window of the Webpage, Return type is String
+
+
+
+        //String getWebPageSource =  openGoogleChrome.getPageSource();
+       // System.out.println(getWebPageSource); // Get the html code of the opened url
+        //openGoogleChrome.quit();  // close the Browser
+    }
+}
