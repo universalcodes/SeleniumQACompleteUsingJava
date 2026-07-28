@@ -205,7 +205,7 @@ public class BRelativeXpath {
 
         System.out.println("Find All Descendant Children of Particular HTML Tag");
         WebElement findParticularDescendantsChildOfParticularTag = openBrowser.findElement(By.xpath("//body//header//*[3]"));  // In the following code, we are searching 3rd child of Header tag.
-        System.out.println("19. In Following Example we have Searched Particular All of Body Tag Using index Value ");
+        System.out.println("19. In Following Example we have Seazrched Particular All of Body Tag Using index Value ");
         System.out.println(findParticularChildOfParticularTag.getTagName());
 
         //----------------------- Test Case 20 Positive -----
