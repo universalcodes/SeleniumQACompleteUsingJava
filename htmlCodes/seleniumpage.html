@@ -39,6 +39,12 @@
             section { padding: 1rem; }
             main { padding: 1rem; }
         }
+           #hiddenCheckBox{
+            display:none;
+        }
+        #hiddenCheckBox2{
+            display:none;
+        }
     </style>
     <noscript>
         <style> .requires-js { display: none; } </style>
@@ -541,7 +547,105 @@ function greet(name) {
 
 
         </div>
+    </div>
 
+    <div>
+        <h3>Hidden Account Number</h3>
+
+        <label>Account Number</label>
+        <input type="text"
+               id="accountNumber"
+               value="1234567890"
+               style="display:none;">
+
+        <h1> Default CheckBox is Selected</h1>
+        <input type="checkbox" id="rememberMe" checked>
+
+
+        <h1>Default Radio Button is Selected</h1>
+        <input type="radio" id="radioButtonSelected" name="gender" checked>
+
+
+    </div>
+
+    <div class="container">
+
+        <h2>Select Bank Account Types</h2>
+
+        <div class="account">
+            <input type="checkbox"
+                   id="savingAccount"
+                   checked>
+            <label for="savingAccount">Saving Account</label>
+        </div>
+
+        <div class="account">
+            <input type="checkbox"
+                   id="currentAccount">
+            <label for="currentAccount">Current Account</label>
+        </div>
+
+        <div class="account">
+            <input type="checkbox"
+                   id="salaryAccount">
+            <label for="salaryAccount">Salary Account</label>
+        </div>
+
+        <div class="account">
+            <input type="checkbox"
+                   id="fixedDeposit">
+            <label for="fixedDeposit">Fixed Deposit</label>
+        </div>
+
+        <div class="account">
+            <input type="checkbox"
+                   id="recurringDeposit"
+                   checked>
+            <label for="recurringDeposit">Recurring Deposit</label>
+        </div>
+
+        <div class="account">
+            <input type="checkbox"
+                   id="loanAccount">
+            <label for="loanAccount">Loan Account</label>
+        </div>
+
+        <button id="submitButton">
+            Submit
+        </button>
+    </div>
+
+    <h2>Hidden Checkbox</h2>
+
+    <input type="checkbox"
+           id="hiddenCheckBox"
+           checked>
+
+
+    <input
+            type="checkbox"
+            id="hiddenCheckBox2"
+            style="display:none;">
+
+</div>
+
+    <div class="container">
+        <h1>Select Account from DropDown</h1>
+    <select id="accountType">
+
+        <option value="saving">
+            Saving Account
+        </option>
+
+        <option value="current" selected>
+            Current Account
+        </option>
+
+        <option value="salary">
+            Salary Account
+        </option>
+
+    </select>
 </section>
 
 
