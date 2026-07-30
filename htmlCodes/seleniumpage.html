@@ -45,6 +45,21 @@
         #hiddenCheckBox2{
             display:none;
         }
+          /* Hidden Radio Button */
+        #hiddenRadioButton{
+            display:none;
+        }
+        #hiddenRadioButton2{
+            display:none;
+        }
+
+        /* Hidden Dropdown */
+        #hiddenAccountType{
+            display:none;
+        }
+        #hiddenAccountType2{
+            display:none;
+        }
     </style>
     <noscript>
         <style> .requires-js { display: none; } </style>
@@ -462,12 +477,8 @@ function greet(name) {
     </section>
 </main>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>XPath Parent Axis Complex Demo</title>
-</head>
-<body>
+<div>
+
 <section id="bank-section">
     <h2>Bank Services</h2>
 
@@ -513,8 +524,8 @@ function greet(name) {
         </div>
 
         <div class="account">
-            <label for="acc2">Current Account</label>
-            <input type="text" id="acc2" name="current" placeholder="Enter Current Account No">
+            <label for="accc1">Savings Account</label>
+            <input type="text" id="account2" name="current" placeholder="Enter Current Account No">
         </div>
 
         <div class="loan">
@@ -532,7 +543,7 @@ function greet(name) {
         <div>
             <h1>Learn Following-Siblings</h1>
         <p id="chkFollowingSibling" name="cust1">Customer1 - Savings Account</p>
-        <p id="acc2" name="cust2">Customer2 - Current Account</p>
+        <p id="acc1" name="cust2">Customer2 - Current Account</p>
         <p id="acc3" name="cust3">Customer3 - Loan Account</p>
         <p id="acc4" name="cust4">Customer4 - Fixed Deposit</p>
     </div>
@@ -615,6 +626,7 @@ function greet(name) {
         </button>
     </div>
 
+    <div>
     <h2>Hidden Checkbox</h2>
 
     <input type="checkbox"
@@ -627,7 +639,59 @@ function greet(name) {
             id="hiddenCheckBox2"
             style="display:none;">
 
-</div>
+
+        <h1>2. Hidden Radio Button (Already Selected)</h1>
+
+        <input type="radio"
+               id="hiddenRadioButton"
+               name="gender"
+               checked>
+
+        <h1>2.1 Hidden Radio Button  (Already Not Selected)</h1>
+
+        <input type="radio"
+               id="hiddenRadioButton2"
+               name="gender">
+
+        <h1>3. Hidden Dropdown already Selected</h1>
+
+        <select id="hiddenAccountType">
+            <option value="saving">
+                Saving Account
+            </option>
+
+            <option value="current" selected>
+                Current Hidden Account
+            </option>
+
+            <option value="salary">
+                Salary Account
+            </option>
+
+        </select>
+
+        <h1>3.1 Hidden Dropdown already Not Selected</h1>
+
+        <select id="hiddenAccountType2">
+            <option value="saving">
+                Saving Account
+            </option>
+
+            <option value="current">
+                Current Account
+            </option>
+
+            <option value="salary">
+                Salary Account
+            </option>
+
+        </select>
+
+
+
+
+    </div>
+
 
     <div class="container">
         <h1>Select Account from DropDown</h1>
@@ -646,8 +710,9 @@ function greet(name) {
         </option>
 
     </select>
+    </div>
 </section>
-
+    </div>
 
 <footer>
     <p> ©   2026  ChaseBank   Demo</p>

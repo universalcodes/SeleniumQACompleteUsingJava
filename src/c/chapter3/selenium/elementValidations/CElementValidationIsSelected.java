@@ -8,7 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class CElementValidationIsSelected {
     /*
     points to remember
-    1. isSelected() is the inbuilt method which helps to understand weather element is selected or not
+    1. isSelected() is an inbuilt WebElement method in Selenium.
+       It is used to determine whether an element is selected or not.
        isSelected() return type is boolean if Element is selected then true otherwise false
        isSelected() no argument is needed
        It is mainly used with:
@@ -20,7 +21,13 @@ public class CElementValidationIsSelected {
            - Button
            - Link
            - Label
-    *  If the Element is Not visible then it throws an Exception as NoSuchElementException
+1. If the element is not present in the DOM,
+   findElement() throws NoSuchElementException.
+
+        * If a CheckBox, Radio Button, or an <option> element is present in the DOM but hidden,
+
+isSelected() still returns: true  -> if the element is selected
+false -> if the element is not selected
 
 
      */
@@ -78,12 +85,38 @@ public class CElementValidationIsSelected {
         System.out.println("The Result of Valid Element as follows:\t"+validElementResultCheckBoxHidden);
         System.out.println(checkValidWebElementCheckBoxSelectedHidden.isSelected());   // Return true if Element check box is hidden & already selected otherwise false
 
-
         System.out.println("8. Validate Valid Check Box Element is already selected or not using isSelected(), Check Box not Selected But Hidden");
         WebElement checkValidWebElementCheckBoxNotSelectedHidden = openBrowser.findElement(By.id("hiddenCheckBox2"));
         boolean validElementResultCheckBoxHiddenNotSelected = checkValidWebElementCheckBoxNotSelectedHidden.isSelected();
         System.out.println("The Result of Valid Element as follows:\t"+validElementResultCheckBoxHiddenNotSelected);
         System.out.println(checkValidWebElementCheckBoxNotSelectedHidden.isSelected());   // Return true if Element check box is already selected otherwise false
+
+        System.out.println("9. Validate Valid Radio Box Element is already selected or not using isSelected(), Radio Box is Already Selected But Hidden");
+        WebElement checkValidWebElementRadioBoxSelectedHidden = openBrowser.findElement(By.id("hiddenRadioButton"));
+        boolean validElementResultRadioBoxHidden = checkValidWebElementRadioBoxSelectedHidden.isSelected();
+        System.out.println("The Result of Valid Element as follows:\t"+validElementResultRadioBoxHidden);
+        System.out.println(checkValidWebElementRadioBoxSelectedHidden.isSelected());   // Return true if Element Radio box is hidden & already selected otherwise false
+
+        System.out.println("10. Validate Valid Check Box Element is already selected or not using isSelected(), Check Box not Selected But Hidden");
+        WebElement checkValidWebElementRadioBoxNotSelectedHidden = openBrowser.findElement(By.id("hiddenRadioButton2"));
+        boolean validElementResultRadioBoxHiddenNotSelected = checkValidWebElementRadioBoxNotSelectedHidden.isSelected();
+        System.out.println("The Result of Valid Element as follows:\t"+validElementResultRadioBoxHiddenNotSelected);
+        System.out.println(checkValidWebElementRadioBoxNotSelectedHidden.isSelected());   // Return true if Element check box is already selected otherwise false
+
+
+        System.out.println("11. Validate Valid Dropdown Value is already selected or not using isSelected(), Dropdown Value is already Selected But Hidden");
+        WebElement checkValidWebElementDropDownSelectedHidden = openBrowser.findElement(By.xpath("//option[normalize-space()='Current Hidden Account']"));
+        boolean validElementResultDropDownBoxHidden = checkValidWebElementDropDownSelectedHidden.isSelected();
+        System.out.println("The Result of Valid Element as follows:\t"+validElementResultDropDownBoxHidden);
+        System.out.println(checkValidWebElementDropDownSelectedHidden.isSelected());   // Return true if Element Radio box is hidden & already selected otherwise false
+
+        System.out.println("12. Validate Valid Dropdown Value is already selected or not using isSelected(), Dropdown Value is already Selected But Hidden");
+        WebElement checkValidWebElementDrpDownBoxValueNotSelectedHidden = openBrowser.findElement(By.xpath("//option[normalize-space()='Salary Account']"));
+        boolean validElementResultDropDownBoxHiddenNotSelected = checkValidWebElementDrpDownBoxValueNotSelectedHidden.isSelected();
+        System.out.println("The Result of Valid Element as follows:\t"+validElementResultDropDownBoxHiddenNotSelected);
+        System.out.println(checkValidWebElementDrpDownBoxValueNotSelectedHidden.isSelected());   // Return true if Element check box is already selected otherwise false
+
+
 
 
 
