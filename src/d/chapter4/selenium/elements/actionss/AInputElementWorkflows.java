@@ -15,9 +15,9 @@ public class AInputElementWorkflows  {
     such as text fields, checkboxes, radio buttons, dropdowns, and buttons.
     The goal of these workflows is to capture user input, validate it, and submit it to the server for processing.
     we are covering the following text field input element workflows in this class
-        1. Locate the Input Type as Text
-        2. Enter the Text
-        3. Clear The Text
+        1. Locate the Input Type as Text  use isDisplayed()
+        2. Enter the Text use sendKeys
+        3. Clear The Text use clear()
         4. Ensure the Input Type as Text should be displayed, enabled
         5. Ensure the Input Type as Text should be displayed, disabled
         6. Ensure the Input Type as Text should be not displayed in html but hidden, enabled
@@ -43,7 +43,6 @@ public class AInputElementWorkflows  {
         WebElement locateInputTypeAsTextEnabled = openBrowser.findElement(By.id("txtLocate"));
         boolean textBoxIsVisibles = locateInputTypeAsTextEnabled.isDisplayed();
         boolean textBoxIsVisibleEnabled = locateInputTypeAsTextEnabled.isDisplayed();
-
         System.out.println("Text Box is Visible as: " + textBoxIsVisibles +" and Enabled as " + textBoxIsVisibleEnabled) ;
 
 
@@ -107,7 +106,6 @@ public class AInputElementWorkflows  {
 
         System.out.println("7. Locate the Input Type as Text Text should be visible, enabled, Clear the Existing Text Box Value, Enter the New Text, Clear it & Paste the Text Through Keyboard & Finally Validate the text");
 
-
         WebElement copyPasteTextInTextBoxA = openBrowser.findElement(By.id("txtCopyPaste"));
         String validateExistingTextInsideTextBox = copyPasteTextInTextBoxA.getAttribute("value");
         if(!(validateExistingTextInsideTextBox.equals(null)))
@@ -138,7 +136,43 @@ public class AInputElementWorkflows  {
             System.out.println("Text is Not Entered as Input Box is Not Visible or Not Enabled");
         }
 
+        System.out.println("8. Ensure Input Box is Displayed But Disabled ");
+        WebElement inputTextBoxDisabled = openBrowser.findElement(By.id("txtDisabled"));
 
+        if(!(inputTextBoxDisabled.isEnabled() ))
+        {
+            boolean inputBoxDisabled =  inputTextBoxDisabled.isEnabled();
+            {
+                System.out.println(inputBoxDisabled);
+
+            }
+        }
+
+        System.out.println("8.1. Ensure Input Box is Displayed But Disabled, Entering the Text on that Box");
+
+        /*
+        uncomment to Test
+                inputTextBoxDisabled.sendKeys("Sending Data on Disabled Box");  // As This Text Box is Disabled it throws an Exception as ElementNotInteractableException
+
+         */
+
+        System.out.println("9. Ensure that Inbox Text Box is not displayed but enabled ");
+        WebElement inputTextBoxHiddenAndEnabled = openBrowser.findElement(By.xpath("//*[@placeholder='Hidden enabled']"));
+
+        if((inputTextBoxHiddenAndEnabled.isEnabled() ))
+        {
+            boolean inputBoxHiddenAndEnabled =  inputTextBoxHiddenAndEnabled.isEnabled();
+            {
+                System.out.println(inputBoxHiddenAndEnabled);
+
+            }
+        }
+
+        System.out.println("9.1. Ensure Input Box is Hidden But Enabled, Entering the Text on that Box");
+
+        inputTextBoxHiddenAndEnabled.sendKeys("Sending Data on Disabled Box");  // As This Text Box is Disabled it throws an Exception as ElementNotInteractableException
+        String validateEnteredTextOnHiddenInputBox = inputTextBoxHiddenAndEnabled.getAttribute("value"); // Validate the Entered text as inbox text box is Hidden But Enabled is Hidden But Enabled
+        System.out.println(validateEnteredTextOnHiddenInputBox);
 
     }
 }
