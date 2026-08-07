@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Load Timeout Demo</title>
+
+    <script>
+        // Page ko 35 seconds tak busy rakhega
+        const start = Date.now();
+
+        while (Date.now() - start < 75000) {
+            // Busy loop - browser loading complete nahi hone dega
+        }
+    </script>
+
+</head>
+<body>
+
+<h1>Welcome to Selenium Page Load Timeout Demo</h1>
+
+<p>
+    Agar Selenium ka pageLoadTimeout 30 seconds hai,
+    to is page ko open karte hi TimeoutException aane ki
+    possibility bahut high hai.
+</p>
+
+</body>
+</html>
