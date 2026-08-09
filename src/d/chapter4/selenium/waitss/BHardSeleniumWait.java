@@ -27,6 +27,15 @@ public class BHardSeleniumWait {
         Thread.sleep(Duration.ofNanos(34567));   // Here Script wait for fix 34567 nano
         Thread.sleep(Duration.ofNanos(1000000000l)); //Here Script wait for fix an 1000000000 nanos which means fix 1 Second
         Thread.sleep(Duration.ofDays(1)); //Here Script wait for 1 Day
+
+
+        RunTime Exception
+                Thread.sleep(Duration.ofDays(-1)); // As -1 is not acceptable Value, its Throws an Run Time Exception
+                Exception in thread "main" org.openqa.selenium.InvalidArgumentException: invalid argument: value must be a non-negative integer
+
+
+                openBrowser.manage().timeouts().implicitlyWait(Duration.ofSeconds(-1));
+
      */
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Launch Browser");

@@ -10,6 +10,20 @@ public class CPageLoadTimeout {
   Points to Remember
 
   1. pageLoadTimeout() is an inbuilt timeout method of Selenium.
+     the arg type of pageLoadTimeout is 
+         pageLoadTimeout(Duration.ofSeconds(30))
+        pageLoadTimeout(Duration.ofMillis(5000));   // Here Script wait for fix 5000 milliseconds which means fix 5 Seconds
+        pageLoadTimeout(Duration.ofMinutes(1));   // Here Script wait for fix minute
+        pageLoadTimeout(Duration.ofHours(1));   // Here Script wait for fix an Hour
+        pageLoadTimeout(Duration.ofNanos(34567));   // Here Script wait for fix 34567 nano
+        pageLoadTimeout(Duration.ofNanos(1000000000l)); //Here Script wait for fix an 1000000000 nanos which means fix 1 Second
+        pageLoadTimeout(Duration.ofDays(1)); //Here Script wait for 1 Day
+
+
+     RunTime Exception
+                pageLoadTimeout(Duration.ofDays(-1)); // As -1 is not acceptable Value, its Throws an Run Time Exception
+                Exception in thread "main" org.openqa.selenium.InvalidArgumentException: invalid argument: value must be a non-negative integer
+
 
   2. It defines the maximum time WebDriver should wait
      for a web page to load completely.
@@ -81,6 +95,21 @@ public class CPageLoadTimeout {
         openBrowser.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(70));
         openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\ImplicitWait.html");
         System.out.println("Done");
+
+
+        4.
+
+         System.out.println("6. 1. Launch Browser with Page load Time Out with Nagetive Value,");
+        WebDriver openBrowser = new ChromeDriver();
+        openBrowser.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(-1));
+        openBrowser.get("https://www.amazon.in/");
+        System.out.println("Application Launch Successfully");
+
+          RunTime Exception
+                pageLoadTimeout(Duration.ofDays(-1)); // As -1 is not acceptable Value, its Throws an Run Time Exception
+                Exception in thread "main" org.openqa.selenium.InvalidArgumentException: invalid argument: value must be a non-negative integer
+
+
 
          */
 
