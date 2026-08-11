@@ -187,6 +187,20 @@ public class DImplicitWait {
         boolean validateProductA = searchProductA.isDisplayed();
         System.out.println("The Result of Product as follows\t"+validateProductA);
         System.out.println("Test Case is Completed Successfully");
+
+
+
+           In the following use case
+        we have passed the invalid Element - (By.xpath("//[contains(text(), 'UA43UE86AHULXLT' )]"));
+        it throws an exception as NoSuchElementException
+        System.out.println("3.Check Element Implicit wait with 2 Seconds for Search the Product with Invalid Web Element,");
+        WebDriver openBrowserB = new ChromeDriver();
+        openBrowserB.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        openBrowserB.get("https://www.amazon.in/");
+        WebElement searchProductA = openBrowserB.findElement(By.xpath("//[contains(text(), 'UA43UE86AHULXLT' )]"));
+        boolean validateProductA = searchProductA.isDisplayed();
+        System.out.println("The Result of Product as follows\t"+validateProductA);
+        System.out.println("Test Case is Completed Successfully");
         */
 
 
