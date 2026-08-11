@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    ```
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Selenium Explicit Wait Practice Lab</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f6f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .disabled {
+            cursor: not-allowed;
+        }
+
+        #loader {
+            padding: 15px;
+            background: orange;
+            margin-top: 10px;
+        }
+
+        #textMessage {
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        #clickResult {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #staleElement {
+            padding: 15px;
+            background: lightcoral;
+            margin-top: 10px;
+        }
+
+    </style>
+    ```
+
+</head>
+
+<body>
+
+<div class="container">
+
+    ```
+    <h1>Selenium Explicit Wait Practice Lab</h1>
+
+    <p>
+        This page is created for practicing Selenium
+        WebDriverWait and ExpectedConditions.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 1. PRESENCE OF ELEMENT LOCATED                        -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>1. Presence Of Element Located</h2>
+
+        <p>
+            This element will be added to the DOM after 3 seconds.
+        </p>
+
+        <button id="addElementButton"
+                onclick="addDynamicElement()">
+
+            Add Element After 3 Seconds
+
+        </button>
+
+        <div id="dynamicElementContainer"></div>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 2. VISIBILITY OF ELEMENT LOCATED                      -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>2. Visibility Of Element Located</h2>
+
+        <p>
+            The element exists in the DOM but is initially hidden.
+            After clicking the button, it becomes visible after 5 seconds.
+        </p>
+
+        <div id="hiddenElement" class="hidden">
+
+            🎉 Now I am Visible!
+
+        </div>
+
+        <button onclick="showHiddenElement()">
+
+            Make Element Visible
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 3. INVISIBILITY OF ELEMENT LOCATED                    -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>3. Invisibility Of Element Located</h2>
+
+        <p>
+            This loader will disappear after clicking the button
+            and waiting for 5 seconds.
+        </p>
+
+        <div id="loader">
+
+            ⏳ Loading... Please Wait
+
+        </div>
+
+        <button onclick="hideLoader()">
+
+            Hide Loader
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 4. ELEMENT TO BE CLICKABLE                            -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>4. Element To Be Clickable</h2>
+
+        <p>
+            The button is initially disabled.
+            It becomes enabled after 5 seconds when the page loads.
+        </p>
+
+        <button id="clickableButton"
+                class="disabled"
+                disabled
+                onclick="clickButton()">
+
+            Click Me After I Become Enabled
+
+        </button>
+
+        <div id="clickResult"></div>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 5. ALERT IS PRESENT                                   -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>5. Alert Is Present</h2>
+
+        <p>
+            Click the button. An alert will appear after 5 seconds.
+        </p>
+
+        <button onclick="showDelayedAlert()">
+
+            Show Alert After 5 Seconds
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 6. FRAME TO BE AVAILABLE AND SWITCH TO IT            -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>6. Frame To Be Available And Switch To It</h2>
+
+        <p>
+            Selenium can wait for this frame and switch into it.
+        </p>
+
+        <iframe
+                id="testFrame"
+                srcdoc="<html>
+                <body>
+                    <h3 id='frameMessage'>
+                        Welcome Inside The iFrame
+                    </h3>
+                </body>
+                </html>"
+                width="500"
+                height="150">
+
+        </iframe>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 7. TITLE CONTAINS                                     -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>7. Title Contains</h2>
+
+        <p>
+            Current title:
+            <strong>Selenium Explicit Wait Practice Lab</strong>
+        </p>
+
+        <button onclick="changePageTitle()">
+
+            Change Page Title
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 8. URL CONTAINS                                       -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>8. URL Contains</h2>
+
+        <p>
+            Click the button to change the URL.
+        </p>
+
+        <button onclick="changeURL()">
+
+            Change URL
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 9. TEXT TO BE PRESENT IN ELEMENT                      -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>9. Text To Be Present In Element</h2>
+
+        <p>
+            The message will change after 5 seconds.
+        </p>
+
+        <div id="textMessage">
+
+            Waiting for message...
+
+        </div>
+
+        <button onclick="showSuccessMessage()">
+
+            Show Success Message
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 10. STALENESS OF                                     -->
+    <!-- ===================================================== -->
+
+    <div class="section">
+
+        <h2>10. Staleness Of</h2>
+
+        <p>
+            The element below will be removed from the DOM
+            after clicking the button.
+        </p>
+
+        <div id="staleElement">
+
+            ⚠️ This element will become stale.
+
+        </div>
+
+        <button onclick="removeStaleElement()">
+
+            Remove Element
+
+        </button>
+
+    </div>
+    ```
+
+</div>
+
+<script>
+
+
+    // =========================================================
+    // 1. PRESENCE OF ELEMENT LOCATED
+    // =========================================================
+
+    function addDynamicElement() {
+
+        setTimeout(function () {
+
+            var container =
+                document.getElementById(
+                    "dynamicElementContainer"
+                );
+
+            container.innerHTML =
+                '<div id="dynamicElement">' +
+                '✅ Dynamic Element is now present in DOM' +
+                '</div>';
+
+        }, 3000);
+
+    }
+
+
+    // =========================================================
+    // 2. VISIBILITY OF ELEMENT LOCATED
+    // =========================================================
+
+    function showHiddenElement() {
+
+        setTimeout(function () {
+
+            document
+                .getElementById("hiddenElement")
+                .classList
+                .remove("hidden");
+
+        }, 5000);
+
+    }
+
+
+    // =========================================================
+    // 3. INVISIBILITY OF ELEMENT LOCATED
+    // =========================================================
+
+    function hideLoader() {
+
+        setTimeout(function () {
+
+            document
+                .getElementById("loader")
+                .style
+                .display = "none";
+
+        }, 5000);
+
+    }
+
+
+    // =========================================================
+    // 4. ELEMENT TO BE CLICKABLE
+    // =========================================================
+
+    window.onload = function () {
+
+        setTimeout(function () {
+
+            var button =
+                document.getElementById(
+                    "clickableButton"
+                );
+
+            button.disabled = false;
+
+            button.classList.remove("disabled");
+
+        }, 5000);
+
+    };
+
+
+    function clickButton() {
+
+        document.getElementById(
+            "clickResult"
+        ).innerHTML =
+            "✅ Button was successfully clicked!";
+
+    }
+
+
+    // =========================================================
+    // 5. ALERT IS PRESENT
+    // =========================================================
+
+    function showDelayedAlert() {
+
+        setTimeout(function () {
+
+            alert(
+                "🚨 Selenium Alert Is Present!"
+            );
+
+        }, 5000);
+
+    }
+
+
+    // =========================================================
+    // 6. FRAME
+    // =========================================================
+
+    // No JavaScript required here.
+    // Selenium will handle the iframe.
+
+
+    // =========================================================
+    // 7. TITLE CONTAINS
+    // =========================================================
+
+    function changePageTitle() {
+
+        setTimeout(function () {
+
+            document.title =
+                "Selenium Dashboard - Success";
+
+        }, 3000);
+
+    }
+
+
+    // =========================================================
+    // 8. URL CONTAINS
+    // =========================================================
+
+    function changeURL() {
+
+        setTimeout(function () {
+
+            window.location.hash =
+                "dashboard";
+
+        }, 3000);
+
+    }
+
+
+    // =========================================================
+    // 9. TEXT TO BE PRESENT IN ELEMENT
+    // =========================================================
+
+    function showSuccessMessage() {
+
+        setTimeout(function () {
+
+            document.getElementById(
+                "textMessage"
+            ).innerText =
+                "SUCCESS: Selenium Test Completed!";
+
+        }, 5000);
+
+    }
+
+
+    // =========================================================
+    // 10. STALENESS OF
+    // =========================================================
+
+    function removeStaleElement() {
+
+        setTimeout(function () {
+
+            var element =
+                document.getElementById(
+                    "staleElement"
+                );
+
+            element.remove();
+
+        }, 3000);
+
+    }
+
+
+</script>
+
+</body>
+
+</html>
