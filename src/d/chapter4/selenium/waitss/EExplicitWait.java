@@ -27,7 +27,11 @@ public class EExplicitWait {
 
 6. Commonly used excepted conditions:
 
-   1.presenceOfElementLocated()  -- Present in the DOM, not visible on the html webpage
+   1.presenceOfElementLocated()
+     → Element DOM mein present hona chahiye.
+→ Element visible ho ya hidden, dono acceptable hain.
+→ Element DOM mein nahi mila within timeout → TimeoutException.
+
    3.invisibilityOfElementLocated()  -- ensure that weather Present in the DOM & visible on the html webpage
    2.visibilityOfElementLocated() -- Present in the DOM & visible on the html webpage
    4.elementToBeClickable()  -- Present in the DOM, visible, and enabled then user can click on it
@@ -82,11 +86,30 @@ public class EExplicitWait {
      */
 
     public static void main(String[] args) {
+      /*
+        Here presenceOfElementLocated is that weather element present in the DOM doesn't matter its hidden or visible, here element is present in the DOM
+         */
+
         System.out.println("Launch Browser");
+        System.out.println("1.Validate the presence of Element located which means Element is Present is the DOM and Not Visible");
         WebDriver openBrowser = new ChromeDriver();
-        openBrowser.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/HTMLCodes/seleniumpage.HTML");
-        WebDriverWait waitForElement = new WebDriverWait(openBrowser, Duration.ofSeconds(20));
-        waitForElement.until(ExpectedConditions.presenceOfElementLocated(By.id("")));
+        openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElement = new WebDriverWait(openBrowser, Duration.ofSeconds(2));
+        waitForElement.until(ExpectedConditions.presenceOfElementLocated(By.id("addElementButton")));
+        System.out.println("Test Case Passed");
+
+
+
+        /*
+        Uncomment to Test
+        Here presenceOfElementLocated is that weather element present in the DOM doesn't matter its hidden or visible, here element is not present in the DOM
+        System.out.println("2.Validate the presence of Element located which means Element is not Present is the DOM");
+        openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementA = new WebDriverWait(openBrowser, Duration.ofSeconds(20));
+        waitForElementA.until(ExpectedConditions.presenceOfElementLocated(By.id("addElementButtonHandle")));
+        System.out.println("Test Case Failed");
+
+         */
 
 
     }

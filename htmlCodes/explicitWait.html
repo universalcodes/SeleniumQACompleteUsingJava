@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-    ```
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +18,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
         }
 
@@ -45,6 +43,24 @@
             cursor: not-allowed;
         }
 
+        .positive {
+            background: #e8f5e9;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .negative {
+            background: #ffebee;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .test-info {
+            padding: 10px;
+            margin-top: 10px;
+            background: #f0f0f0;
+        }
+
         #loader {
             padding: 15px;
             background: orange;
@@ -67,8 +83,23 @@
             margin-top: 10px;
         }
 
+        #negativeDynamicElement {
+            display: none;
+        }
+
+        .success-message {
+            padding: 15px;
+            background: lightgreen;
+            margin-top: 10px;
+        }
+
+        .danger-message {
+            padding: 15px;
+            background: lightcoral;
+            margin-top: 10px;
+        }
+
     </style>
-    ```
 
 </head>
 
@@ -76,12 +107,15 @@
 
 <div class="container">
 
-    ```
     <h1>Selenium Explicit Wait Practice Lab</h1>
 
     <p>
         This page is created for practicing Selenium
         WebDriverWait and ExpectedConditions.
+    </p>
+
+    <p>
+        Each section contains a Positive and Negative use case.
     </p>
 
 
@@ -94,17 +128,41 @@
         <h2>1. Presence Of Element Located</h2>
 
         <p>
-            This element will be added to the DOM after 3 seconds.
+            Click the button. A new element will be added to the DOM
+            after 6 seconds.
         </p>
 
         <button id="addElementButton"
                 onclick="addDynamicElement()">
 
-            Add Element After 3 Seconds
+            Add Element After 6 Seconds
 
         </button>
 
         <div id="dynamicElementContainer"></div>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Click the button and wait for the dynamic element
+                with a maximum wait of 10 seconds.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Click the button and wait for only 2 seconds.
+                The dynamic element will not be available within
+                the wait time.
+            </p>
+
+        </div>
 
     </div>
 
@@ -118,7 +176,7 @@
         <h2>2. Visibility Of Element Located</h2>
 
         <p>
-            The element exists in the DOM but is initially hidden.
+            The element already exists in the DOM but is initially hidden.
             After clicking the button, it becomes visible after 5 seconds.
         </p>
 
@@ -130,9 +188,31 @@
 
         <button onclick="showHiddenElement()">
 
-            Make Element Visible
+            Make Element Visible After 5 Seconds
 
         </button>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for 10 seconds.
+                The hidden element should become visible.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Wait for only 2 seconds.
+                The element will still be hidden.
+            </p>
+
+        </div>
 
     </div>
 
@@ -146,8 +226,8 @@
         <h2>3. Invisibility Of Element Located</h2>
 
         <p>
-            This loader will disappear after clicking the button
-            and waiting for 5 seconds.
+            The loader is visible initially.
+            After clicking the button, it will disappear after 5 seconds.
         </p>
 
         <div id="loader">
@@ -158,9 +238,31 @@
 
         <button onclick="hideLoader()">
 
-            Hide Loader
+            Hide Loader After 5 Seconds
 
         </button>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for 10 seconds.
+                The loader should become invisible.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Wait for only 2 seconds.
+                The loader should still be visible.
+            </p>
+
+        </div>
 
     </div>
 
@@ -189,6 +291,28 @@
 
         <div id="clickResult"></div>
 
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for 10 seconds.
+                The button should become clickable.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Reload the page and wait for only 2 seconds.
+                The button should still be disabled.
+            </p>
+
+        </div>
+
     </div>
 
 
@@ -201,7 +325,8 @@
         <h2>5. Alert Is Present</h2>
 
         <p>
-            Click the button. An alert will appear after 5 seconds.
+            Click the button.
+            An alert will appear after 5 seconds.
         </p>
 
         <button onclick="showDelayedAlert()">
@@ -209,6 +334,28 @@
             Show Alert After 5 Seconds
 
         </button>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Click the button and wait for 10 seconds.
+                The alert should appear.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Click the button and wait for only 2 seconds.
+                The alert should not appear within the wait time.
+            </p>
+
+        </div>
 
     </div>
 
@@ -227,7 +374,8 @@
 
         <iframe
                 id="testFrame"
-                srcdoc="<html>
+                srcdoc="
+                <html>
                 <body>
                     <h3 id='frameMessage'>
                         Welcome Inside The iFrame
@@ -238,6 +386,27 @@
                 height="150">
 
         </iframe>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for the existing frame and switch into it.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Try to switch to a frame ID that does not exist.
+                Selenium should throw TimeoutException.
+            </p>
+
+        </div>
 
     </div>
 
@@ -257,9 +426,31 @@
 
         <button onclick="changePageTitle()">
 
-            Change Page Title
+            Change Page Title After 3 Seconds
 
         </button>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for 10 seconds and verify that the title
+                contains "Dashboard".
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Wait for only 2 seconds.
+                The title will not contain "Dashboard" yet.
+            </p>
+
+        </div>
 
     </div>
 
@@ -273,14 +464,36 @@
         <h2>8. URL Contains</h2>
 
         <p>
-            Click the button to change the URL.
+            Click the button to change the URL hash after 3 seconds.
         </p>
 
         <button onclick="changeURL()">
 
-            Change URL
+            Change URL After 3 Seconds
 
         </button>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for 10 seconds and verify that the URL
+                contains "dashboard".
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Wait for only 2 seconds.
+                The URL should not contain "dashboard" yet.
+            </p>
+
+        </div>
 
     </div>
 
@@ -305,9 +518,31 @@
 
         <button onclick="showSuccessMessage()">
 
-            Show Success Message
+            Show Success Message After 5 Seconds
 
         </button>
+
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Wait for 10 seconds and verify that the element
+                contains the expected success message.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Wait for only 2 seconds.
+                The expected text should not be present yet.
+            </p>
+
+        </div>
 
     </div>
 
@@ -322,7 +557,7 @@
 
         <p>
             The element below will be removed from the DOM
-            after clicking the button.
+            after clicking the button and waiting for 3 seconds.
         </p>
 
         <div id="staleElement">
@@ -333,14 +568,36 @@
 
         <button onclick="removeStaleElement()">
 
-            Remove Element
+            Remove Element After 3 Seconds
 
         </button>
 
+        <div class="positive">
+
+            <h3>Positive Use Case</h3>
+
+            <p>
+                Store the element reference, click the button,
+                and wait for the element to become stale.
+            </p>
+
+        </div>
+
+        <div class="negative">
+
+            <h3>Negative Use Case</h3>
+
+            <p>
+                Store the element reference but do not remove it.
+                Waiting for staleness should timeout.
+            </p>
+
+        </div>
+
     </div>
-    ```
 
 </div>
+
 
 <script>
 
@@ -363,7 +620,7 @@
                 '✅ Dynamic Element is now present in DOM' +
                 '</div>';
 
-        }, 3000);
+        }, 6000);
 
     }
 
@@ -524,7 +781,11 @@
                     "staleElement"
                 );
 
-            element.remove();
+            if (element) {
+
+                element.remove();
+
+            }
 
         }, 3000);
 
