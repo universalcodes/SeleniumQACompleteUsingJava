@@ -2,6 +2,7 @@ package d.chapter4.selenium.waitss;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,12 +29,14 @@ public class EExplicitWait {
 6. Commonly used excepted conditions:
 
    1.presenceOfElementLocated()
-     → Element DOM mein present hona chahiye.
-→ Element visible ho ya hidden, dono acceptable hain.
-→ Element DOM mein nahi mila within timeout → TimeoutException.
+   Element DOM must be present in the DOM
+ Weather Element is HIdden or Visible both are acceeptable
+if Element is not present within the DOM it throws an exception as TimeoutException.
+   2.visibilityOfElementLocated() -- Present in the DOM & visible on the html webpage then success
+    if Element is present in DOM and hidden which means not displayed in html page its throws an Exception as TimeoutException
 
-   3.invisibilityOfElementLocated()  -- ensure that weather Present in the DOM & visible on the html webpage
-   2.visibilityOfElementLocated() -- Present in the DOM & visible on the html webpage
+
+   3.invisibilityOfElementLocated()  -- ensure that weather Present in the DOM & not visible on the html webpage
    4.elementToBeClickable()  -- Present in the DOM, visible, and enabled then user can click on it
    5.alertIsPresent()  --  alert present in the html as alert pop up visible on the screen   ---
    7.titleContains()  --
@@ -99,7 +102,6 @@ public class EExplicitWait {
         System.out.println("Test Case Passed");
 
 
-
         /*
         Uncomment to Test
         Here presenceOfElementLocated is that weather element present in the DOM doesn't matter its hidden or visible, here element is not present in the DOM
@@ -110,6 +112,35 @@ public class EExplicitWait {
         System.out.println("Test Case Failed");
 
          */
+
+        System.out.println("Launch Browser");
+        System.out.println("3. Validate the presence of Element located which means Element is Present in the DOM and Visible Too After Click");
+        String hiddenElementValidation = "hiddenElement";
+        WebDriver openBrowserA = new ChromeDriver();
+        openBrowserA.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebElement validateVisibleElement = openBrowserA.findElement(By.xpath("//*[contains(text(), 'Make Element')]"));
+        System.out.println("Click on Button. Wait for 5 Seconds for Element to be Visible");
+        validateVisibleElement.click();
+        WebDriverWait explicitWaitt = new WebDriverWait(openBrowserA, Duration.ofSeconds(20));
+        WebElement hiddenElement = explicitWaitt.until(ExpectedConditions.visibilityOfElementLocated(By.id(hiddenElementValidation)));
+        System.out.println(hiddenElement.getText());
+
+
+        /*
+        Uncomment to Test
+        Here visibilityOfElementLocated is that weather element present in the DOM and but displayed in the HTML Page
+        System.out.println("Launch Browser");
+        System.out.println("4. Validate the presence of Element located which means element present in the DOM and but displayed in the HTML Page");
+        WebDriver openBrowserB = new ChromeDriver();
+        openBrowserB.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait explicitWaitB = new WebDriverWait(openBrowserB, Duration.ofSeconds(20));
+        WebElement hiddenElementA = explicitWaitB.until(ExpectedConditions.visibilityOfElementLocated(By.id("//*[contains(text(), 'still be hidden')]")));
+        System.out.println(hiddenElementA.isDisplayed());
+
+         */
+
+
+
 
 
     }
