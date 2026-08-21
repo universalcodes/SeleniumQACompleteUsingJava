@@ -29,16 +29,24 @@ public class EExplicitWait {
 6. Commonly used excepted conditions:
 
    1.presenceOfElementLocated()
-   Element DOM must be present in the DOM
- Weather Element is HIdden or Visible both are acceeptable
-if Element is not present within the DOM it throws an exception as TimeoutException.
-   2.visibilityOfElementLocated() -- Present in the DOM & visible on the html webpage then success
-    if Element is present in DOM and hidden which means not displayed in html page its throws an Exception as TimeoutException
+    Element DOM must be present in the DOM
+    Weather Element is Hidden or Visible both are acceptable
+    if Element is not present within the DOM it throws an exception as TimeoutException.
+   2.visibilityOfElementLocated() -- Present in the DOM & visible on the HTML webpage then success
+    if Element is present in DOM and hidden which means not displayed in HTML page its throws an Exception as TimeoutException
 
 
-   3.invisibilityOfElementLocated()  -- ensure that weather Present in the DOM & not visible on the html webpage
+   3.invisibilityOfElementLocated()
+Condition passes when:Element is NOT visible.
+It can pass when:
+1. Element is absent from DOM
+
+OR
+2. Element is present but invisible
+
+
    4.elementToBeClickable()  -- Present in the DOM, visible, and enabled then user can click on it
-   5.alertIsPresent()  --  alert present in the html as alert pop up visible on the screen   ---
+   5.alertIsPresent()  --  alert present in the HTML as alert pop up visible on the screen   ---
    7.titleContains()  --
    8.urlContains()
    9.textToBePresentInElement()
@@ -94,13 +102,13 @@ if Element is not present within the DOM it throws an exception as TimeoutExcept
          */
 
         System.out.println("Launch Browser");
-        System.out.println("1.Validate the presence of Element located which means Element is Present is the DOM and Not Visible");
+        System.out.println("1.presenceOfElementLocated - Validate the presence of Element located which means Element is Present is the DOM  is must but Visible /or Hidden is Optional");
         WebDriver openBrowser = new ChromeDriver();
         openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
         WebDriverWait waitForElement = new WebDriverWait(openBrowser, Duration.ofSeconds(2));
         waitForElement.until(ExpectedConditions.presenceOfElementLocated(By.id("addElementButton")));
         System.out.println("Test Case Passed");
-
+        openBrowser.close();
 
         /*
         Uncomment to Test
@@ -114,7 +122,7 @@ if Element is not present within the DOM it throws an exception as TimeoutExcept
          */
 
         System.out.println("Launch Browser");
-        System.out.println("3. Validate the presence of Element located which means Element is Present in the DOM and Visible Too After Click");
+        System.out.println("3. visibilityOfElementLocated - Validate the presence of Element located which means Element is Present in the DOM and & Must Be Visible as well");
         String hiddenElementValidation = "hiddenElement";
         WebDriver openBrowserA = new ChromeDriver();
         openBrowserA.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
@@ -124,13 +132,14 @@ if Element is not present within the DOM it throws an exception as TimeoutExcept
         WebDriverWait explicitWaitt = new WebDriverWait(openBrowserA, Duration.ofSeconds(20));
         WebElement hiddenElement = explicitWaitt.until(ExpectedConditions.visibilityOfElementLocated(By.id(hiddenElementValidation)));
         System.out.println(hiddenElement.getText());
+        openBrowserA.close();
 
 
         /*
         Uncomment to Test
-        Here visibilityOfElementLocated is that weather element present in the DOM and but displayed in the HTML Page
+        visibilityOfElementLocated - Validate the presence of Element located which means Element is Present in the DOM and & Must Be Visible as well
         System.out.println("Launch Browser");
-        System.out.println("4. Validate the presence of Element located which means element present in the DOM and but displayed in the HTML Page");
+        System.out.println("4. Validate the presence of Element located which means element present in the DOM and not displayed/hidden in the HTML Page");
         WebDriver openBrowserB = new ChromeDriver();
         openBrowserB.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
         WebDriverWait explicitWaitB = new WebDriverWait(openBrowserB, Duration.ofSeconds(20));
@@ -139,9 +148,62 @@ if Element is not present within the DOM it throws an exception as TimeoutExcept
 
          */
 
+        System.out.println("Launch Browser");
+        System.out.println("5. invisibilityOfElementLocated - Doesn't Matter Element is Present/Not Present Visible/Not Visible");
+        String hiddenElementValidationA = "hiddenElement";
+        WebDriver openBrowserC = new ChromeDriver();
+        openBrowserC.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementB = new WebDriverWait(openBrowserC, Duration.ofSeconds(20));
+        waitForElementB.until(ExpectedConditions.invisibilityOfElementLocated(By.id(hiddenElementValidationA)));
+        System.out.println("Test Case Passed");
+        openBrowserC.close();
 
 
+        System.out.println("Launch Browser");
+        System.out.println("6. invisibilityOfElementLocated - Doesn't Matter Element is Present/Not Present Visible/Not Visible");
+        WebDriver openBrowserD = new ChromeDriver();
+        openBrowserD.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementC = new WebDriverWait(openBrowserD, Duration.ofSeconds(20));
+        waitForElementC.until(ExpectedConditions.invisibilityOfElementLocated(By.id("dummy Fake")));
+        System.out.println("Test Case Passed");
+        openBrowserD.close();
 
+
+        System.out.println("Launch Browser");
+//        String btnXpath = "//*[contains(text(), ' Click Me)]";  // As This Xpath Syntax is Invalid then its throws an exception InvalidSelectorException
+        String btnXpath = "//*[contains(text(), ' Click Me')]";
+        System.out.println("7. elementToBeClickable - Check Particular Valid Element is Clickable");
+        WebDriver openBrowserE = new ChromeDriver();
+        openBrowserE.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementD = new WebDriverWait(openBrowserE, Duration.ofSeconds(20));
+        waitForElementD.until(ExpectedConditions.elementToBeClickable(By.xpath(btnXpath)));
+        System.out.println("Test Case Passed");
+        openBrowserE.close();
+
+        /*
+        Uncomment to Test
+        elementToBeClickable - if the Element is Present then which is clickable then Test Case is passed otherwise it throws an TimeOutException
+        System.out.println("Launch Browser");
+        String btnXpathA = "//*[contains(text(), ' Click MeA')]";
+        System.out.println("8. elementToBeClickable - Check Particular Invalid Element is Clickable");
+        WebDriver openBrowserF = new ChromeDriver();
+        openBrowserF.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementE = new WebDriverWait(openBrowserF, Duration.ofSeconds(20));
+        waitForElementE.until(ExpectedConditions.elementToBeClickable(By.xpath(btnXpathA)));
+        System.out.println("Test Case Passed");
+
+
+         */
+
+
+        System.out.println("Launch Browser");
+        String btnXpathB = "//*[contains(text(), 'Wait Practice Lab')]";
+        System.out.println("9. elementToBeClickable - Check Particular Valid Element is Clickable that is not Button");
+        WebDriver openBrowserG = new ChromeDriver();
+        openBrowserG.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementF = new WebDriverWait(openBrowserG, Duration.ofSeconds(20));
+        waitForElementF.until(ExpectedConditions.elementToBeClickable(By.xpath(btnXpathB)));
+        System.out.println("Test Case Passed");
 
     }
 }
