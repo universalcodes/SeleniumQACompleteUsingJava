@@ -331,9 +331,20 @@
 
         <button onclick="showDelayedAlert()">
 
-            Show Alert After 5 Seconds
+            Show Alert with only OK Button After 5 Seconds
 
         </button>
+
+
+        <button onclick="showAllAlertsAction()">
+
+            Show Alert with All Actions After 5 Seconds
+
+        </button>
+
+
+        <button onclick="showDelayedPrompt()">Show Prompt</button>
+
 
         <div class="positive">
 
@@ -709,6 +720,76 @@
 
     }
 
+    // =========================================================
+    // 5.1 ALL in One ALERT IS PRESENT
+    // =========================================================
+
+
+
+    function showAllAlertsAction() {
+    setTimeout(function () {
+
+        // 1. Alert: OK
+        alert("🚨 Selenium Alert Is Present!");
+
+        // 2. Confirm: OK / Cancel
+        const confirmResult = confirm(
+            "Do you want to Use Selenium?"
+        );
+
+        // 3. Prompt: Text input + OK / Cancel
+        const enteredText = prompt(
+            "Enter Your Name:",
+
+        );
+
+        let resultMessage =
+            "Confirm result: " +
+            (confirmResult ? "OK" : "Cancel");
+
+        resultMessage += "<br>Prompt result: " +
+            (enteredText === null ? "Cancel" : enteredText);
+
+        document.getElementById("result").innerHTML =
+            resultMessage;
+
+    }, 5000);
+}
+
+
+  // =========================================================
+    // 5.1 OK And Cancel Button in Alert
+    // =========================================================
+
+
+function showDelayedConfirm() {
+    setTimeout(function () {
+        const result = confirm("Kya aap Selenium continue karna chahte hain?");
+
+        document.getElementById("result").textContent =
+            result ? "User clicked OK" : "User clicked Cancel";
+    }, 5000);
+}
+
+
+  // =========================================================
+    // 5.2 Alert With Prompt
+    // =========================================================
+
+
+function showDelayedPrompt() {
+    setTimeout(function () {
+        const enteredText = prompt(
+            "Apna naam enter karein:",
+            "Yogesh"
+        );
+
+        document.getElementById("result").textContent =
+            enteredText === null
+                ? "User clicked Cancel"
+                : "Entered text: " + enteredText;
+    }, 5000);
+}
 
     // =========================================================
     // 6. FRAME

@@ -1,4 +1,4 @@
-package d.chapter4.selenium.waitss.CxplicitWaits;
+package d.chapter4.selenium.waitss.c.xplicitWaits;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ public class DElementClickableCondition {
         System.out.println("Launch Browser");
 //        String btnXpath = "//*[contains(text(), ' Click Me)]";  // As This Xpath Syntax is Invalid then its throws an exception InvalidSelectorException
         String btnXpath = "//*[contains(text(), ' Click Me')]";
-        System.out.println("7. elementToBeClickable - Check Particular Valid Element is Clickable");
+        System.out.println("1. elementToBeClickable - Check Particular Valid Element is Clickable");
         WebDriver openBrowserE = new ChromeDriver();
         openBrowserE.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
         WebDriverWait waitForElementD = new WebDriverWait(openBrowserE, Duration.ofSeconds(20));
@@ -27,7 +27,7 @@ public class DElementClickableCondition {
         elementToBeClickable - if the Element is Present then which is clickable then Test Case is passed otherwise it throws an TimeOutException
         System.out.println("Launch Browser");
         String btnXpathA = "//*[contains(text(), ' Click MeA')]";
-        System.out.println("8. elementToBeClickable - Check Particular Invalid Element is Clickable");
+        System.out.println("2. elementToBeClickable - Check Particular Invalid Element is Clickable");
         WebDriver openBrowserF = new ChromeDriver();
         openBrowserF.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
         WebDriverWait waitForElementE = new WebDriverWait(openBrowserF, Duration.ofSeconds(20));
@@ -40,7 +40,7 @@ public class DElementClickableCondition {
 
 //        System.out.println("Launch Browser");
 //        String btnXpathB = "//*[contains(text(), 'Wait Practice Lab')]";
-//        System.out.println("9. elementToBeClickable - Check Particular Valid Element is Clickable that is not Button");
+//        System.out.println("3. elementToBeClickable - Check Particular Valid Element is Clickable that is not Button");
 //        WebDriver openBrowserG = new ChromeDriver();
 //        openBrowserG.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
 //        WebDriverWait waitForElementF = new WebDriverWait(openBrowserG, Duration.ofSeconds(20));
@@ -49,7 +49,7 @@ public class DElementClickableCondition {
 
 
         System.out.println("Launch Browser");
-        System.out.println("10. elementToBeClickable - Check Particular Valid Element is Clickable that is Check Box");
+        System.out.println("4. elementToBeClickable - Check Particular Valid Element is Clickable that is Check Box");
         WebDriver openBrowserH = new ChromeDriver();
         openBrowserH.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\ACompleteSeleniumCodeStepByStep.html");
         WebDriverWait waitForElementG = new WebDriverWait(openBrowserH, Duration.ofSeconds(20));
@@ -59,7 +59,7 @@ public class DElementClickableCondition {
 
         System.out.println("Launch Browser");
         String btnXpathC = "//*[contains(text(), 'Enabled Elements')]";
-        System.out.println("11. elementToBeClickable - Check Particular Valid Element is Clickable that is Radio Box");
+        System.out.println("5. elementToBeClickable - Check Particular Valid Element is Clickable that is Radio Box");
         WebDriver openBrowserI = new ChromeDriver();
         openBrowserI.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\ACompleteSeleniumCodeStepByStep.html");
         WebDriverWait waitForElementH = new WebDriverWait(openBrowserI, Duration.ofSeconds(20));
@@ -72,7 +72,7 @@ public class DElementClickableCondition {
         System.out.println("Test Case Passed");
 
 
-//        System.out.println("12. elementToBeClickable - Check Particular Valid Element is Clickable that is Hidden as Enabled ");
+//        System.out.println("6. elementToBeClickable - Check Particular Valid Element is Clickable that is Hidden as Enabled ");
 //        WebDriver openBrowserJ = new ChromeDriver();
 //        openBrowserJ.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/inputBox.html");
 //        WebDriverWait waitForElementI = new WebDriverWait(openBrowserJ, Duration.ofSeconds(20));
@@ -82,7 +82,7 @@ public class DElementClickableCondition {
 //        System.out.println(checkTxtEnabled.isSelected());
 
 
-//        System.out.println("13. elementToBeClickable - Check Particular Valid Element is Clickable that is Hidden as Disabled ");
+//        System.out.println("7. elementToBeClickable - Check Particular Valid Element is Clickable that is Hidden as Disabled ");
 //        WebDriver openBrowserK = new ChromeDriver();
 //        openBrowserK.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/inputBox.html");
 //        WebDriverWait waitForElementJ = new WebDriverWait(openBrowserK, Duration.ofSeconds(20));
@@ -92,7 +92,7 @@ public class DElementClickableCondition {
 //        System.out.println(checkTxtEnabled.isSelected());
 
 
-//        System.out.println("14. elementToBeClickable - Check Particular Valid Element is Clickable that is Visible but Disabled ");
+//        System.out.println("8. elementToBeClickable - Check Particular Valid Element is Clickable that is Visible but Disabled ");
 //        WebDriver openBrowserL = new ChromeDriver();
 //        openBrowserL.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/inputBox.html");
 //        WebDriverWait waitForElementK = new WebDriverWait(openBrowserL, Duration.ofSeconds(20));
@@ -102,7 +102,7 @@ public class DElementClickableCondition {
 //        System.out.println(checkTxtEnabled.isSelected());
 
 
-        System.out.println("15. elementToBeClickable - Check Particular Valid Element is Clickable that is Visible but Enabled TextBox ");
+        System.out.println("9. elementToBeClickable - Check Particular Valid Element is Clickable that is Visible but Enabled TextBox ");
         WebDriver openBrowserM = new ChromeDriver();
         openBrowserM.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/inputBox.html");
         WebDriverWait waitForElementL = new WebDriverWait(openBrowserM, Duration.ofSeconds(20));
