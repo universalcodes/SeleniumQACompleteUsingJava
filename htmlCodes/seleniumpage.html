@@ -475,249 +475,949 @@ function greet(name) {
             <p>Home loan details and eligibility.</p>
         </div>
     </section>
+
+    <section id="bank-section">
+
+        <h2>Bank Services</h2>
+
+        <!-- ================= Parent - Child XPath ================= -->
+
+        <div id="account-options">
+
+            <p class="account-row">
+                <span class="label">This is Normal Text</span>
+                <strong>Extra Bold Child</strong>
+                <em>Italic Child</em>
+                <a href="#">Click Here</a>
+            </p>
+
+            <p class="account-row">
+                <span class="label">Savings Account</span>
+                <input type="radio"
+                       id="radioSavings"
+                       name="accountType"
+                       value="savings">
+            </p>
+
+            <p class="account-row">
+                <span class="label">Current Account</span>
+                <input type="radio"
+                       id="radioCurrent"
+                       name="accountType"
+                       value="current">
+            </p>
+
+        </div>
+
+        <!-- ================= Loan Options ================= -->
+
+        <div id="loan-options">
+
+            <p class="loan-row">
+                <span class="label">Home Loan</span>
+                <button id="btnHomeLoan">
+                    Apply
+                </button>
+            </p>
+
+            <p class="loan-row">
+                <span class="label">Car Loan</span>
+                <button id="btnCarLoan">
+                    Apply
+                </button>
+            </p>
+
+        </div>
+
+        <!-- ================= Preceding XPath Axis ================= -->
+
+        <div id="precedingXPathSection">
+
+            <h1>Preceding XPath Axis</h1>
+
+            <h2>Bank Services</h2>
+
+            <div class="account">
+
+                <label for="acc1">
+                    Savings Account
+                </label>
+
+                <input
+                        type="text"
+                        id="acc1"
+                        name="savings"
+                        placeholder="Enter Savings Account Number">
+
+            </div>
+
+            <div class="account">
+
+                <label for="account2">
+                    Current Account
+                </label>
+
+                <input
+                        type="text"
+                        id="account2"
+                        name="current"
+                        placeholder="Enter Current Account Number">
+
+            </div>
+
+            <div class="loan">
+
+                <label for="loan1">
+                    Home Loan
+                </label>
+
+                <input
+                        type="text"
+                        id="loan1"
+                        name="homeLoan"
+                        placeholder="Enter Home Loan ID">
+
+            </div>
+
+            <div class="loan">
+
+                <label for="loan2">
+                    Car Loan
+                </label>
+
+                <input
+                        type="text"
+                        id="loan2"
+                        name="carLoan"
+                        placeholder="Enter Car Loan ID">
+
+            </div>
+
+        </div>
+        <!-- ================= Following-Sibling XPath ================= -->
+
+        <div id="followingSiblingSection">
+
+            <h1>Following-Sibling XPath Axis</h1>
+
+            <p id="customer1" name="cust1">
+                Customer 1 - Savings Account
+            </p>
+
+            <p id="customer2" name="cust2">
+                Customer 2 - Current Account
+            </p>
+
+            <p id="customer3" name="cust3">
+                Customer 3 - Loan Account
+            </p>
+
+            <p id="customer4" name="cust4">
+                Customer 4 - Fixed Deposit
+            </p>
+
+        </div>
+
+        <!-- ================= Partial Link Text ================= -->
+
+        <div id="partialLinkTextSection">
+
+            <h1>Partial Link Text</h1>
+
+            <a id="linkSelenium"
+               href="selenium.html">
+                Learn Selenium By UniversalCodes
+            </a>
+
+            <br><br>
+
+            <a id="linkJava"
+               href="java.html">
+                Learn Java By UniversalCodes
+            </a>
+
+            <br><br>
+
+            <a id="linkPython"
+               href="python.html">
+                Learn Python By UniversalCodes
+            </a>
+
+        </div>
+
+        <!-- ================= Hidden Elements ================= -->
+
+        <div id="hiddenElementsSection">
+
+            <h2>Hidden TextBox</h2>
+
+            <label for="accountNumber">
+                Account Number
+            </label>
+
+            <input
+                    type="text"
+                    id="accountNumber"
+                    name="accountNumber"
+                    value="1234567890"
+                    style="display:none;">
+
+            <hr>
+
+            <h2>Default Selected Checkbox</h2>
+
+            <input
+                    type="checkbox"
+                    id="rememberMe"
+                    name="rememberMe"
+                    checked>
+
+            <label for="rememberMe">
+                Remember Me
+            </label>
+
+            <hr>
+
+            <h2>Default Selected Radio Button</h2>
+
+            <input
+                    type="radio"
+                    id="radioButtonSelected"
+                    name="gender"
+                    value="male"
+                    checked>
+
+            <label for="radioButtonSelected">
+                Male
+            </label>
+
+        </div>
+        <!-- ========================================================= -->
+        <!-- Select Bank Account Types -->
+        <!-- ========================================================= -->
+
+        <div class="container" id="bankAccountTypesSection">
+
+            <h2>Select Bank Account Types</h2>
+
+            <div class="account">
+                <input
+                        type="checkbox"
+                        id="savingAccount"
+                        name="savingAccount"
+                        checked>
+
+                <label for="savingAccount">
+                    Saving Account
+                </label>
+            </div>
+
+            <div class="account">
+                <input
+                        type="checkbox"
+                        id="currentAccount"
+                        name="currentAccount">
+
+                <label for="currentAccount">
+                    Current Account
+                </label>
+            </div>
+
+            <div class="account">
+                <input
+                        type="checkbox"
+                        id="salaryAccount"
+                        name="salaryAccount">
+
+                <label for="salaryAccount">
+                    Salary Account
+                </label>
+            </div>
+
+            <div class="account">
+                <input
+                        type="checkbox"
+                        id="fixedDeposit"
+                        name="fixedDeposit">
+
+                <label for="fixedDeposit">
+                    Fixed Deposit
+                </label>
+            </div>
+
+            <div class="account">
+                <input
+                        type="checkbox"
+                        id="recurringDeposit"
+                        name="recurringDeposit"
+                        checked>
+
+                <label for="recurringDeposit">
+                    Recurring Deposit
+                </label>
+            </div>
+
+            <div class="account">
+                <input
+                        type="checkbox"
+                        id="loanAccount"
+                        name="loanAccount">
+
+                <label for="loanAccount">
+                    Loan Account
+                </label>
+            </div>
+
+            <button id="submitButton">
+                Submit
+            </button>
+
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- Hidden Elements -->
+        <!-- ========================================================= -->
+
+        <div id="hiddenControlsSection">
+
+            <h2>Hidden Checkbox (Already Selected)</h2>
+
+            <input
+                    type="checkbox"
+                    id="hiddenCheckBox"
+                    name="hiddenCheckBox"
+                    checked
+                    style="display:none;">
+
+            <hr>
+
+            <h2>Hidden Checkbox (Not Selected)</h2>
+
+            <input
+                    type="checkbox"
+                    id="hiddenCheckBox2"
+                    name="hiddenCheckBox2"
+                    style="display:none;">
+
+            <hr>
+
+            <h2>Hidden Radio Button (Already Selected)</h2>
+
+            <input
+                    type="radio"
+                    id="hiddenRadioButton"
+                    name="hiddenGender"
+                    value="Male"
+                    checked
+                    style="display:none;">
+
+            <hr>
+
+            <h2>Hidden Radio Button (Not Selected)</h2>
+
+            <input
+                    type="radio"
+                    id="hiddenRadioButton2"
+                    name="hiddenGender"
+                    value="Female"
+                    style="display:none;">
+
+            <hr>
+
+            <h2>Hidden Dropdown (Current Account Selected)</h2>
+
+            <select
+                    id="hiddenAccountType"
+                    name="hiddenAccountType"
+                    style="display:none;">
+
+                <option value="saving">
+                    Saving Account
+                </option>
+
+                <option
+                        value="current"
+                        selected>
+                    Current Account
+                </option>
+
+                <option value="salary">
+                    Salary Account
+                </option>
+
+            </select>
+
+            <hr>
+
+            <h2>Hidden Dropdown (No Default Selection)</h2>
+            <hr>
+
+            <select
+                    id="hiddenAccountType2"
+                    name="hiddenAccountType2"
+                    style="display:none;">
+
+                <option value="" selected>
+                    -- Select Account --
+                </option>
+
+                <option value="saving">
+                    Saving Account
+                </option>
+
+                <option value="current">
+                    Current Account
+                </option>
+
+                <option value="salary">
+                    Salary Account
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- Visible Dropdown Section -->
+        <!-- ========================================================= -->
+
+        <div id="visibleDropdownSection" class="container">
+
+            <h2>Select Account from Dropdown</h2>
+
+            <label for="accountType">Account Type</label>
+
+            <br><br>
+
+            <select id="accountType" name="accountType">
+
+                <option value="saving">
+                    Saving Account
+                </option>
+
+                <option value="current" selected>
+                    Current Account
+                </option>
+
+                <option value="salary">
+                    Salary Account
+                </option>
+
+                <option value="fixedDeposit">
+                    Fixed Deposit
+                </option>
+
+                <option value="recurringDeposit">
+                    Recurring Deposit
+                </option>
+
+                <option value="loan">
+                    Loan Account
+                </option>
+
+            </select>
+
+            <br><br>
+
+            <button
+                    id="btnAccountSubmit"
+                    type="button">
+                Submit
+            </button>
+
+        </div>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- Disabled & Hidden Disabled Elements -->
+        <!-- ========================================================= -->
+
+        <div id="disabledElementsSection" class="container">
+
+            <h2>Disabled & Hidden Disabled Elements</h2>
+
+            <!-- Disabled TextBox -->
+            <label for="txtDisabledUsername">
+                Disabled Username
+            </label>
+
+            <input
+                    type="text"
+                    id="txtDisabledUsername"
+                    name="txtDisabledUsername"
+                    value="John Doe"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled Password -->
+            <label for="txtDisabledPassword">
+                Disabled Password
+            </label>
+
+            <input
+                    type="password"
+                    id="txtDisabledPassword"
+                    name="txtDisabledPassword"
+                    value="Password123"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled Email -->
+            <label for="txtDisabledEmail">
+                Disabled Email
+            </label>
+
+            <input
+                    type="email"
+                    id="txtDisabledEmail"
+                    name="txtDisabledEmail"
+                    value="john@example.com"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled Number -->
+            <label for="txtDisabledAge">
+                Disabled Age
+            </label>
+
+            <input
+                    type="number"
+                    id="txtDisabledAge"
+                    name="txtDisabledAge"
+                    value="30"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled Date -->
+            <label for="txtDisabledDate">
+                Disabled Date
+            </label>
+
+            <input
+                    type="date"
+                    id="txtDisabledDate"
+                    name="txtDisabledDate"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled TextArea -->
+            <label for="txtAreaDisabledComments">
+                Disabled Comments
+            </label>
+
+            <textarea
+                    id="txtAreaDisabledComments"
+                    name="txtAreaDisabledComments"
+                    disabled>This is a disabled textarea.</textarea>
+
+            <br><br>
+
+            <!-- Disabled Dropdown -->
+            <label for="ddlDisabledCountry">
+                Disabled Country
+            </label>
+
+            <select
+                    id="ddlDisabledCountry"
+                    name="ddlDisabledCountry"
+                    disabled>
+
+                <option>India</option>
+                <option>USA</option>
+                <option>Canada</option>
+
+            </select>
+
+            <br><br>
+
+            <!-- Disabled Checkbox -->
+            <label>
+                <input
+                        type="checkbox"
+                        id="chkDisabledTerms"
+                        name="chkDisabledTerms"
+                        checked
+                        disabled>
+
+                Accept Terms
+            </label>
+
+            <br><br>
+
+            <!-- Disabled Radio Button -->
+            <label>
+                <input
+                        type="radio"
+                        id="rdoDisabledMale"
+                        name="genderDisabled"
+                        checked
+                        disabled>
+
+                Male
+            </label>
+
+            <br><br>
+
+            <!-- Disabled File Upload -->
+            <label for="fileDisabledResume">
+                Disabled File Upload
+            </label>
+
+            <input
+                    type="file"
+                    id="fileDisabledResume"
+                    name="fileDisabledResume"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled Color Picker -->
+            <label for="colorDisabledTheme">
+                Disabled Color Picker
+            </label>
+
+            <input
+                    type="color"
+                    id="colorDisabledTheme"
+                    name="colorDisabledTheme"
+                    disabled>
+
+            <br><br>
+
+            <!-- Disabled Button -->
+            <button
+                    id="btnDisabledSubmit"
+                    name="btnDisabledSubmit"
+                    disabled>
+                Submit
+            </button>
+
+        </div>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- Hidden Disabled Elements -->
+        <!-- ========================================================= -->
+
+        <div id="hiddenDisabledElementsSection" class="container">
+
+            <h2>Hidden Disabled Elements</h2>
+            <hr>
+            <input
+                    type="text"
+                    id="txtHiddenDisabledUsername"
+                    name="txtHiddenDisabledUsername"
+                    value="Hidden User"
+                    disabled
+                    style="display:none;">
+
+            <input
+                    type="password"
+                    id="txtHiddenDisabledPassword"
+                    name="txtHiddenDisabledPassword"
+                    value="HiddenPassword"
+                    disabled
+                    style="display:none;">
+
+            <textarea
+                    id="txtAreaHiddenDisabledComments"
+                    name="txtAreaHiddenDisabledComments"
+                    disabled
+                    style="display:none;">Hidden Comments</textarea>
+
+            <select
+                    id="ddlHiddenDisabledCountry"
+                    name="ddlHiddenDisabledCountry"
+                    disabled
+                    style="display:none;">
+
+                <option>India</option>
+                <option>USA</option>
+
+            </select>
+
+            <input
+                    type="checkbox"
+                    id="chkHiddenDisabledTerms"
+                    name="chkHiddenDisabledTerms"
+                    checked
+                    disabled
+                    style="display:none;">
+
+            <input
+                    type="radio"
+                    id="rdoHiddenDisabledMale"
+                    name="hiddenGenderDisabled"
+                    checked
+                    disabled
+                    style="display:none;">
+
+            <button
+                    id="btnHiddenDisabledSubmit"
+                    name="btnHiddenDisabledSubmit"
+                    disabled
+                    style="display:none;">
+                Hidden Submit
+            </button>
+
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- Enabled & Hidden Enabled Elements -->
+        <!-- ========================================================= -->
+
+        <div id="enabledElementsSection" class="container">
+
+            <h2>Enabled & Hidden Enabled Elements</h2>
+
+            <!-- Enabled TextBox -->
+            <label for="txtEnabledUsername">
+                Enabled Username
+            </label>
+
+            <input
+                    type="text"
+                    id="txtEnabledUsername"
+                    name="txtEnabledUsername"
+                    value="UniversalCodes">
+
+            <br><br>
+
+            <!-- Enabled Password -->
+            <label for="txtEnabledPassword">
+                Enabled Password
+            </label>
+
+            <input
+                    type="password"
+                    id="txtEnabledPassword"
+                    name="txtEnabledPassword"
+                    value="Password123">
+
+            <br><br>
+
+            <!-- Enabled Email -->
+            <label for="txtEnabledEmail">
+                Enabled Email
+            </label>
+
+            <input
+                    type="email"
+                    id="txtEnabledEmail"
+                    name="txtEnabledEmail"
+                    value="universalcodes@gmail.com">
+
+            <br><br>
+
+            <!-- Enabled Number -->
+            <label for="txtEnabledAge">
+                Enabled Age
+            </label>
+
+            <input
+                    type="number"
+                    id="txtEnabledAge"
+                    name="txtEnabledAge"
+                    value="30">
+
+            <br><br>
+
+            <!-- Enabled Date -->
+            <label for="txtEnabledDate">
+                Enabled Date
+            </label>
+
+            <input
+                    type="date"
+                    id="txtEnabledDate"
+                    name="txtEnabledDate">
+
+            <br><br>
+
+            <!-- Enabled TextArea -->
+            <label for="txtEnabledComments">
+                Enabled Comments
+            </label>
+
+            <textarea
+                    id="txtEnabledComments"
+                    name="txtEnabledComments">This is an enabled textarea.</textarea>
+
+            <br><br>
+
+            <!-- Enabled Dropdown -->
+            <label for="ddlEnabledCountry">
+                Enabled Country
+            </label>
+
+            <select
+                    id="ddlEnabledCountry"
+                    name="ddlEnabledCountry">
+
+                <option>India</option>
+                <option selected>USA</option>
+                <option>Canada</option>
+
+            </select>
+
+            <br><br>
+
+            <!-- Enabled Checkbox -->
+            <label>
+
+                <input
+                        type="checkbox"
+                        id="chkEnabledTerms"
+                        name="chkEnabledTerms"
+                        checked>
+
+                Accept Terms
+
+            </label>
+
+            <br><br>
+
+            <!-- Enabled Radio Button -->
+            <label>
+
+                <input
+                        type="radio"
+                        id="rdoEnabledMale"
+                        name="enabledGender"
+                        checked>
+
+                Male
+
+            </label>
+
+            <br><br>
+
+            <!-- Enabled File Upload -->
+            <label for="fileEnabledResume">
+                Enabled File Upload
+            </label>
+
+            <input
+                    type="file"
+                    id="fileEnabledResume"
+                    name="fileEnabledResume">
+
+            <br><br>
+
+            <!-- Enabled Color Picker -->
+            <label for="colorEnabledTheme">
+                Enabled Color Picker
+            </label>
+
+            <input
+                    type="color"
+                    id="colorEnabledTheme"
+                    name="colorEnabledTheme">
+
+            <br><br>
+
+            <!-- Enabled Button -->
+            <button
+                    id="btnEnabledSubmit"
+                    name="btnEnabledSubmit">
+                Submit
+            </button>
+
+        </div>
+
+        <hr>
+
+        <!-- ========================================================= -->
+        <!-- Hidden Enabled Elements -->
+        <!-- ========================================================= -->
+
+        <div id="hiddenEnabledElementsSection" class="container">
+
+            <h2>Hidden Enabled Elements</h2>
+
+            <!-- Hidden Enabled TextBox -->
+            <input
+                    type="text"
+                    id="txtHiddenEnabledUsername"
+                    name="txtHiddenEnabledUsername"
+                    value="Hidden User"
+                    style="display:none;">
+
+            <!-- Hidden Enabled Password -->
+            <input
+                    type="password"
+                    id="txtHiddenEnabledPassword"
+                    name="txtHiddenEnabledPassword"
+                    value="HiddenPassword"
+                    style="display:none;">
+
+            <!-- Hidden Enabled TextArea -->
+            <textarea
+                    id="txtHiddenEnabledComments"
+                    name="txtHiddenEnabledComments"
+                    style="display:none;">Hidden Comments</textarea>
+
+            <!-- Hidden Enabled Dropdown -->
+            <select
+                    id="ddlHiddenEnabledCountry"
+                    name="ddlHiddenEnabledCountry"
+                    style="display:none;">
+
+                <option>India</option>
+                <option selected>USA</option>
+
+            </select>
+
+            <!-- Hidden Enabled Checkbox -->
+            <input
+                    type="checkbox"
+                    id="chkHiddenEnabledTerms"
+                    name="chkHiddenEnabledTerms"
+                    checked
+                    style="display:none;">
+
+            <!-- Hidden Enabled Radio Button -->
+            <input
+                    type="radio"
+                    id="rdoHiddenEnabledMale"
+                    name="hiddenEnabledGender"
+                    checked
+                    style="display:none;">
+
+            <!-- Hidden Enabled Button -->
+            <button
+                    id="btnHiddenEnabledSubmit"
+                    name="btnHiddenEnabledSubmit"
+                    style="display:none;">
+                Hidden Submit
+            </button>
+
+        </div>
+
+        </div>
+
+
+
+
+    </section>
+
+
 </main>
 
 <div>
 
-<section id="bank-section">
-    <h2>Bank Services</h2>
-
-    <!-- Parent DIV with multiple nested children -->
-    <div id="account-options">
-        <p class="account-row">
-            <span class="label">This is Normalize Text</span>
-            <strong>Extra Bold Child</strong>
-            <em>Italic Child</em>
-            <a href="#">Click Here</a>
-        </p>
-
-        <p class="account-row1">
-            <span class="label">Savings Account</span>
-            <input type="radio" name="accountType" value="savings">
-        </p>
-
-        <p class="account-row">
-            <span class="label">Current Account</span>
-            <input type="radio" name="accountType" value="current">
-        </p>
-    </div>
-
-    <!-- Another parent with nested structure -->
-    <div id="loan-options">
-        <p class="loan-row">
-            <span class="label">Home Loan</span>
-            <button>Apply</button>
-        </p>
-        <p class="loan-row">
-            <span class="label">Car Loan</span>
-            <button>Apply</button>
-        </p>
-    </div>
-    <div>
-        <h1>Preceding Xpath Axes</h1>
-
-        <h2>Bank Services</h2>
-
-        <div class="account">
-            <label for="acc1">Savings Account</label>
-            <input type="text" id="acc1" name="savings" placeholder="Enter Savings Account No">
-        </div>
-
-        <div class="account">
-            <label for="accc1">Savings Account</label>
-            <input type="text" id="account2" name="current" placeholder="Enter Current Account No">
-        </div>
-
-        <div class="loan">
-            <label for="loan1">Home Loan</label>
-            <input type="text" id="loan1" name="homeloan" placeholder="Enter Loan ID">
-        </div>
-
-        <div class="loan">
-            <label for="loan2">Car Loan</label>
-            <input type="text" id="loan2" name="carloan" placeholder="Enter Loan ID">
-        </div>
-    </div>
-
-    <div>
-        <div>
-            <h1>Learn Following-Siblings</h1>
-        <p id="chkFollowingSibling" name="cust1">Customer1 - Savings Account</p>
-        <p id="acc1" name="cust2">Customer2 - Current Account</p>
-        <p id="acc3" name="cust3">Customer3 - Loan Account</p>
-        <p id="acc4" name="cust4">Customer4 - Fixed Deposit</p>
-    </div>
-    </div>
-
-    <div>
-        <div>
-            <h1>Learn Partial Link Test</h1>
-            <a href="selenium.html">Learn Selenium By UniversalCode1</a> <br>
-            <a href="java.html">Learn Java By UniversalCode2</a> <br>
-            <a href="python.html">Learn Python By UniversalCode3</a> <br>
-
-
-        </div>
-    </div>
-
-    <div>
-        <h3>Hidden Account Number</h3>
-
-        <label>Account Number</label>
-        <input type="text"
-               id="accountNumber"
-               value="1234567890"
-               style="display:none;">
-
-        <h1> Default CheckBox is Selected</h1>
-        <input type="checkbox" id="rememberMe" checked>
-
-
-        <h1>Default Radio Button is Selected</h1>
-        <input type="radio" id="radioButtonSelected" name="gender" checked>
-
-
-    </div>
-
-    <div class="container">
-
-        <h2>Select Bank Account Types</h2>
-
-        <div class="account">
-            <input type="checkbox"
-                   id="savingAccount"
-                   checked>
-            <label for="savingAccount">Saving Account</label>
-        </div>
-
-        <div class="account">
-            <input type="checkbox"
-                   id="currentAccount">
-            <label for="currentAccount">Current Account</label>
-        </div>
-
-        <div class="account">
-            <input type="checkbox"
-                   id="salaryAccount">
-            <label for="salaryAccount">Salary Account</label>
-        </div>
-
-        <div class="account">
-            <input type="checkbox"
-                   id="fixedDeposit">
-            <label for="fixedDeposit">Fixed Deposit</label>
-        </div>
-
-        <div class="account">
-            <input type="checkbox"
-                   id="recurringDeposit"
-                   checked>
-            <label for="recurringDeposit">Recurring Deposit</label>
-        </div>
-
-        <div class="account">
-            <input type="checkbox"
-                   id="loanAccount">
-            <label for="loanAccount">Loan Account</label>
-        </div>
-
-        <button id="submitButton">
-            Submit
-        </button>
-    </div>
-
-    <div>
-    <h2>Hidden Checkbox</h2>
-
-    <input type="checkbox"
-           id="hiddenCheckBox"
-           checked>
-
-
-    <input
-            type="checkbox"
-            id="hiddenCheckBox2"
-            style="display:none;">
-
-
-        <h1>2. Hidden Radio Button (Already Selected)</h1>
-
-        <input type="radio"
-               id="hiddenRadioButton"
-               name="gender"
-               checked>
-
-        <h1>2.1 Hidden Radio Button  (Already Not Selected)</h1>
-
-        <input type="radio"
-               id="hiddenRadioButton2"
-               name="gender">
-
-        <h1>3. Hidden Dropdown already Selected</h1>
-
-        <select id="hiddenAccountType">
-            <option value="saving">
-                Saving Account
-            </option>
-
-            <option value="current" selected>
-                Current Hidden Account
-            </option>
-
-            <option value="salary">
-                Salary Account
-            </option>
-
-        </select>
-
-        <h1>3.1 Hidden Dropdown already Not Selected</h1>
-
-        <select id="hiddenAccountType2">
-            <option value="saving">
-                Saving Account
-            </option>
-
-            <option value="current">
-                Current Account
-            </option>
-
-            <option value="salary">
-                Salary Account
-            </option>
-
-        </select>
-
-
-
-
-    </div>
-
-
-    <div class="container">
-        <h1>Select Account from DropDown</h1>
-    <select id="accountType">
-
-        <option value="saving">
-            Saving Account
-        </option>
-
-        <option value="current" selected>
-            Current Account
-        </option>
-
-        <option value="salary">
-            Salary Account
-        </option>
-
-    </select>
-    </div>
-</section>
-    </div>
 
 <footer>
     <p> ©   2026  ChaseBank   Demo</p>
 </footer>
 
-
+</div>
 </body>
 </html>
