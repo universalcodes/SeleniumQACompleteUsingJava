@@ -47,7 +47,7 @@ public class FAlertNegativeUseCases {
               ==========================================
             */
         try {
-            System.out.println("TEST 2: TimeoutException - Not Clicking on Button Hence Alert is not displayed its throws an Exception as TimeOutException");
+            System.out.println("\nTEST 2: TimeoutException - Not Clicking on Button Hence Alert is not displayed its throws an Exception as TimeOutException");
              openBrowserC = new ChromeDriver();
             openBrowserC.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\Selenium Prompt Alert Practice Alert.html");
             WebElement btnClkAlertPresentBA = openBrowserC.findElement(By.id("showPromptButton"));
