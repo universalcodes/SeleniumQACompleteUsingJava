@@ -1,6 +1,7 @@
-package d.chapter4.selenium.waitss;
+package d.chapter4.selenium.waitss.c.xplicitWaits;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class FTitleException {
+public class GTitleException {
     public static void main(String[] args) {
         String btnXpath = "//*[contains(text(), 'Change Page Title After 3 Seconds')]";
         System.out.println("1. elementToBeClickable - Check Particular Valid Element is Clickable & Change The Title of the Page");
@@ -22,5 +23,18 @@ public class FTitleException {
         waitDriver.until(ExpectedConditions.titleIs("Selenium Dashboard - Success"));
         System.out.println("Title is changed Successfully");
 
+        try
+        {
+            System.out.println("1. Wrong Title Exception - Validate Invalid The Title of the Page");
+            WebDriver openBrowserEA = new ChromeDriver();
+            openBrowserEA.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+            WebDriverWait waitDriverA = new WebDriverWait(openBrowserEA, Duration.ofSeconds(30));
+            waitDriverA.until(ExpectedConditions.titleIs("Selenium Explicit Wait Practice LabA"));
+        }
+        catch(TimeoutException wrongTitleException)
+        {
+            System.out.println("Title is not matched as per Expected Title"+wrongTitleException.getMessage());
+        }
     }
+
 }

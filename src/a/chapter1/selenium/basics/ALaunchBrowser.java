@@ -11,9 +11,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class ALaunchBrowser {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, MalformedURLException {
       /*
       Points to Remember
       1. Selenium can automate only web Applications
@@ -87,6 +90,20 @@ public class ALaunchBrowser {
 
 
         //WebDriver webDriverTest = new WebDriver(); // Compile Time Error 'WebDriver' is abstract; cannot be instantiated
+
+
+
+        System.out.println("Initiate Valid Web Address through URL Class");
+        URL enterURL = new URL("https://www.amazon.in/");
+        WebDriver driverBrowser = new ChromeDriver();
+        driverBrowser.get(enterURL.toString());   // No Exception is thrown as URL Address is Valid
+        driverBrowser.quit();
+//
+//        System.out.println("Initiate Invalid Web Address through URL Class");
+//        URL enterURLA = new URL("www.amazon.in/");
+//        driverBrowser.get(enterURLA.toString());   //  Exception  MalformedURLException is thrown as URL Address is InValid
+//
+//
 
     }
 
