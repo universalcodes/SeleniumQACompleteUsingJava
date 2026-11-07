@@ -1,0 +1,248 @@
+package d.chapter4.selenium.waitss.c.xplicitWaits;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class AExplicitWaitIntro {
+    /*
+    points to remember
+    /*
+1. Explicit Wait is used to wait for a SPECIFIC CONDITION.
+
+2. It is implemented using WebDriverWait.
+
+3. ExpectedConditions provides predefined conditions.
+
+4. Explicit Wait has a MAXIMUM TIMEOUT.
+   It does NOT necessarily wait for the complete timeout.
+
+5. As soon as the condition becomes TRUE,
+   Selenium continues execution.
+
+6. Commonly used excepted conditions:
+
+   1.presenceOfElementLocated()
+    Element DOM must be present in the DOM
+    Weather Element is Hidden or Visible both are acceptable
+    if Element is not present within the DOM it throws an exception as TimeoutException.
+   2.visibilityOfElementLocated() -- Present in the DOM & visible on the HTML webpage then success
+    if Element is present in DOM and hidden which means not displayed in HTML page its throws an Exception as TimeoutException
+
+
+   3.invisibilityOfElementLocated()
+Condition passes when:Element is NOT visible.
+It can pass when:
+1. Element is absent from DOM
+
+OR
+2. Element is present but invisible
+
+
+   4.elementToBeClickable()  -- Present in the DOM, visible, and enabled then user can click on it
+   5.alertIsPresent()  --  alert present in the HTML as alert pop up visible on the screen   ---
+   7.titleContains()  --
+   8.urlContains()
+   9.textToBePresentInElement()
+   6.frameToBeAvailableAndSwitchToIt()
+   10.stalenessOf()
+
+   mostly excepted conditions throw TimeOutException when the condition is not satisfied with given time.
+
+
+7. Explicit Wait is CONDITION-BASED.
+
+8. Thread.sleep() is TIME-BASED.
+
+9. Explicit Wait is generally preferred over
+   Thread.sleep() for synchronization.
+
+10. If the condition is not satisfied within the
+    timeout, TimeoutException can occur.
+
+11. Explicit Wait is normally used for a specific
+    element/condition, not globally.
+
+12. Explicit Wait is very useful for dynamic elements,
+    AJAX calls, delayed loading, and asynchronous UI changes.
+
+13. Modern Selenium syntax:
+
+    WebDriverWait wait =
+        new WebDriverWait(driver, Duration.ofSeconds(10));
+
+14. Example:
+
+    WebElement element = wait.until(
+        ExpectedConditions.visibilityOfElementLocated(
+            By.id("username")
+        )
+    );
+
+15. Most important difference:
+
+    presence  → Element exists in DOM
+    visibility → Element is visible
+    clickable  → Element can be clicked
+
+16. Explicit Wait helps reduce flaky tests caused
+    by synchronization/timing issues.
+
+     */
+
+    public static void main(String[] args) {
+
+
+
+
+      /*
+        Here presenceOfElementLocated is that weather element present in the DOM doesn't matter its hidden or visible, here element is present in the DOM
+         */
+
+//        System.out.println("Launch Browser");
+//        System.out.println("1.presenceOfElementLocated - Validate the presence of Element located which means Element is Present is the DOM  is must but Visible /or Hidden is Optional");
+//        WebDriver openBrowser = new ChromeDriver();
+//        openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+//        WebDriverWait waitForElement = new WebDriverWait(openBrowser, Duration.ofSeconds(2));
+//        waitForElement.until(ExpectedConditions.presenceOfElementLocated(By.id("addElementButton")));
+//        System.out.println("Test Case Passed");
+//        openBrowser.close();
+
+        /*
+        Uncomment to Test
+        Here presenceOfElementLocated is that weather element present in the DOM doesn't matter its hidden or visible, here element is not present in the DOM
+        System.out.println("2.Validate the presence of Element located which means Element is not Present is the DOM");
+        openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait waitForElementA = new WebDriverWait(openBrowser, Duration.ofSeconds(20));
+        waitForElementA.until(ExpectedConditions.presenceOfElementLocated(By.id("addElementButtonHandle")));
+        System.out.println("Test Case Failed");
+
+         */
+
+//        System.out.println("Launch Browser");
+//        System.out.println("3. visibilityOfElementLocated - Validate the presence of Element located which means Element is Present in the DOM and & Must Be Visible as well");
+//        String hiddenElementValidation = "hiddenElement";
+//        WebDriver openBrowserA = new ChromeDriver();
+//        openBrowserA.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+//        WebElement validateVisibleElement = openBrowserA.findElement(By.xpath("//*[contains(text(), 'Make Element')]"));
+//        System.out.println("Click on Button. Wait for 5 Seconds for Element to be Visible");
+//        validateVisibleElement.click();
+//        WebDriverWait explicitWaitt = new WebDriverWait(openBrowserA, Duration.ofSeconds(20));
+//        WebElement hiddenElement = explicitWaitt.until(ExpectedConditions.visibilityOfElementLocated(By.id(hiddenElementValidation)));
+//        System.out.println(hiddenElement.getText());
+//        openBrowserA.close();
+
+
+        /*
+        Uncomment to Test
+        visibilityOfElementLocated - Validate the presence of Element located which means Element is Present in the DOM and & Must Be Visible as well
+        System.out.println("Launch Browser");
+        System.out.println("4. Validate the presence of Element located which means element present in the DOM and not displayed/hidden in the HTML Page");
+        WebDriver openBrowserB = new ChromeDriver();
+        openBrowserB.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+        WebDriverWait explicitWaitB = new WebDriverWait(openBrowserB, Duration.ofSeconds(20));
+        WebElement hiddenElementA = explicitWaitB.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'still be hidden')]")));
+        System.out.println(hiddenElementA.isDisplayed());
+
+         */
+
+//        System.out.println("Launch Browser");
+//        System.out.println("5. invisibilityOfElementLocated - Doesn't Matter Element is Present/Not Present Visible/Not Visible");
+//        String hiddenElementValidationA = "hiddenElement";
+//        WebDriver openBrowserC = new ChromeDriver();
+//        openBrowserC.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+//        WebDriverWait waitForElementB = new WebDriverWait(openBrowserC, Duration.ofSeconds(20));
+//        waitForElementB.until(ExpectedConditions.invisibilityOfElementLocated(By.id(hiddenElementValidationA)));
+//        System.out.println("Test Case Passed");
+//        openBrowserC.close();
+//
+//
+//        System.out.println("Launch Browser");
+//        System.out.println("6. invisibilityOfElementLocated - Doesn't Matter Element is Present/Not Present Visible/Not Visible");
+//        WebDriver openBrowserD = new ChromeDriver();
+//        openBrowserD.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
+//        WebDriverWait waitForElementC = new WebDriverWait(openBrowserD, Duration.ofSeconds(20));
+//        waitForElementC.until(ExpectedConditions.invisibilityOfElementLocated(By.id("dummy Fake")));
+//        System.out.println("Test Case Passed");
+//        openBrowserD.close();
+
+
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            driver.get("file:///F:/Full%20Selenium%20Java%20Journey/CompleteQASelenium/htmlCodes/explicitWait.html");
+
+            // Case 1: Element DOM mein present aur visible hai
+            WebElement presentButton = driver.findElement(By.id("addElementButton"));
+
+            System.out.println("Present button displayed: " + presentButton.isDisplayed());
+
+            // Case 2: Element DOM mein present hai, lekin hidden hai
+            WebElement hiddenElement = driver.findElement(By.id("hiddenElement"));
+
+            System.out.println("Hidden element displayed: " + hiddenElement.isDisplayed());
+
+            // Case 3: Element DOM mein maujood nahi hai
+            try {
+                driver.findElement(By.id("addElementButtonHandle"));
+                System.out.println("Unexpected: absent element was found");
+
+            } catch (NoSuchElementException exception) {
+                System.out.println("Absent element: NoSuchElementException");
+            }
+
+            // Case 4: Element present hai, lekin hidden hai
+            // Iska result upar hiddenElement.isDisplayed() mein false hoga.
+            // findElement() phir bhi element return karta hai,
+            // kyunki element DOM mein maujood hai.
+
+        } finally {
+            driver.quit();
+        }
+        driver = new ChromeDriver();
+        driver.get(
+                "file:///F:/Full%20Selenium%20Java%20Journey/" +
+                        "CompleteQASelenium/htmlCodes/explicitWait.html"
+        );
+
+        // Present aur visible element
+        WebElement visibleElement =
+                driver.findElement(By.id("addElementButton"));
+
+        System.out.println(
+                "Present and visible: "
+                        + visibleElement.isDisplayed()
+        );
+
+        // Present, lekin hidden element
+        WebElement hiddenElement =
+                driver.findElement(By.id("hiddenElement"));
+
+        System.out.println(
+                "Present but hidden: "
+                        + hiddenElement.isDisplayed()
+        );
+
+        // Absent element: yahan NoSuchElementException aayegi
+        WebElement absentElement =
+                driver.findElement(
+                        By.id("addElementButtonHandle")
+                );
+
+        System.out.println(
+                "Absent element: "
+                        + absentElement.isDisplayed()
+        );
+
+        driver.quit();
+    }
+}
+
+
+

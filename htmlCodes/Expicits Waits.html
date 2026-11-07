@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presence Of Element Located Demo</title>
+
+    <style>
+        #hiddenDiv {
+            display: none;
+        }
+    </style>
+
+    <script>
+
+        // Use Case 1
+        function addElementAfter5Sec() {
+            setTimeout(() => {
+                let div = document.createElement("div");
+                div.id = "dynamicElement";
+                div.innerHTML = "Dynamically Added";
+                document.body.appendChild(div);
+            }, 5000);
+        }
+
+        // Use Case 2
+        function addHiddenElement() {
+            setTimeout(() => {
+                let div = document.createElement("div");
+                div.id = "hiddenElement";
+                div.style.display = "none";
+                div.innerHTML = "Hidden Text";
+                document.body.appendChild(div);
+            }, 3000);
+        }
+
+        // Use Case 3
+        function loadSearchBox() {
+            setTimeout(() => {
+                let input = document.createElement("input");
+                input.id = "searchBox";
+                document.body.appendChild(input);
+            }, 4000);
+        }
+
+        // Use Case 4
+        function loadTable() {
+            setTimeout(() => {
+                let table = document.createElement("table");
+                table.id = "empTable";
+                table.innerHTML =
+                    "<tr><td>101</td><td>Java</td></tr>";
+                document.body.appendChild(table);
+            }, 6000);
+        }
+
+        window.onload = function() {
+            addElementAfter5Sec();
+            addHiddenElement();
+            loadSearchBox();
+            loadTable();
+        }
+
+    </script>
+
+</head>
+<body>
+
+<h2>Presence Of Element Located Examples</h2>
+<div id="hiddenElement" style="display:none">
+</div>
+
+</body>
+</html>
+</html>
