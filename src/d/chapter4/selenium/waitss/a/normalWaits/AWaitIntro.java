@@ -1,4 +1,4 @@
-package d.chapter4.selenium.waitss;
+package d.chapter4.selenium.waitss.a.normalWaits;
 
 public class AWaitIntro {
     /*

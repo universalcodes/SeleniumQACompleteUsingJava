@@ -1,4 +1,4 @@
-package d.chapter4.selenium.waitss;
+package d.chapter4.selenium.waitss.b.implicittWait;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,11 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.time.Duration.*;
 
-public class DImplicitWait {
-
-
+public class AImplicitWait {
     /*
       Points to Remember
      

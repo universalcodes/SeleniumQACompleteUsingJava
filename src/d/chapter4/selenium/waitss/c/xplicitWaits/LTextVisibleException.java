@@ -13,6 +13,7 @@ public class LTextVisibleException {
     public static void main(String[] args) {
         System.out.println("1. Validate Valid Text Present in the Webpage");
         String visibleText = "Selenium Explicit Wait Practice Lab";
+        String visibleTextA = "Explicit Wait Practice";
         String xpathLocator = "//h1[text()='Selenium Explicit Wait Practice Lab']";
         WebDriver openBrowser = new ChromeDriver();
         openBrowser.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
@@ -35,18 +36,24 @@ public class LTextVisibleException {
         */
         try {
             System.out.println("3. Validate InValid Text Present in the Webpage");
-            String visibleTextA = "Selenium Explicit Wait Practice Lab Test";
+            String visibleTextAA = "Selenium Explicit Wait Practice Lab Test";
             String xpathLocatorA = "//h1[text()='Selenium Explicit Wait Practice Lab']";
+            String xpathContainsLocatorr = "//h1[contains(text(), 'Explicit Wait Practice')]";
+
             WebDriver openBrowserA = new ChromeDriver();
             openBrowserA.get("F:\\Full Selenium Java Journey\\CompleteQASelenium\\htmlCodes\\explicitWait.html");
             WebDriverWait explicitWaitValidateA = new WebDriverWait(openBrowserA, Duration.ofSeconds(10));
-            explicitWaitValidateA.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpathLocatorA), visibleTextA));
-            System.out.println("Failed is Passed");
+         //   explicitWaitValidateA.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpathLocatorA), visibleTextA));
+              explicitWaitValidateA.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpathContainsLocatorr), visibleTextA));
+            System.out.println("TC  is Passed");
         }
         catch(TimeoutException checkTextException)
         {
            String exceptionMessage =  checkTextException.getMessage();
             System.out.println(exceptionMessage);
         }
+
+
+        System.out.println("4. Validate the Test ");
     }
 }

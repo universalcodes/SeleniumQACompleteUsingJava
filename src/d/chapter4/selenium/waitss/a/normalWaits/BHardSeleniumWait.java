@@ -1,4 +1,4 @@
-package d.chapter4.selenium.waitss;
+package d.chapter4.selenium.waitss.a.normalWaits;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
