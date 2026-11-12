@@ -24,7 +24,6 @@ public class AFluentWaits {
         testBrowser.navigate().refresh();
 
         System.out.println("2. Fluent Wait Technique 2 without Chaining Method & Lamda Exp");
-
         FluentWait<WebDriver> fluentWaitTestNew = new FluentWait<>(testBrowser);
         fluentWaitTestNew.withTimeout(Duration.ofSeconds(30));
         fluentWaitTestNew  .pollingEvery(Duration.ofSeconds(2));
@@ -35,6 +34,19 @@ public class AFluentWaits {
         System.out.println("element is Visible and Clickable");
         searchBoxVisibleNew.sendKeys("Laptop");
         System.out.println("2. Fluent Wait Technique 2 without Chaining Method & Lamda Exp Passed");
+        testBrowser.navigate().refresh();
+
+        System.out.println("3. Fluent Wait Technique Where TimeOutException is also provided which is not relevant");
+        FluentWait<WebDriver> fluentWaitTest2 = new FluentWait<>(testBrowser)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(TimeoutException.class);
+        //// Take the WebDriver instance named as driver and try to find the element with id 'searchBox1'.
+        WebElement searchBoxVisibleA = fluentWaitTest2.until(driver -> driver.findElement(By.id("searchBox1")));
+//                searchBoxVisibleA.sendKeys("Laptop");
+        System.out.println("Fluent Wait Technique 3 Passed");
+
 
 
 
