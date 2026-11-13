@@ -48,7 +48,5 @@ public class AFluentWaits {
         System.out.println("Fluent Wait Technique 3 Passed");
 
 
-
-
     }
 }
