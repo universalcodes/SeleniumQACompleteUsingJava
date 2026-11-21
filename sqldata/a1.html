@@ -1,0 +1,507 @@
+<html>
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta name=Generator content="Microsoft Word 15 (filtered)">
+    <title>MySQL Practice Session</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f4f4f4 0%, #e8e8e8 50%, #d4d4d4 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #3498db;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .command {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .output,
+        .explanation,
+        .lesson {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            margin: 10px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>MySQL Practice Session – Reference Document</h1>
+
+    <div class="section">
+        <h2>Session Overview</h2>
+        <p>This document summarizes the commands executed in MySQL Monitor, their outputs, and the lessons learned. It is designed as a teaching reference for beginners exploring database creation, schema differences, and renaming operations.</p>
+    </div>
+
+    <div class="section">
+        <h2>1. Starting the MySQL Monitor</h2>
+        <div class="command">Command Prompt Output:</div>
+        <div class="output">Welcome to the MySQL monitor. Commands end with ; or \g. Server version: 8.0.44 MySQL Community Server - GPL</div>
+        <div class="explanation">You successfully logged into MySQL. The monitor provides an interactive shell to run SQL commands.</div>
+    </div>
+
+    <div class="section">
+        <h2>2. Viewing Existing Databases</h2>
+        <div class="command">SHOW DATABASES;</div>
+        <div class="output">Lists system databases like information_schema, mysql, performance_schema, sys, and sample databases sakila, world.</div>
+        <div class="lesson">SHOW DATABASES displays all databases available on the server.</div>
+    </div>
+
+    <div class="section">
+        <h2>3. Checking Schemas</h2>
+        <div class="command">SHOW SCHEMAS;</div>
+        <div class="output">Same list as SHOW DATABASES.</div>
+        <div class="lesson">In MySQL, <b>schema and database are synonyms</b>. Unlike Oracle or PostgreSQL, there is no distinction.</div>
+    </div>
+
+    <div class="section">
+        <h2>4. Creating a New Database</h2>
+        <div class="command">CREATE DATABASE learnSQL;</div>
+        <div class="output">Database learnsql created successfully.</div>
+        <div class="lesson">Always end commands with ;. Database names are case‑insensitive in MySQL.</div>
+    </div>
+
+    <div class="section">
+        <h2>5. Attempting to Rename Database</h2>
+        <div class="command">ALTER DATABASE learnSQL RENAME TO learnSqlNew; ALTER DATABASE old_db RENAME TO new_db;</div>
+        <div class="output">Multiple <b>ERROR 1064 (42000)</b> messages indicating invalid syntax.</div>
+        <div class="lesson">MySQL <b>does not support renaming databases</b> directly. The ALTER DATABASE ... RENAME syntax is deprecated and removed.</div>
+    </div>
+
+    <div class="section">
+        <h2>6. Dropping a Database</h2>
+        <div class="command">DROP DATABASE learnsql;</div>
+        <div class="output">Database deleted successfully.</div>
+        <div class="lesson">Use DROP DATABASE carefully—it permanently removes all tables and data inside.</div>
+    </div>
+
+    <div class="section">
+        <h2>Key Takeaways</h2>
+        <ol>
+            <li><b>SHOW DATABASES vs SHOW SCHEMAS</b> → Same in MySQL.</li>
+            <li><b>CREATE DATABASE</b> → Works fine for new databases.</li>
+            <li><b>ALTER DATABASE RENAME</b> → Not supported in MySQL 8.0. Direct Rename is not allowed.
+                <ul>
+                    <li>Workaround: Create a new database and move tables manually or use mysqldump.</li>
+                    <li>mysqldump -u root -p learnsqldetail &gt; learnsqldetail.sql  --- Creating backup of the old database in text file format</li>
+                    <li>Create New Database</li>
+                    <li>mysql -u root -p learnsqldetail2 &lt; learnsqldetail.sql  -- Copying all the data from existing database to new database.</li>
+                </ul>
+            </li>
+            <li><b>DROP DATABASE</b> → Deletes the existing database permanently.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Selecting a Database</h2>
+        <div class="command">USE DatabaseName;</div>
+        <div class="output">The database RenameData is now selected. All subsequent commands will run inside this database.</div>
+    </div>
+
+    <div class="section">
+        <h2>Difference Between Schema and Database</h2>
+        <p>A database is the overall container that stores and manages data, while a schema is the blueprint or structure that defines how that data is organized inside the database. In simple terms, the database is the "house," and the schema is the "floor plan" that dictates where everything goes</p>
+    </div>
+
+    <div class="section">
+        <h2>Practical Example (SQL Context)</h2>
+        <p><b>Database</b>: SchoolDB</p>
+        <p>Stores all student, teacher, and course data.</p>
+        <p><img width=362 height=438 src="&#128216;%20MySQL%20Practice%20Session_files/image007.png"></p>
+    </div>
+
+    <div class="section">
+        <h2>Check the List of Schema using following command </h2>
+        <div class="command">show schemas;</div>
+        <p><img width=269 height=297 src="&#128216;%20MySQL%20Practice%20Session_files/image008.png"></p>
+    </div>
+
+    <div class="section">
+        <h2>Create Schema with the following command</h2>
+        <p><b>Schema</b>: Create Schema StudentSchema</p>
+        <div class="command">mysql&gt; create schema studentDetails;</div>
+        <div class="output">Query OK, 1 row affected (0.01 sec)</div>
+    </div>
+
+    <div class="section">
+        <h2>Check the Existing Schema weather its created or not use following command </h2>
+        <div class="command">show schemas;</div>
+        <p><img width=301 height=352 src="&#128216;%20MySQL%20Practice%20Session_files/image010.png"></p>
+    </div>
+
+    <div class="section">
+        <h2>Defines tables like Students, Grades, Attendance.</h2>
+        <p>Another schema in the same database could be TeacherSchema with tables like Teachers, Subjects.</p>
+        <p>User can create multiple schema within selected database.</p>
+        <p>This separation allows <b>modularity</b>: multiple schemas can coexist in one database, each serving different organizational needs.</p>
+    </div>
+
+    <div class="section">
+        <h2>Common Misunderstandings</h2>
+        <p><b>Schema ≠ Database</b>: Many beginners confuse them because both are related to data organization.</p>
+        <p><b>Schema ≠ Table</b>: A schema can contain multiple tables, not just one.</p>
+        <p>In <b>Oracle</b>, a schema is often tied to a user account, meaning when you create a user, you also create a schema.</p>
+    </div>
+
+    <div class="section">
+        <h2>Why They Look the Same in MySQL</h2>
+        <p>MySQL treats a schema as a database.</p>
+        <p>Internally, both commands query the same metadata, so the output is identical.</p>
+        <p>This design choice comes from compatibility: other systems (like Oracle) use <i>schema</i> to mean the set of objects owned by a user, while MySQL simplifies things by equating schema = database.</p>
+    </div>
+
+    <div class="section">
+        <h2>How It Differs in Other Systems</h2>
+        <p><b>Oracle / SQL Server</b>:</p>
+        <ul>
+            <li><i>Database</i> = the whole container.</li>
+            <li><i>Schema</i> = a namespace inside the database, often tied to a user.</li>
+            <li>Example: In Oracle, HR schema might contain tables like EMPLOYEES, DEPARTMENTS, while another schema SALES has its own tables — all inside one database.</li>
+        </ul>
+        <p><b>PostgreSQL</b>:</p>
+        <ul>
+            <li>Similar to Oracle: one database can have multiple schemas, each grouping related tables.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Key Takeaway</h2>
+        <p>In <b>MySQL</b>, schema and database are interchangeable.</p>
+        <p>In <b>other RDBMS</b>, schema is a logical subset inside a database, not the same thing.</p>
+        <p>Since you’re working with MySQL, you can safely treat them as the same. But if you ever switch to Oracle or PostgreSQL, you’ll need to remember that schemas are separate namespaces within a database.</p>
+    </div>
+
+    <div class="section">
+        <h2>Postgres Example </h2>
+        <p><b>Create a database</b></p>
+        <div class="command">CREATE DATABASE schooldb;</div>
+        <p><b>Connect to the database</b></p>
+        <div class="command">\c schooldb</div>
+        <p><b>Create schemas inside the database</b></p>
+        <div class="command">CREATE SCHEMA student_schema;</div>
+        <div class="command">CREATE SCHEMA teacher_schema;</div>
+        <p><b>Create tables inside different schemas</b></p>
+        <div class="command">CREATE TABLE student_schema.students ( id INT PRIMARY KEY, name VARCHAR(50), grade INT );</div>
+        <div class="command">CREATE TABLE teacher_schema.teachers ( id INT PRIMARY KEY, name VARCHAR(50), subject VARCHAR(50));</div>
+        <p><img width=602 height=456 src="&#128216;%20MySQL%20Practice%20Session_files/image011.png"></p>
+    </div>
+
+    <div class="section">
+        <h2>Visual Difference Between Schema &amp; Database </h2>
+        <p><img width=602 height=401 src="&#128216;%20MySQL%20Practice%20Session_files/image012.jpg"></p>
+    </div>
+
+    <div class="section">
+        <h2>Viewing Existing Tables</h2>
+        <div class="command">SHOW TABLES;</div>
+        <div class="output">If tables exist → they will be listed.</div>
+        <div class="output">If no tables exist → it will return an empty set.</div>
+    </div>
+
+    <div class="section">
+        <h2>CREATE TABLE </h2>
+        <p><b>Purpose of the Statement</b></p>
+        <p>The <b>CREATE TABLE</b> command in SQL is used to define a new table structure in the database. It specifies the table name, the columns it contains, the data types of those columns, and any constraints (like primary keys or foreign keys).</p>
+        <p>The UserDetails table is designed to store personal information, preferences, and multimedia data (such as photos) for each user. It includes basic attributes (name, age, gender) along with JSON arrays to handle multiple favourite numbers and colours in a structured way.</p>
+        <div class="command">CREATE TABLE UserDetails ( Name VARCHAR(50), Age INT(4), Mobile BIGINT(15), NameFirstLetter CHAR(1), Gender BOOLEAN, userPhoto MEDIUMBLOB, Address VARCHAR(200), FavNumber JSON, FavColors JSON );</div>
+        <div class="output">Query OK, 0 rows affected, 2 warnings (0.11 sec)</div>
+    </div>
+
+    <div class="section">
+        <h2>CREATING TABLE WITH SAME NAME</h2>
+        <p>If a user attempts to execute a <code>CREATE TABLE</code> statement using a table name that already exists in the database (for example, <code>UserDetails</code>), the database will not allow the operation and will return an error message indicating that the table already exists. Specifically, MySQL will display:</p>
+        <div class="output">ERROR 1050 (42S01): Table 'UserDetails' already exists </div>
+    </div>
+
+    <div class="section">
+        <h2>AVOID ERROR WHILE CREATE TABLE WITH SAME NAME USE IF NOT EXISTS</h2>
+        <p><b>IF NOT EXISTS</b> is a <b>conditional clause in SQL DDL statements</b>, not a datatype. It’s used to safely create objects (like tables or databases) only if they don’t already exist.</p>
+        <p><b>Purpose:</b> Prevents errors when creating a table that may already exist.</p>
+        <p><b>Behavior:</b></p>
+        <ul>
+            <li>If the table does not exist → it will be created.</li>
+            <li>If the table already exists → MySQL skips creation and does not throw an error.</li>
+        </ul>
+        <p><b>Example:</b></p>
+        <div class="command">Create Table IF NOT EXISTS UserDetails( Name Varchar(50), Age int(4), Mobile Bigint(15), NameFirstLetter char(1), Gender Boolean, userPhoto MediumBlob, Address Varchar(200), FavNumber Json, FavColors Json, MobileModel VARCHAR(34));</div>
+    </div>
+
+    <div class="section">
+        <h2>CHECK DESCRIPTION OF THE EXISTING TABLE</h2>
+        <p>To see the description/Structure of the table use following table </p>
+        <div class="command">DESC UserDetails</div>
+        <p>The following result is displayed</p>
+        <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 style='margin-left:.5in;border-collapse:collapse;border:none'>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'><br>
+  +-----------------+--------------+------+-----+---------+-------+</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  Field           | Type         | Null | Key | Default | Extra |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>+-----------------+--------------+------+-----+---------+-------+</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  Name            | varchar(50)  | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  Age             | int          | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  Mobile          | bigint       | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  NameFirstLetter | char(1)      | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  Gender          | tinyint(1)   | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  userPhoto       | mediumblob   | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  Address         | varchar(200) | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  FavNumber       | json         | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>|
+  FavColors       | json         | YES  |     | NULL    |       |</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=601 valign=top style='width:450.8pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p><span lang=EN-IN style='font-family:"Calibri",sans-serif'>+-----------------+--------------+------+-----+---------+-------+</span></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Select Table Without Selecting Database</h2>
+        <p><span lang=EN-IN>Command</span></p>
+        <div class="command">mysql&gt; SHOW TABLES;</div>
+        <p><span lang=EN-IN>What it does</span></p>
+        <p style='margin-left:.5in;text-indent:-.25in'><span lang=EN-IN
+                                                         style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>This command lists </span><b><span lang=EN-IN>all
+the tables</span></b><span lang=EN-IN> inside the currently selected database.</span></p>
+        <p><span lang=EN-IN>Error</span></p>
+        <div class="output">ERROR 1046 (3D000): No database selected </div>
+        <p><span lang=EN-IN>Meaning</span></p>
+        <p style='margin-left:.5in;text-indent:-.25in'><span lang=EN-IN
+                                                         style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>MySQL is telling you: </span><i><span
+            lang=EN-IN>“I don’t know which database you want me to look at.”</span></i></p>
+        <p style='margin-left:.5in;text-indent:-.25in'><span lang=EN-IN
+                                                         style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>The </span><span lang=EN-IN>SHOW TABLES</span><span
+            lang=EN-IN> command only works if a database has already been chosen.</span></p>
+    </div>
+
+    <div class="section">
+        <h2>INSERT data in to the Table</h2>
+        <p style='margin-left:.5in;text-indent:-.25in'><span lang=EN-IN
+                                                         style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>Insert a single record into DB with following
+command</span></p>
+        <p style='margin-left:.75in;text-indent:-.25in'><span lang=EN-IN
+                                                          style='font-size:10.0pt;font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-family:"Calibri",sans-serif'>I</span><span
+            lang=EN-IN style='font-size:10.0pt;font-family:"Courier New"'>NSERT INTO
+UserDetails2 (Name, Age, Mobile, NameFirstLetter, Gender, userPhoto, Address,
+FavNumber, FavColors, MobileModel)VALUES ('Yogesh Kumar', 22, 9876543210, 'Y',
+TRUE, NULL, 'Sonipat, Haryana', JSON_ARRAY(7, 8, 4),  JSON_ARRAY('Blue',
+'Black'), 'Samsung Galaxy S25');</span></p>
+        <p><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New"'><img
+            width=602 height=103 src="&#128216;%20MySQL%20Practice%20Session_files/image019.png"></span></p>
+        <p style='margin-left:.5in;text-indent:-.25in'><span lang=EN-IN
+                                                         style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-family:"Calibri",sans-serif'> </span><span
+            lang=EN-IN>Insert the Single Record without defining columns with following
+command</span></p>
+        <p style='margin-left:.75in;text-indent:-.25in'><span lang=EN-IN
+                                                          style='font-size:10.0pt;font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New"'>INSERT
+INTO UserDetails2 VALUES ('Yogesh Kumar', 22, 9876543210, 'Y', TRUE, NULL,
+'Sonipat, Haryana', JSON_ARRAY(7, 8, 4), JSON_ARRAY('Blue', 'Black'), 'Samsung
+Galaxy S25'); JSON_ARRAY('Blue', 'Black'),  'Samsung Galaxy S25');</span></p>
+        <p><span lang=EN-IN style='font-size:10.0pt;font-family:"Courier New"'><img
+            width=601 height=120 src="&#128216;%20MySQL%20Practice%20Session_files/image020.png"></span></p>
+        <p style='margin-left:.5in;text-indent:-.25in'><span lang=EN-IN
+                                                         style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN>Insert the Multiple Records without defining
+columns with following command</span></p>
+        <p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;line-height:normal'><span
+            lang=EN-IN style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+        <p class=MsoListParagraphCxSpLast style='margin-bottom:0in;line-height:normal'><span
+            lang=EN-IN style='font-size:10.0pt;font-family:"Courier New"'>INSERT INTO
+UserDetails2 </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'>VALUES </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'>('Yogesh Kumar', 22, 9876543210, 'Y', TRUE, NULL,
+'Sonipat, Haryana',</span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY(7, 8, 4), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY('Blue', 'Black'), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> 'Samsung Galaxy S25'), ('Yogesh Kumar', 22, 9876543210,
+'Y', TRUE, NULL, 'Sonipat, Haryana',</span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY(7, 8, 4), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY('Blue', 'Black'), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> 'Samsung Galaxy S25'), ('Yogesh Kumar', 22,
+9876543210, 'Y', TRUE, NULL, 'Sonipat, Haryana',</span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY(7, 8, 4), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY('Blue', 'Black'), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> 'Samsung Galaxy S25'), ('Yogesh Kumar', 22,
+9876543210, 'Y', TRUE, NULL, 'Sonipat, Haryana',</span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY(7, 8, 4), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> JSON_ARRAY('Blue', 'Black'), </span></p>
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;line-height:normal'><span lang=EN-IN style='font-size:10.0pt;
+font-family:"Courier New"'> 'Samsung Galaxy S25');</span></p>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>This document provided a hands-on introduction to essential MySQL commands and concepts, focusing on database and schema management. Understanding these basics is crucial for effective database design and manipulation in MySQL.</p>
+    </div>
+
+</div>
+
+</body>
+
+</html>

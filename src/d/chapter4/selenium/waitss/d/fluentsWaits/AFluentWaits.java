@@ -46,7 +46,5 @@ public class AFluentWaits {
         WebElement searchBoxVisibleA = fluentWaitTest2.until(driver -> driver.findElement(By.id("searchBox1")));
 //                searchBoxVisibleA.sendKeys("Laptop");
         System.out.println("Fluent Wait Technique 3 Passed");
-
-
     }
 }
